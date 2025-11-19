@@ -1,0 +1,16 @@
+# netlify.toml - VERSIÓN CORREGIDA Y MEJORADA
+
+[build]
+  # Directorio donde están tus archivos estáticos (HTML, CSS, JS, etc.)
+  publish = "."
+  # Directorio donde Netlify buscará tus funciones serverless
+  functions = "chatbot/functions"
+
+# Configuración específica para las funciones de Python
+[functions]
+  # Asegura que Netlify use el runtime de Python para tus funciones
+  included_files = ["chatbot/functions/**"]
+
+[functions."*"]
+  # Especifica la versión de Python. Esto evita problemas de compatibilidad.
+  runtime = "python3.11"

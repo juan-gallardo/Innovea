@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso al Portal | Innovea</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-page">
+
+    <nav class="navbar">
+        <a href="#home">
+            <img src="logo_innovea.png" alt="Logo de Innovea" class="logo-img">
+        </a>
+        
+        <!-- Navegación de Escritorio -->
+        <ul>
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#cases">Casos de Éxito</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+
+        <!-- Botón de Hamburguesa -->
+        <button class="hamburger" id="hamburger-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+
+    <!-- Panel de Navegación Móvil -->
+    <div class="mobile-nav" id="mobile-nav-panel">
+        <a href="#home">Inicio</a>
+        <a href="quienes-somos.html">Quiénes Somos</a>
+        <a href="#services">Servicios</a>
+        <a href="#cases">Casos de Éxito</a>
+        <a href="#contact">Contacto</a>
+    </div>
+
+    <div class="login-box">
+            <img src="Logo_innovea.png" alt="Logo de Innovea" class="logo-img">
+        <h3>Portal del Cliente: Food Mascotas</h3>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <p id="login-error">Usuario o contraseña incorrectos.</p>
+            <button type="submit" class="btn">Acceder al Caso</button>
+        </form>
+        <a href="index.html" class="back-link">Volver a la página de inicio</a>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMsg = document.getElementById('login-error');
+
+            if (username === 'uba.fce@innovea.com' && password === 'Innovea2025') {
+                window.location.href = 'diagnostico.html';
+            } else {
+                errorMsg.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
