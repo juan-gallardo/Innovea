@@ -1,239 +1,217 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Innovea | Innovamos tu Futuro, Hoy.</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Tailwind CSS a través de CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Script de fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#162230',
+                        'accent': '#2B82C8',
+                        'light': '#FFFFFF',
+                        'gray-bg': '#F5F5F7',
+                        'gray-text': '#8A8A8E',
+                    },
+                    fontFamily: {
+                        'title': ['Poppins', 'sans-serif'],
+                        'body': ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Pequeño CSS para la barra de scroll y transiciones no cubiertas por Tailwind -->
+    <style>
+        .case-studies-container::-webkit-scrollbar { height: 8px; }
+        .case-studies-container::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+        .bar { transition: all 0.3s ease-in-out; }
+        .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active .bar:nth-child(2) { opacity: 0; }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    </style>
 </head>
-<body>
-    <nav class="navbar">
-        <a href="#home">
-            <img src="logo_innovea.png" alt="Logo de Innovea" class="logo-img">
-        </a>
-        
-        <!-- Navegación de Escritorio -->
-        <ul>
-            <li><a href="#home">Inicio</a></li>
-            <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-            <li><a href="#services">Servicios</a></li>
-            <li><a href="#cases">Casos de Éxito</a></li>
-            <li><a href="#contact">Contacto</a></li>
-        </ul>
-
-        <!-- Botón de Hamburguesa -->
-        <button class="hamburger" id="hamburger-btn">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
+<body class="font-body text-primary">
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="bg-primary shadow-lg fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#home">
+                <img src="logo_innovea.png" alt="Logo de Innovea" class="h-10">
+            </a>
+            <!-- Navegación de Escritorio -->
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#home" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
+                <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes Somos</a></li>
+                <li><a href="#solutions" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestra Propuesta</a></li>
+                <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de éxito</a></li>
+                <li><a href="#contact" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
+            </ul>
+            <!-- Botón de Hamburguesa -->
+            <button class="md:hidden" id="hamburger-btn">
+                <div class="space-y-1.5">
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                </div>
+            </button>
+        </div>
+        <!-- Panel de Navegación Móvil -->
+        <div class="hidden md:hidden bg-primary" id="mobile-nav-panel">
+            <a href="#home" class="block py-3 px-6 text-white text-center font-bold">Inicio</a>
+            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold">Quiénes Somos</a>
+            <a href="#solutions" class="block py-3 px-6 text-white text-center font-bold">Nuestra Propuesta</a>
+            <a href="#cases" class="block py-3 px-6 text-white text-center font-bold">Experiencia</a>
+            <a href="#contact" class="block py-3 px-6 text-white text-center font-bold">Contacto</a>
+        </div>
     </nav>
 
-    <!-- Panel de Navegación Móvil -->
-    <div class="mobile-nav" id="mobile-nav-panel">
-        <a href="#home">Inicio</a>
-        <a href="quienes-somos.html">Quiénes Somos</a>
-        <a href="#services">Servicios</a>
-        <a href="#cases">Casos de Éxito</a>
-        <a href="#contact">Contacto</a>
-    </div>
-    
-    <!-- ... tu contenido de secciones (hero, why-us, etc.) va aquí ... -->
-    <!-- Hero viejo -->
-    <!-- <section id="home" class="hero">
-        <div class="container">
-            <h1>Transformamos tu Pyme. Potenciamos tu futuro.</h1>
-            <p class="subtitle">En Innovea, implementamos soluciones ERP y CRM a medida que optimizan tu negocio y lo preparan para escalar.</p>
-            <a href="#services" class="btn">Descubre nuestras soluciones</a>
-        </div>
-    </section> -->
-
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Transformamos tu Pyme. Innovamos tu futuro, hoy.</h1>
-            <p class="subtitle">Empoderamos a tu empresa para que optimice sus procesos y potencie su crecimiento a través de soluciones digitales innovadoras y personalizadas.</p>
-            <a href="#services" class="btn">Explora nuestras soluciones</a>
+    <!-- SECCIÓN HERO -->
+    <section id="home" class="bg-gray-bg pt-32 pb-20 text-center">
+        <div class="container mx-auto px-6">
+            <h1 class="font-title text-4xl md:text-5xl font-bold leading-tight mb-4">Innovamos tu futuro, hoy.</h1>
+            <p class="text-lg text-gray-text max-w-2xl mx-auto mb-8">Empoderamos a tu empresa para que optimice sus procesos y potencie su crecimiento a través de soluciones digitales innovadoras y personalizadas.</p>
+            <a href="#solutions" class="bg-accent text-white font-bold py-3 px-8 rounded-full inline-block transition-transform transform hover:scale-105">Explora nuestra propuesta de valor</a>
         </div>
     </section>
 
-    <!-- Porque nosotros viejo -->
-    <!-- <section id="why-us" class="why-us">
-        <div class="container">
-            <h2>Tu socio en la transformación digital</h2>
-            <div class="why-us-grid">
-                <div class="why-us-card"><div class="icon">⚙️</div><h3>Procesos Optimizados</h3><p>Centralizamos tu operación para una máxima eficiencia.</p></div>
-                <div class="why-us-card"><div class="icon">📈</div><h3>Decisiones Inteligentes</h3><p>Accede a datos en tiempo real para tomar decisiones estratégicas.</p></div>
-                <div class="why-us-card"><div class="icon">❤️</div><h3>Clientes Fidelizados</h3><p>Construye lealtad a largo plazo con una gestión personalizada.</p></div>
-            </div>
-        </div>
-    </section> -->
-
-    <section id="why-us" class="why-us">
-        <div class="container">
-            <h2>Nuestros Pilares</h2>
-            <p>Actuamos con un conjunto de valores que guían cada proyecto y cada relación con nuestros clientes.</p>
-            <div class="why-us-grid">
-                <div class="why-us-card">
-                    <div class="icon">💡</div>
-                    <h3>Innovación</h3>
+    <!-- SECCIÓN VALORES -->
+    <section id="why-us" class="py-20 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="font-title text-3xl font-bold mb-4">Nuestros Pilares</h2>
+            <p class="text-gray-text max-w-2xl mx-auto mb-12">Actuamos con un conjunto de valores que guían cada proyecto y cada relación con nuestros clientes.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="text-5xl mb-4">💡</div>
+                    <h3 class="font-title text-xl font-bold mb-2">Innovación</h3>
                     <p>Buscamos constantemente soluciones creativas y de vanguardia para los desafíos de nuestros clientes.</p>
                 </div>
-                <div class="why-us-card">
-                    <div class="icon">🤝</div>
-                    <h3>Colaboración</h3>
+                <div class="text-center">
+                    <div class="text-5xl mb-4">🤝</div>
+                    <h3 class="font-title text-xl font-bold mb-2">Colaboración</h3>
                     <p>Trabajamos en estrecha colaboración contigo para entender tus necesidades y co-crear soluciones a medida.</p>
                 </div>
-                <div class="why-us-card">
-                    <div class="icon">🏆</div>
-                    <h3>Excelencia</h3>
+                <div class="text-center">
+                    <div class="text-5xl mb-4">🏆</div>
+                    <h3 class="font-title text-xl font-bold mb-2">Excelencia</h3>
                     <p>Nos comprometemos a entregar resultados de la más alta calidad que superen tus expectativas.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services">
-        <div class="container">
-            <h2 style="text-align: center;">Soluciones a la Medida de tu Crecimiento</h2>
-            <div class="services-grid">
-                <div>
-                    <h3>Implementación de ERP</h3>
-                    <p>Centraliza tu operación en una plataforma integral. Desde finanzas hasta inventario, te acompañamos para garantizar una transición fluida que maximice tu eficiencia desde el primer día.</p>
+    <!-- SECCIÓN SOLUCIONES -->
+    <section id="solutions" class="py-20 border-t border-gray-200">
+        <div class="container mx-auto px-6">
+            <h2 class="font-title text-3xl font-bold text-center mb-4">Soluciones Diseñadas para tu Crecimiento</h2>
+            <p class="text-gray-text text-center max-w-3xl mx-auto mb-12">Más que implementar software, diseñamos ecosistemas digitales que se traducen en beneficios concretos para tu compañía. Nuestra propuesta única es integrar tecnología de punta con un entendimiento profundo de tu negocio para generar un impacto medible.</p>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="text-center">
+                    <div class="text-5xl mb-4 text-accent">🔗</div>
+                    <h3 class="font-title text-xl font-bold mb-2">Implementación Estratégica de ERP</h3>
+                    <p class="text-gray-text">Unificamos tus operaciones (finanzas, inventario, RRHH) no solo en una plataforma, sino en una estrategia cohesiva. Transformamos datos dispersos en inteligencia de negocio para decisiones más rápidas y acertadas.</p>
                 </div>
-                <div>
-                    <h3>Implementación de CRM</h3>
-                    <p>Pon a tu cliente en el centro de tu estrategia. Te ayudamos a gestionar cada interacción para construir relaciones duraderas, automatizar la comunicación y aumentar tus ventas.</p>
+                <div class="text-center">
+                    <div class="text-5xl mb-4 text-accent">🎯</div>
+                    <h3 class="font-title text-xl font-bold mb-2">Gestión de Clientes (CRM) con Foco en Resultados</h3>
+                    <p class="text-gray-text">Centralizamos los datos de tus clientes para crear campañas personalizadas y automatizar la comunicación. Nuestra implementación se enfoca en aumentar la retención y el ticket promedio.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Caso de estudio v.2 -->
-    <!-- <section id="cases" class="case-studies">
-        <div class="container">
-            <h2>Impacto Real en Negocios Reales</h2>
-            <div class="case-studies-container">
-                <div class="case-card"><div class="case-card-inner"><div class="case-image">FM</div><h3>Food Mascotas</h3><p class="card-subtitle">Veterinaria</p><p class="description">Digitalizamos la gestión integral de la clínica, desde turnos hasta inventario, logrando una visión 360° del negocio.</p><a href="login.html" class="btn">Ver caso de estudio</a></div></div>
-                <div class="case-card"><div class="case-card-inner"><div class="case-image">UP</div><h3>Urbania Propiedades</h3><p class="card-subtitle">Inmobiliaria</p><p class="description">Implementamos un CRM a medida que aceleró el ciclo de ventas en un 40% al centralizar la gestión de clientes y propiedades.</p></div></div>
-                <div class="case-card"><div class="case-card-inner"><div class="case-image">VS</div><h3>Vitalia Salud</h3><p class="card-subtitle">Salud</p><p class="description">Optimizamos la agenda de turnos y el historial clínico, reduciendo los tiempos de espera y mejorando la calidad de la atención.</p></div></div>
-                <div class="case-card"><div class="case-card-inner"><div class="case-image">TS</div><h3>TrendStore</h3><p class="card-subtitle">Retail</p><p class="description">Unificamos el inventario de la tienda física y el e-commerce, eliminando quiebres de stock y potenciando la estrategia omnicanal.</p></div></div>
-            </div>
-        </div>
-    </section> -->
-
-    <div id="cases">
-        <section class="main-case-study">
-            <div class="container">
-                <div class="main-case-study-content">
-                    <div>
-                        <p class="subtitle">Nuestro Proyecto Destacado</p>
-                        <h2>Transformación Digital de Food Mascotas</h2>
-                        <p>Para esta reconocida veterinaria de Lanús, diseñamos una transición completa desde procesos manuales hacia un ecosistema digital integrado. El proyecto se centró en centralizar datos, automatizar la gestión y crear una estrategia omnicanal con el cliente en el centro.</p>
-                        <a href="login.html" class="btn">Ver el caso de estudio completo</a>
-                    </div>
-                    <div>
-                        <img src="assets/logos/ranita.png" alt="Veterinaria moderna">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="other-cases-section">
-            <div class="container">
-                <h2 style="text-align: center;">Otros Casos de Éxito</h2>
-                <div class="case-studies-container">
-                    <div class="case-card"><div class="case-card-inner"><div class="case-logo"><img src="assets/logos/urbania-logo.png" alt="Logo Urbania"></div><h3>Urbania Propiedades</h3><p class="card-subtitle">Inmobiliaria</p><p class="description">Implementamos un CRM a medida que aceleró el ciclo de ventas en un 40% al centralizar la gestión de clientes y propiedades.</p></div></div>
-                    <div class="case-card"><div class="case-card-inner"><div class="case-logo"><img src="assets/logos/vitalia-logo.png" alt="Logo Vitalia"></div><h3>Vitalia Salud</h3><p class="card-subtitle">Salud</p><p class="description">Optimizamos la agenda de turnos y el historial clínico, reduciendo los tiempos de espera y mejorando la calidad de la atención.</p></div></div>
-                    <div class="case-card"><div class="case-card-inner"><div class="case-logo"><img src="assets/logos/trendstore-logo.png" alt="Logo TrendStore"></div><h3>TrendStore</h3><p class="card-subtitle">Retail</p><p class="description">Unificamos el inventario de la tienda física y el e-commerce, eliminando quiebres de stock y potenciando la estrategia omnicanal.</p></div></div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- ====================================================== -->
-    <!-- SECCIÓN DE CONTACTO -->
-    <!-- ====================================================== -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="contact-form-container">
-                <h2>¿Hablemos de tu proyecto?</h2>
-                <p class="subtitle">Completa el formulario y uno de nuestros especialistas se pondrá en contacto contigo.</p>
-                
-                <!-- El formulario mágico de Netlify -->
+    
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contact" class="py-20 bg-gray-bg">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-lg">
+                <h2 class="font-title text-3xl font-bold text-center mb-2">¿Hablemos de tu proyecto?</h2>
+                <p class="text-gray-text text-center mb-8">Completa el formulario y uno de nuestros especialistas se pondrá en contacto contigo.</p>
                 <form name="contact" method="POST" data-netlify="true">
-                    <!-- Campo oculto necesario para que Netlify Forms funcione -->
                     <input type="hidden" name="form-name" value="contact" />
-
-                    <div class="form-group">
-                        <label for="name">Tu Nombre</label>
-                        <input type="text" id="name" name="name" required>
+                    <div class="mb-6">
+                        <label for="name" class="block mb-2 font-bold text-primary">Tu Nombre</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent" required>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Tu Correo Electrónico</label>
-                        <input type="email" id="email" name="email" required>
+                    <div class="mb-6">
+                        <label for="email" class="block mb-2 font-bold text-primary">Tu Correo Electrónico</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent" required>
                     </div>
-                    <div class="form-group">
-                        <label for="subject">Asunto</label>
-                        <input type="text" id="subject" name="subject" required>
+                    <div class="mb-6">
+                        <label for="message" class="block mb-2 font-bold text-primary">Mensaje</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent" required></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <div class="submit-btn-container">
-                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    <div class="text-center">
+                        <button type="submit" class="bg-accent text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105">Enviar Mensaje</button>
                     </div>
                 </form>
             </div>
         </div>
     </section>
 
-
-    <!-- Caso de estudio viejo -->
-    <!-- <section id="cases" class="case-studies">
-        <div class="container">
-            <h2>Historias de éxito en tu industria</h2>
-            <div class="case-studies-container">
-                <div class="case-card"><div class="case-card-inner"><div class="case-image">FM</div><h3>Food Mascotas</h3><p class="card-subtitle">Veterinaria</p><p class="description">Digitalizamos la gestión de una veterinaria líder en Lanús, integrando turnos, stock y comunicación con clientes.</p><a href="login.html" class="btn">Ver caso de estudio</a></div></div>
-                <div class="case-card"><div class="case-card-inner"><div class="case-image">UP</div><h3>Urbania Propiedades</h3><p class="card-subtitle">Inmobiliaria</p><p class="description">Implementamos un CRM que centralizó la gestión de propiedades y clientes, acelerando el ciclo de ventas en un 40%.</p><a href="#" class="btn">Conoce más</a></div></div>
-                <div class="case-card"><div class="case-card-inner"><div class="case-image">VS</div><h3>Vitalia Salud</h3><p class="card-subtitle">Salud</p><p class="description">Optimizamos la agenda de turnos y el historial clínico de pacientes, mejorando la atención y reduciendo esperas.</p><a href="#" class="btn">Conoce más</a></div></div>
-                <div class="case-card"><div class="case-card-inner"><div class="case-image">TS</div><h3>TrendStore</h3><p class="card-subtitle">Retail</p><p class="description">Unificamos el inventario de la tienda física y el e-commerce con un ERP, eliminando quiebres de stock.</p><a href="#" class="btn">Conoce más</a></div></div>
+    <!-- SECCIÓN CASOS DE ÉXITO -->
+    <div id="cases" class="py-20">
+        <!-- Proyecto Destacado -->
+        <section class="container mx-auto px-6 mb-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="font-bold text-accent">Nuestro Proyecto Destacado</p>
+                    <h2 class="font-title text-3xl font-bold mt-2 mb-4">Transformación Digital de Food Mascotas</h2>
+                    <p class="text-gray-text mb-6">Para esta reconocida veterinaria, diseñamos una transición completa desde procesos manuales hacia un ecosistema digital integrado, centrado en centralizar datos, automatizar la gestión y crear una estrategia omnicanal.</p>
+                    <a href="login.html" class="bg-accent text-white font-bold py-3 px-8 rounded-full inline-block transition-transform transform hover:scale-105">Ver el caso de estudio completo</a>
+                </div>
+                <div>
+                    <img src="assets/logos/ranita.png" alt="Veterinaria moderna" class="rounded-lg shadow-xl w-full">
+                </div>
             </div>
-        </div>
-    </section> -->
-
-    <!-- Servicios viejo -->
-    <!-- <section id="services">
-        <div class="container">
-            <h2 style="text-align: center;">Soluciones diseñadas para tu crecimiento</h2>
-            <div class="services-grid">
-                <div><h3>Implementación de ERP</h3><p>Unifica todas las áreas de tu negocio en una sola plataforma. Desde finanzas y contabilidad hasta inventario, compras y recursos humanos.</p></div>
-                <div><h3>Implementación de CRM</h3><p>Coloca a tu cliente en el centro de tu estrategia. Centraliza datos, automatiza la comunicación y personaliza tus campañas de marketing.</p></div>
+        </section>
+        
+        <!-- Otros Casos -->
+        <section class="container mx-auto px-6">
+            <h2 class="font-title text-3xl font-bold text-center mb-12">Otros Casos de Éxito</h2>
+            <div class="flex overflow-x-auto space-x-6 pb-4 case-studies-container">
+                <!-- Tarjeta 1 -->
+                <div class="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg p-6 text-left">
+                    <div class="h-32 flex items-center justify-center mb-4"><img src="assets/logos/urbania-logo.png" alt="Logo Urbania" class="max-h-20"></div>
+                    <h3 class="font-title text-xl font-bold">Urbania Propiedades</h3>
+                    <p class="text-sm font-bold text-gray-text mb-2">Inmobiliaria</p>
+                    <p class="text-gray-text text-sm">Implementamos un CRM a medida que aceleró el ciclo de ventas en un 40% al centralizar la gestión de clientes y propiedades.</p>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div class="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg p-6 text-left">
+                    <div class="h-32 flex items-center justify-center mb-4"><img src="assets/logos/vitalia-logo.png" alt="Logo Vitalia" class="max-h-20"></div>
+                    <h3 class="font-title text-xl font-bold">Vitalia Salud</h3>
+                    <p class="text-sm font-bold text-gray-text mb-2">Salud</p>
+                    <p class="text-gray-text text-sm">Optimizamos la agenda de turnos y el historial clínico, reduciendo los tiempos de espera y mejorando la calidad de la atención.</p>
+                </div>
+                <!-- Tarjeta 3 -->
+                <div class="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg p-6 text-left">
+                    <div class="h-32 flex items-center justify-center mb-4"><img src="assets/logos/trendstore-logo.png" alt="Logo TrendStore" class="max-h-20"></div>
+                    <h3 class="font-title text-xl font-bold">TrendStore</h3>
+                    <p class="text-sm font-bold text-gray-text mb-2">Retail</p>
+                    <p class="text-gray-text text-sm">Unificamos el inventario de la tienda física y el e-commerce, eliminando quiebres de stock y potenciando la estrategia omnicanal.</p>
+                </div>
             </div>
-        </div>
-    </section> -->
+        </section>
+    </div>
 
-
-    <!-- ====================================================== -->
-    <!-- CÓDIGO DEL CHATBOT - ASEGÚRATE DE QUE ESTO ESTÉ AQUÍ -->
-    <!-- ====================================================== -->
-    <!-- <div class="chat-bubble" id="chat-bubble">💬</div>
-
-    <div class="chat-window" id="chat-window">
-        <div class="chat-header">
-            <p>Asistente Innovea</p>
-            <p class="sub">Potenciado por Gemini</p>
-        </div>
-        <div class="chat-messages" id="chat-messages">
-            <div class="message bot">¡Hola! Soy el asistente de Innovea. ¿Cómo puedo ayudarte a transformar tu Pyme hoy?</div>
-        </div>
-        <form class="chat-input-form" id="chat-form">
-            <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." autocomplete="off">
-            <button type="submit">➤</button>
-        </form>
-    </div> -->
-
-    <!-- Pega esto en index.html, justo antes de </body> -->
-    <script src="main.js"></script>
-    <!-- <script src="chatbot.js"></script> -->
+    <script>
+        // --- Lógica del menú de hamburguesa ---
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNavPanel = document.getElementById('mobile-nav-panel');
+        if (hamburgerBtn) {
+            hamburgerBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.toggle('active');
+                mobileNavPanel.classList.toggle('hidden');
+            });
+        }
+    </script>
 </body>
 </html>

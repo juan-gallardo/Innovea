@@ -1,115 +1,111 @@
-<!-- <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagnóstico | Food Mascotas</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="private-layout">
-        <aside class="private-sidebar">
-            <div class="logo-container">
-                <img src="Logo_innovea.png" alt="Logo de Innovea" class="logo-img">
-            </div>
-            <nav>
-                <a href="diagnostico.html" class="active">Diagnóstico</a>
-                <a href="arquitectura.html">Arquitectura</a>
-                <a href="innovacion.html">Innovación</a>
-                <a href="resultados.html">Resultados</a>
-            </nav>
-            <a href="index.html" class="logout-link">Cerrar Sesión</a>
-        </aside>
-        <main class="private-main">
-            <h2>Diagnóstico Organizacional</h2>
-            <p>Nuestro análisis inicial reveló una empresa con un gran <em>know-how</em> pero con procesos desorganizados y un Nivel de Madurez CMM 2. La principal brecha se encontraba en la falta de un sistema centralizado, generando duplicación de tareas y una visión fragmentada del cliente.</p>
-            <p><strong>Hallazgos Clave:</strong></p>
-            <ul>
-                <li>Dependencia de registros manuales (cuadernos) para compras y cirugías.</li>
-                <li>Sistemas de software aislados (Contabilium, software enlatado) sin interoperabilidad.</li>
-                <li>Comunicación con clientes principalmente reactiva vía WhatsApp.</li>
-                <li>Falta de métricas y reportes para la toma de decisiones estratégicas.</li>
-            </ul>
-            <br>
-            <a href="#" class="btn">Descargar PDF: Diagnóstico Completo</a>
-        </main>
-    </div>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diagnóstico | Food Mascotas</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Tailwind CSS a través de CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Script de fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#162230', 
+                        'accent': '#2B82C8',
+                        'light': '#FFFFFF',
+                        'gray-bg': '#F5F5F7',
+                        'gray-text': '#8A8A8E',
+                    },
+                    fontFamily: {
+                        'title': ['Poppins', 'sans-serif'],
+                        'body': ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <div class="private-layout">
+<body class="font-body bg-gray-bg">
+    <div class="flex flex-col md:flex-row min-h-screen">
         <!-- ====================================================== -->
-        <!-- BARRA LATERAL IZQUIERDA (SIN CAMBIOS) -->
+        <!-- BARRA LATERAL IZQUIERDA -->
         <!-- ====================================================== -->
-        <aside class="private-sidebar">
-            <div class="logo-container">
-                <a href="index.html"><img src="logo-innovea.png" alt="Logo de Innovea" class="logo-img" style="height: 45px;"></a>
+        <aside class="w-full md:w-64 bg-primary text-white flex-shrink-0">
+            <div class="p-6 border-b border-gray-700">
+                <a href="index.html">
+                    <img src="logo_innovea.png" alt="Logo de Innovea" class="h-10">
+                </a>
             </div>
-            <nav>
-                <a href="diagnostico.html" class="active">Diagnóstico</a>
-                <a href="arquitectura.html">Arquitectura</a>
-                <a href="innovacion.html">Innovación</a>
-                <a href="resultados.html">Resultados</a>
+            <nav class="flex flex-row md:flex-col justify-around md:justify-start">
+                <!-- La clase activa está en este enlace -->
+                <a href="diagnostico.html" class="px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold transition-colors">Diagnóstico</a>
+                <a href="arquitectura.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent">Arquitectura</a>
+                <a href="innovacion.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent">Innovación</a>
+                <a href="resultados.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent">Resultados</a>
             </nav>
-            <a href="index.html" class="logout-link">Cerrar Sesión</a>
+            <div class="mt-auto p-6 border-t border-gray-700 hidden md:block">
+                <a href="index.html" class="text-gray-400 hover:text-white">Cerrar Sesión</a>
+            </div>
         </aside>
 
         <!-- ====================================================== -->
-        <!-- CONTENIDO PRINCIPAL REESTRUCTURADO -->
+        <!-- CONTENIDO PRINCIPAL -->
         <!-- ====================================================== -->
-        <main class="private-main">
-            <h2>Diagnóstico Organizacional
-                <span>Oportunidades de mejora para Food Mascotas</span>
-            </h2>
-            
-            <div class="diagnostic-layout">
-                <div class="diagnostic-main">
-                    <h3>Resumen Ejecutivo</h3>
-                    <p>
-                        Nuestro análisis inicial de Food Mascotas reveló una empresa con un valioso <strong>know-how</strong> y una sólida reputación local, pero cuyo crecimiento se veía frenado por procesos internos desorganizados. La principal brecha identificada fue la falta de un sistema centralizado, lo que resultaba en duplicación de tareas y una visión fragmentada del cliente.
-                    </p>
-                    <p>
-                        El objetivo de este diagnóstico es presentar los hallazgos clave y establecer un punto de partida claro para la transformación digital del negocio.
-                    </p>
+        <main class="flex-grow p-6 md:p-10">
+            <h1 class="font-title text-3xl md:text-4xl font-bold text-primary">Diagnóstico Organizacional</h1>
+            <p class="text-lg text-gray-text mb-8">Oportunidades de mejora para Food Mascotas</p>
 
-                    <h3>Nivel de Madurez del Negocio</h3>
-                    <p>
-                        Tras evaluar los procesos actuales, determinamos que Food Mascotas se encuentra en un <strong>Nivel de Madurez CMM 2 (Repetible)</strong>.
-                    </p>
-                    <div class="term-definition">
-                        <p><strong>¿Qué es el Nivel de Madurez CMM?</strong> Es una metodología que mide qué tan estandarizados y optimizados están los procesos de una organización. Un nivel 2 significa que los procesos básicos funcionan gracias al conocimiento y esfuerzo del equipo, pero no están documentados ni estandarizados, lo que los hace difíciles de escalar y propensos a errores.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <!-- Columna principal (ocupa 2 de 3 columnas en pantallas grandes) -->
+                <div class="lg:col-span-2">
+                    <h2 class="font-title text-2xl font-bold text-primary mb-4 border-b-2 border-accent pb-2 inline-block">Resumen Ejecutivo</h2>
+                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                        <p>
+                            Nuestro análisis inicial de Food Mascotas reveló una empresa con un valioso <strong>know-how</strong> y una sólida reputación local, pero cuyo crecimiento se veía frenado por procesos internos desorganizados. La principal brecha identificada fue la falta de un sistema centralizado, lo que resultaba en duplicación de tareas y una visión fragmentada del cliente.
+                        </p>
+                        <p>
+                            El objetivo de este diagnóstico es presentar los hallazgos clave y establecer un punto de partida claro para la transformación digital del negocio.
+                        </p>
                     </div>
-                    <p>
-                        Este hallazgo es crucial, ya que indica que la primera gran oportunidad de mejora reside en estandarizar y digitalizar las operaciones fundamentales para construir una base sólida para el crecimiento futuro.
-                    </p>
 
-                    <div class="private-nav-buttons">
-                        <span><!-- Vacío para alinear el botón a la derecha --></span>
-                        <a href="arquitectura.html" class="btn">Siguiente: Arquitectura</a>
+                    <h2 class="font-title text-2xl font-bold text-primary mt-10 mb-4 border-b-2 border-accent pb-2 inline-block">Nivel de Madurez del Negocio</h2>
+                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                        <p>
+                            Tras evaluar los procesos actuales, determinamos que Food Mascotas se encuentra en un <strong>Nivel de Madurez CMM 2 (Repetible)</strong>.
+                        </p>
+                        <div class="bg-light border-l-4 border-accent p-4 my-6 rounded-r-md">
+                            <p class="font-bold text-primary">¿Qué es el Nivel de Madurez CMM?</p>
+                            <p class="text-sm">Es una metodología que mide qué tan estandarizados están los procesos de una organización. Un nivel 2 significa que los procesos básicos funcionan gracias al conocimiento del equipo, pero no están documentados ni estandarizados, lo que los hace difíciles de escalar y propensos a errores.</p>
+                        </div>
+                        <p>
+                            Este hallazgo es crucial, ya que indica que la primera gran oportunidad de mejora reside en estandarizar y digitalizar las operaciones fundamentales para construir una base sólida para el crecimiento futuro.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-12 text-right">
+                        <a href="arquitectura.html" class="bg-accent text-white font-bold py-3 px-8 rounded-full inline-block transition-transform transform hover:scale-105">Siguiente: Arquitectura</a>
                     </div>
                 </div>
 
-                <aside class="diagnostic-sidebar">
-                    <div class="findings-card">
-                        <h4>Hallazgo Clave 1: Silos de Información</h4>
-                        <p>Los datos de clientes, proveedores y ventas están dispersos en cuadernos físicos y el sistema Contabilium, sin conexión entre ellos. Esto impide tener una visión unificada del negocio.</p>
+                <!-- Barra lateral derecha (ocupa 1 de 3 columnas en pantallas grandes) -->
+                <aside class="space-y-6 lg:sticky top-10 self-start">
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                        <h3 class="font-title font-bold text-lg mb-2 text-primary">Hallazgo Clave 1: Silos de Información</h3>
+                        <p class="text-sm text-gray-600">Los datos de clientes, proveedores y ventas están dispersos en cuadernos y sistemas sin conexión, impidiendo una visión unificada del negocio.</p>
                     </div>
-                    <div class="findings-card">
-                        <h4>Hallazgo Clave 2: Falta de Visión 360° del Cliente</h4>
-                        <p>Es imposible rastrear el historial completo de un cliente (consultas, compras, turnos), lo que limita las oportunidades de fidelización y venta cruzada.</p>
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                        <h3 class="font-title font-bold text-lg mb-2 text-primary">Hallazgo Clave 2: Falta de Visión 360°</h3>
+                        <p class="text-sm text-gray-600">Es imposible rastrear el historial completo de un cliente (consultas, compras), limitando las oportunidades de fidelización y venta cruzada.</p>
                     </div>
-                    <div class="findings-card">
-                        <h4>Hallazgo Clave 3: Ineficiencias Operativas</h4>
-                        <p>La gestión manual de turnos por WhatsApp y el control de stock sin automatización generan una carga operativa elevada y aumentan el riesgo de errores humanos.</p>
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                        <h3 class="font-title font-bold text-lg mb-2 text-primary">Hallazgo Clave 3: Ineficiencias Operativas</h3>
+                        <p class="text-sm text-gray-600">La gestión manual de turnos y el control de stock sin automatización generan una alta carga operativa y aumentan el riesgo de errores humanos.</p>
                     </div>
                 </aside>
             </div>

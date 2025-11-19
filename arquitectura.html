@@ -4,34 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arquitectura | Food Mascotas</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Tailwind CSS a través de CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Script de fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#162230',
+                        'accent': '#2B82C8',
+                        'light': '#FFFFFF',
+                        'gray-bg': '#F5F5F7',
+                        'gray-text': '#8A8A8E',
+                    },
+                    fontFamily: {
+                        'title': ['Poppins', 'sans-serif'],
+                        'body': ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <div class="private-layout">
-        <aside class="private-sidebar">
-            <div class="logo-container">
-                <img src="Logo_innovea.png" alt="Logo de Innovea" class="logo-img">
+<body class="font-body bg-gray-bg">
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- ====================================================== -->
+        <!-- BARRA LATERAL IZQUIERDA -->
+        <!-- ====================================================== -->
+        <aside class="w-full md:w-64 bg-primary text-white flex-shrink-0">
+            <div class="p-6 border-b border-gray-700">
+                <a href="index.html">
+                    <img src="logo_innovea.png" alt="Logo de Innovea" class="h-10">
+                </a>
             </div>
-            <nav>
-                <a href="diagnostico.html">Diagnóstico</a>
-                <a href="arquitectura.html" class="active">Arquitectura</a>
-                <a href="innovacion.html">Innovación</a>
-                <a href="resultados.html">Resultados</a>
+            <nav class="flex flex-row md:flex-col justify-around md:justify-start">
+                <a href="diagnostico.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent">Diagnóstico</a>
+                <a href="arquitectura.html" class="px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold transition-colors">Arquitectura</a>
+                <a href="innovacion.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent">Innovación</a>
+                <a href="resultados.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent">Resultados</a>
             </nav>
-            <a href="index.html" class="logout-link">Cerrar Sesión</a>
+            <div class="mt-auto p-6 border-t border-gray-700 hidden md:block">
+                <a href="index.html" class="text-gray-400 hover:text-white">Cerrar Sesión</a>
+            </div>
         </aside>
-        <main class="private-main">
-            <h2>Arquitectura Empresarial (Actual vs. Destino)</h2>
-            <p>Se mapeó la arquitectura actual, identificando silos de datos y procesos ineficientes. Se propuso una <strong>arquitectura destino</strong> basada en el software de gestión veterinaria GVET, que actúa como un núcleo central.</p>
-            <p><strong>Componentes de la Solución Propuesta:</strong></p>
-            <ul>
-                <li><strong>CRM en la Nube:</strong> Para centralizar los datos de clientes, mascotas e historiales.</li>
-                <li><strong>Agenda Online:</strong> Integrada con la web para autogestión de turnos.</li>
-                <li><strong>Módulo de Stock y Facturación:</strong> Conectado en tiempo real con las ventas.</li>
-                <li><strong>Integración con WhatsApp Business API:</strong> Para automatizar recordatorios y comunicaciones.</li>
-            </ul>
-            <br>
-            <a href="#" class="btn">Descargar PDF: Diagrama de Arquitectura</a>
+
+        <!-- ====================================================== -->
+        <!-- CONTENIDO PRINCIPAL -->
+        <!-- ====================================================== -->
+        <main class="flex-grow p-6 md:p-10">
+            <h1 class="font-title text-3xl md:text-4xl font-bold text-primary mb-2">Arquitectura Empresarial</h1>
+            <p class="text-lg text-gray-text mb-8">(Actual vs. Destino)</p>
+
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <p class="mb-6 text-gray-600">
+                    Se mapeó la arquitectura actual, identificando silos de datos y procesos ineficientes. Se propuso una <strong>arquitectura destino</strong> basada en el software de gestión veterinaria GVET, que actúa como un núcleo central para unificar la operación del negocio.
+                </p>
+
+                <h2 class="font-title text-2xl font-bold text-primary mb-4 border-b pb-2">Componentes de la Solución Propuesta</h2>
+                
+                <ul class="list-disc list-inside space-y-4 text-gray-700">
+                    <li>
+                        <strong>CRM en la Nube:</strong> Para centralizar los datos de clientes, mascotas e historiales, creando una visión 360° y permitiendo acciones de marketing personalizadas.
+                    </li>
+                    <li>
+                        <strong>Agenda Online:</strong> Integrada directamente con la página web para que los clientes puedan autogestionar sus turnos, reduciendo la carga administrativa.
+                    </li>
+                    <li>
+                        <strong>Módulo de Stock y Facturación:</strong> Conectado en tiempo real con las ventas para un control de inventario preciso y una facturación automatizada.
+                    </li>
+                    <li>
+                        <strong>Integración con WhatsApp Business API:</strong> Para automatizar recordatorios de turnos, campañas de vacunación y otras comunicaciones importantes, mejorando la experiencia del cliente.
+                    </li>
+                </ul>
+
+                <div class="mt-8">
+                    <a href="#" class="bg-accent text-white font-bold py-3 px-6 rounded-full inline-block transition-transform transform hover:scale-105">
+                        Descargar PDF: Diagrama de Arquitectura
+                    </a>
+                </div>
+            </div>
         </main>
     </div>
 </body>

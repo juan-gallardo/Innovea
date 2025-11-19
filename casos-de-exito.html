@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Éxito | Innovea</title>
+    <!-- Tailwind CSS a través de CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Script de fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Iconos de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#162230',
+                        'accent': '#2B82C8',
+                        'light': '#FFFFFF',
+                        'gray-bg': '#F5F5F7',
+                        'gray-text': '#8A8A8E',
+                    },
+                    fontFamily: {
+                        'title': ['Poppins', 'sans-serif'],
+                        'body': ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Pequeño CSS para la animación de la hamburguesa */
+        .bar { transition: all 0.3s ease-in-out; }
+        .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active .bar:nth-child(2) { opacity: 0; }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    </style>
+</head>
+<body class="font-body text-primary bg-gray-bg">
+    <!-- BARRA DE NAVEGACIÓN (Consistente con las otras páginas) -->
+    <nav class="bg-primary shadow-lg sticky top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html">
+                <img src="logo_innovea.png" alt="Logo de Innovea" class="h-10">
+            </a>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
+                <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes Somos</a></li>
+                <li><a href="index.html#solutions" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestra Propuesta</a></li>
+                <!-- El enlace activo es este -->
+                <li><a href="casos-de-exito.html" class="text-white font-bold transition-colors">Casos de Éxito</a></li>
+                <li><a href="index.html#contact" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
+            </ul>
+            <button class="md:hidden" id="hamburger-btn">
+                <div class="space-y-1.5">
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                </div>
+            </button>
+        </div>
+        <div class="hidden md:hidden bg-primary" id="mobile-nav-panel">
+            <!-- Menú móvil con el enlace activo -->
+        </div>
+    </nav>
+
+    <!-- HEADER DE LA PÁGINA -->
+    <header class="pt-32 pb-16 text-center bg-white">
+        <div class="container mx-auto px-6">
+            <h1 class="font-title text-4xl md:text-5xl font-bold leading-tight">Nuestros Casos de Éxito</h1>
+            <p class="text-lg text-gray-text max-w-2xl mx-auto mt-4">Explora cómo hemos ayudado a empresas de diversas industrias a transformarse y crecer.</p>
+        </div>
+    </header>
+    
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="py-20">
+        <div class="container mx-auto px-6">
+            <!-- Grid de Tarjetas de Casos de Éxito -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+
+                <!-- Card 1: Food Mascotas (Veterinaria) -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col group">
+                    <div class="relative">
+                        <!-- Usando una imagen genérica pero relevante -->
+                        <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42?q=80&w=1974&auto=format&fit=crop" alt="Veterinario atendiendo a un gato" class="w-full h-56 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <p class="text-sm font-bold text-accent mb-2">Veterinaria</p>
+                        <h3 class="font-title text-2xl font-bold text-primary mb-3">Transformación Digital de Food Mascotas</h3>
+                        <p class="text-gray-text mb-6 flex-grow">
+                            Diseñamos una transición completa desde procesos manuales hacia un ecosistema digital integrado, centrando la estrategia en la automatización de la gestión y la creación de una experiencia omnicanal.
+                        </p>
+                        <a href="login.html" class="font-bold text-accent self-start group-hover:underline">
+                            Ver el caso de estudio completo →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Urbania Propiedades (Inmobiliaria) -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col group">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop" alt="Interior moderno de una casa en venta" class="w-full h-56 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <p class="text-sm font-bold text-accent mb-2">Inmobiliaria</p>
+                        <h3 class="font-title text-2xl font-bold text-primary mb-3">CRM Estratégico para Urbania Propiedades</h3>
+                        <p class="text-gray-text mb-6 flex-grow">
+                            Implementamos un CRM a medida que aceleró el ciclo de ventas en un 40% al centralizar la gestión de propiedades y automatizar el seguimiento de clientes potenciales.
+                        </p>
+                        <a href="#" class="font-bold text-gray-text self-start">
+                            Próximamente...
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Vitalia Salud (Salud) -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col group">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop" alt="Doctora usando una tablet en un consultorio" class="w-full h-56 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <p class="text-sm font-bold text-accent mb-2">Salud</p>
+                        <h3 class="font-title text-2xl font-bold text-primary mb-3">Optimización de Agenda para Vitalia Salud</h3>
+                        <p class="text-gray-text mb-6 flex-grow">
+                            Optimizamos la agenda de turnos y digitalizamos el historial clínico de pacientes, reduciendo los tiempos de espera y mejorando significativamente la calidad de la atención.
+                        </p>
+                        <a href="#" class="font-bold text-gray-text self-start">
+                            Próximamente...
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Card 4: TrendStore (Retail) -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col group">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop" alt="Interior de una tienda de ropa" class="w-full h-56 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <p class="text-sm font-bold text-accent mb-2">Retail</p>
+                        <h3 class="font-title text-2xl font-bold text-primary mb-3">Inventario Unificado para TrendStore</h3>
+                        <p class="text-gray-text mb-6 flex-grow">
+                            Unificamos el inventario de la tienda física y el e-commerce con un ERP, eliminando quiebres de stock y sentando las bases para una exitosa estrategia omnicanal.
+                        </p>
+                        <a href="#" class="font-bold text-gray-text self-start">
+                            Próximamente...
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Script para el menú de hamburguesa -->
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNavPanel = document.getElementById('mobile-nav-panel');
+        if (hamburgerBtn) {
+            // Clona los enlaces del menú de escritorio al móvil para mantener consistencia
+            const desktopMenu = document.querySelector('nav ul');
+            if(desktopMenu) mobileNavPanel.innerHTML = desktopMenu.innerHTML;
+            
+            hamburgerBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.toggle('active');
+                mobileNavPanel.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

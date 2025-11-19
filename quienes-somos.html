@@ -1,88 +1,166 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiénes Somos | Innovea</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Tailwind CSS a través de CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Script de fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Iconos de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#212529',
+                        'accent': '#2B82C8',
+                        'light': '#FFFFFF',
+                        'gray-bg': '#F5F5F7',
+                        'gray-text': '#8A8A8E',
+                    },
+                    fontFamily: {
+                        'title': ['Poppins', 'sans-serif'],
+                        'body': ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Pequeño CSS para la animación de la hamburguesa -->
+    <style>
+        .bar { transition: all 0.3s ease-in-out; }
+        .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active .bar:nth-child(2) { opacity: 0; }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    </style>
 </head>
-<body>
-    <nav class="navbar">
-        <a href="index.html">
-            <img src="../logo-innovea.png" alt="Logo de Innovea" class="logo-img">
-        </a>
-        <ul>
-            <li><a href="index.html#home">Inicio</a></li>
-            <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-            <li><a href="index.html#services">Servicios</a></li>
-            <li><a href="index.html#cases">Casos de Éxito</a></li>
-        </ul>
-        <button class="hamburger" id="hamburger-btn">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
+<body class="font-body text-primary bg-light">
+    <!-- BARRA DE NAVEGACIÓN (Consistente con index.html) -->
+    <nav class="bg-primary shadow-lg fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html">
+                <img src="logo_innovea.png" alt="Logo de Innovea" class="h-10">
+            </a>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
+                <li><a href="quienes-somos.html" class="text-white font-bold transition-colors">Quiénes Somos</a></li>
+                <li><a href="index.html#solutions" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestra Propuesta</a></li>
+                <li><a href="index.html#cases" class="text-gray-300 hover:text-white font-bold transition-colors">Experiencia</a></li>
+                <li><a href="index.html#contact" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
+            </ul>
+            <button class="md:hidden" id="hamburger-btn">
+                <div class="space-y-1.5">
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                </div>
+            </button>
+        </div>
+        <div class="hidden md:hidden bg-primary" id="mobile-nav-panel">
+            <a href="index.html" class="block py-3 px-6 text-white text-center font-bold">Inicio</a>
+            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold">Quiénes Somos</a>
+            <a href="index.html#solutions" class="block py-3 px-6 text-white text-center font-bold">Nuestra Propuesta</a>
+            <a href="index.html#cases" class="block py-3 px-6 text-white text-center font-bold">Experiencia</a>
+            <a href="index.html#contact" class="block py-3 px-6 text-white text-center font-bold">Contacto</a>
+        </div>
     </nav>
-    <div class="mobile-nav" id="mobile-nav-panel">
-        <a href="index.html#home">Inicio</a>
-        <a href="quienes-somos.html">Quiénes Somos</a>
-        <a href="index.html#services">Servicios</a>
-        <a href="index.html#cases">Casos de Éxito</a>
-    </div>
 
-    <header class="page-header">
-        <div class="container">
-            <h2>Conoce al Equipo</h2>
+    <!-- HEADER DE LA PÁGINA -->
+    <header class="bg-gray-bg pt-32 pb-16 text-center">
+        <div class="container mx-auto px-6">
+            <h1 class="font-title text-4xl md:text-5xl font-bold leading-tight">Acerca de Innovea</h1>
+            <p class="text-lg text-gray-text max-w-2xl mx-auto mt-4">Nuestra misión, visión y el equipo de expertos dedicados a impulsar tu negocio.</p>
         </div>
     </header>
 
-    <section class="team-section">
-        <div class="container">
-            <p class="team-intro">
-                Innovea es una consultora tecnológica enfocada en brindar soluciones digitales personalizadas para empresas que buscan optimizar sus procesos y potenciar su crecimiento.
-            </p>
-
-            <div class="team-grid">
-                <div class="team-member-card">
-                    <img src="assets/team/julieta-munoz.jpg" alt="Foto de Julieta Muñoz" class="team-member-photo">
-                    <h3>Julieta Muñoz</h3>
-                    <p class="role">Scrum Master</p>
-                    <p class="role-description">Facilita nuestros procesos ágiles, elimina obstáculos y asegura que el equipo pueda trabajar de forma eficiente.</p>
+    <!-- SECCIÓN DE PILARES ESTRATÉGICOS -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="font-title text-3xl font-bold text-center mb-12">Nuestros Pilares Estratégicos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tarjeta Misión -->
+                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 text-center">
+                    <span class="material-symbols-outlined text-accent text-5xl mb-4">track_changes</span>
+                    <h3 class="font-title text-2xl font-bold mb-2">Misión</h3>
+                    <p class="text-gray-text">Ofrecer soluciones tecnológicas innovadoras que generen eficiencia y crecimiento tangible para PYMES.</p>
                 </div>
-                <div class="team-member-card">
-                    <img src="assets/team/julieta-munoz.jpg" alt="Foto de Juan Gallardo" class="team-member-photo">
-                    <h3>Juan Gallardo</h3>
-                    <p class="role">Product Analyst</p>
-                    <p class="role-description">Define los requisitos del producto y traduce las necesidades del negocio en soluciones técnicas claras.</p>
+                <!-- Tarjeta Visión -->
+                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 text-center">
+                    <span class="material-symbols-outlined text-accent text-5xl mb-4">visibility</span>
+                    <h3 class="font-title text-2xl font-bold mb-2">Visión</h3>
+                    <p class="text-gray-text">Ser el socio tecnológico más confiable para la transformación digital de las PYMES.</p>
                 </div>
-                <div class="team-member-card">
-                    <img src="assets/team/julieta-munoz.jpg" alt="Foto de Rodrigo Merlos" class="team-member-photo">
-                    <h3>Rodrigo Merlos</h3>
-                    <p class="role">Tech Lead</p>
-                    <p class="role-description">Lidera la dirección técnica, mentorea al equipo de desarrollo y garantiza la calidad del código y la arquitectura.</p>
-                </div>
-                <div class="team-member-card">
-                    <img src="assets/team/julieta-munoz.jpg" alt="Foto de Juan Manuel Alvide" class="team-member-photo">
-                    <h3>Juan Manuel Alvide</h3>
-                    <p class="role">Tech Lead</p>
-                    <p class="role-description">Guía la estrategia tecnológica, supervisa el desarrollo y asegura soluciones robustas y escalables.</p>
-                </div>
-                <div class="team-member-card">
-                    <img src="assets/team/julieta-munoz.jpg" alt="Foto de Gabriel Apaza" class="team-member-photo">
-                    <h3>Gabriel Apaza</h3>
-                    <p class="role">UX Designer</p>
-                    <p class="role-description">Diseña interfaces intuitivas y centradas en el usuario, cuidando cada detalle de la experiencia de uso.</p>
-                </div>
-                <div class="team-member-card">
-                    <img src="assets/team/julieta-munoz.jpg" alt="Foto de Alejo Niveyro" class="team-member-photo">
-                    <h3>Alejo Niveyro</h3>
-                    <p class="role">UX Designer</p>
-                    <p class="role-description">Transforma ideas complejas en experiencias de usuario fluidas, atractivas y fáciles de navegar.</p>
+                <!-- Tarjeta Valores -->
+                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 text-center">
+                    <span class="material-symbols-outlined text-accent text-5xl mb-4">verified_user</span>
+                    <h3 class="font-title text-2xl font-bold mb-2">Valores</h3>
+                    <p class="text-gray-text">Innovación, Colaboración e Integridad son la guía de cada acción para el éxito de nuestros clientes.</p>
                 </div>
             </div>
         </div>
     </section>
+    
+    <!-- SECCIÓN DEL EQUIPO -->
+    <section class="py-20 bg-gray-bg">
+        <div class="container mx-auto px-6">
+            <h2 class="font-title text-3xl font-bold text-center mb-4">Liderazgo y Expertise</h2>
+            <p class="text-gray-text text-center max-w-2xl mx-auto mb-12">El talento y la experiencia de nuestro equipo son el motor de cada proyecto exitoso.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tarjeta de Miembro del Equipo -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="assets/team/julieta-munoz.jpg" alt="Foto de Julieta Muñoz" class="w-full h-56 object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="p-6">
+                        <h3 class="font-title text-xl font-bold">Julieta Muñoz</h3>
+                        <p class="text-accent font-bold">Scrum Master</p>
+                    </div>
+                </div>
+                <!-- Tarjeta de Miembro del Equipo -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="assets/team/juan-gallardo.jpg" alt="Foto de Juan Gallardo" class="w-full h-56 object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="p-6">
+                        <h3 class="font-title text-xl font-bold">Juan Gallardo</h3>
+                        <p class="text-accent font-bold">Product Analyst</p>
+                    </div>
+                </div>
+                <!-- Tarjeta de Miembro del Equipo -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="assets/team/rodrigo-merlos.jpg" alt="Foto de Rodrigo Merlos" class="w-full h-56 object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="p-6">
+                        <h3 class="font-title text-xl font-bold">Rodrigo Merlos</h3>
+                        <p class="text-accent font-bold">Tech Lead</p>
+                    </div>
+                </div>
+                 <!-- Agrega las otras 3 tarjetas de equipo aquí si lo deseas, siguiendo el mismo formato -->
+            </div>
+        </div>
+    </section>
 
-    <script src="main.js"></script>
+    <!-- SECCIÓN DE LLAMADA A LA ACCIÓN (CTA) -->
+    <section class="bg-primary">
+        <div class="container mx-auto px-6 py-16 text-center">
+            <h2 class="font-title text-3xl font-bold text-white">Conectemos para el Futuro de tu Negocio</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto mt-4 mb-8">¿Listo para una transformación estratégica? Nuestros expertos están preparados para potenciar tu empresa con tecnología y resultados.</p>
+            <a href="index.html#contact" class="bg-accent text-white font-bold py-3 px-8 rounded-full inline-block transition-transform transform hover:scale-105">Contacta a un Especialista</a>
+        </div>
+    </section>
+
+    <script>
+        // --- Lógica del menú de hamburguesa ---
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNavPanel = document.getElementById('mobile-nav-panel');
+        if (hamburgerBtn) {
+            hamburgerBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.toggle('active');
+                mobileNavPanel.classList.toggle('hidden');
+            });
+        }
+    </script>
 </body>
 </html>
