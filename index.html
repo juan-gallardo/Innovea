@@ -9,7 +9,7 @@
     <!-- Fuentes Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Iconos Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     
@@ -27,8 +27,8 @@
                         'gray-text': '#8A8A8E',
                     },
                     fontFamily: {
-                        'title': ['Poppins', 'sans-serif'],
-                        'body': ['Lato', 'sans-serif'],
+                        'title': ['Montserrat', 'sans-serif'],
+                        'body': ['Montserrat', 'sans-serif'],
                     },
                     animation: {
                         marquee: 'marquee 25s linear infinite',
@@ -66,11 +66,11 @@
             
             <!-- Navegación de Escritorio -->
             <ul class="hidden md:flex space-x-6">
-                <li><a href="#home" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
-                <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes Somos</a></li>
-                <li><a href="nuestro-servicio.html" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestro servicio</a></li>
-                <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de Éxito</a></li>
-                <li><a href="#contact" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
+                <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
+                <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes somos</a></li>
+                <li><a href="nuestro-servicio.html" class="text-white font-bold transition-colors">Nuestro servicio</a></li>
+                <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de éxito</a></li>
+                <li><a href="contacto.html" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
             </ul>
 
             <!-- Botón de Hamburguesa -->
@@ -85,74 +85,92 @@
 
         <!-- Panel de Navegación Móvil -->
         <div class="hidden md:hidden bg-primary border-t border-gray-700" id="mobile-nav-panel">
-            <a href="#home" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Inicio</a>
-            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Quiénes Somos</a>
+            <a href="index.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Inicio</a>
+            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Quiénes somos</a>
             <a href="nuestro-servicio.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Nuestro servicio</a>
-            <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Casos de Éxito</a>
-            <a href="#contact" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Contacto</a>
+            <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Casos de éxito</a>
+            <a href="contacto.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Contacto</a>
         </div>
     </nav>
 
     <!-- CONTENIDO PRINCIPAL -->
-    <main class="flex-grow mt-16"> <!-- Margen superior para compensar el navbar fijo -->
+    <main class="flex-grow">
         
-        <!-- SECCIÓN HERO -->
-        <div class="@container">
-            <div class="flex flex-col gap-6 px-4 py-16 md:py-24 items-center text-center @[480px]:gap-8">
-                <div class="flex flex-col gap-4 max-w-4xl">
-                    <h1 class="text-primary text-4xl md:text-6xl font-title font-bold leading-tight">
-                        Implementación de ERP y CRM para PYMES a tu medida
-                    </h1>
-                    <h2 class="text-gray-text text-lg md:text-xl font-normal leading-relaxed max-w-2xl mx-auto">
-                        En Innovea, transformamos la gestión de tu negocio con soluciones tecnológicas adaptadas a tu modelo único. Innovamos tu futuro, hoy.
-                    </h2>
-                </div>
-
-                <!-- BOTÓN CTA PRINCIPAL -->
+        <!-- NUEVO HEADER CON IMAGEN DE FONDO -->
+        <!-- Usamos una imagen de estrategia/equipo para el servicio -->
+        <div class="relative w-full py-24 md:py-32 bg-cover bg-center flex items-center justify-center text-center px-4 mt-16" 
+             style='background-image: url("https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop");'>
+            
+            <!-- Overlay Oscuro -->
+            <div class="absolute inset-0 bg-primary/90"></div>
+            
+            <!-- Contenido del Header -->
+            <div class="relative z-10 flex flex-col gap-8 max-w-5xl mx-auto items-center">
+                <h1 class="text-white text-4xl md:text-6xl font-title font-bold leading-tight">
+                    Implementación de ERP y CRM para PYMES a tu medida
+                </h1>
+                <h2 class="text-gray-300 text-lg md:text-xl font-normal leading-relaxed max-w-3xl mx-auto">
+                    En Innovea, transformamos la gestión de tu negocio con soluciones tecnológicas adaptadas a tu modelo único. Innovamos tu futuro, hoy.
+                </h2>
+                
+                <!-- BOTÓN CTA -->
                 <div class="mt-4">
-                    <a href="#contact" class="inline-flex items-center justify-center rounded-full h-12 px-8 bg-accent text-white text-base font-bold tracking-wide hover:bg-opacity-90 transition-transform hover:scale-105 shadow-lg">
-                        Agenda Tu Asesoría Personalizada
+                    <a href="contacto.html" class="inline-flex items-center justify-center rounded-full h-12 px-8 bg-accent text-white text-base font-bold tracking-wide hover:bg-white hover:text-accent transition-all transform hover:scale-105 shadow-lg border-2 border-transparent hover:border-accent">
+                        Agenda tu asesoría personalizada
                     </a>
                 </div>
+            </div>
+        </div>
 
-                <!-- BLOQUE DE 3 PILARES (IMÁGENES + TEXTO) -->
-                <div id="solutions" class="flex flex-col gap-12 mt-16 max-w-6xl mx-auto">
+        <!-- BLOQUE DE 3 PILARES (IMÁGENES + TEXTO) -->
+        <div class="bg-white py-20">
+            <div class="container mx-auto px-6">
+                <div id="solutions" class="flex flex-col gap-16 max-w-6xl mx-auto">
                     
                     <!-- Pilar 1 -->
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <div class="w-full md:w-1/2 aspect-video bg-cover bg-center rounded-xl shadow-md" 
+                    <div class="flex flex-col md:flex-row items-center gap-10">
+                        <div class="w-full md:w-1/2 aspect-video bg-cover bg-center rounded-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300" 
                              style='background-image: url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop");'>
                         </div>
-                        <div class="flex flex-col gap-3 md:w-1/2 text-left">
-                            <h3 class="text-accent text-2xl font-title font-bold">1. Entiende Tu Modelo</h3>
+                        <div class="flex flex-col gap-4 md:w-1/2 text-left">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-accent/10 text-accent p-2 rounded-full material-symbols-outlined">search</span>
+                                <h3 class="text-primary text-2xl font-title font-bold">1. Entiende Tu Modelo</h3>
+                            </div>
                             <p class="text-gray-600 text-lg leading-relaxed">
-                                Analizamos a fondo tu operativa, procesos y objetivos para comprender la esencia de tu PYME. Nuestro enfoque empieza por ti, no por el software.
+                                Analizamos a fondo tu operativa, procesos y objetivos para comprender la esencia de tu PYME. Nuestro enfoque empieza por ti, no por el software, asegurando que la tecnología se adapte a tu negocio y no al revés.
                             </p>
                         </div>
                     </div>
 
                     <!-- Pilar 2 -->
-                    <div class="flex flex-col md:flex-row-reverse items-center gap-8">
-                        <div class="w-full md:w-1/2 aspect-video bg-cover bg-center rounded-xl shadow-md" 
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-10">
+                        <div class="w-full md:w-1/2 aspect-video bg-cover bg-center rounded-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300" 
                              style='background-image: url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop");'>
                         </div>
-                        <div class="flex flex-col gap-3 md:w-1/2 text-left">
-                            <h3 class="text-accent text-2xl font-title font-bold">2. Diseño a Medida</h3>
+                        <div class="flex flex-col gap-4 md:w-1/2 text-left">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-accent/10 text-accent p-2 rounded-full material-symbols-outlined">architecture</span>
+                                <h3 class="text-primary text-2xl font-title font-bold">2. Diseño a Medida</h3>
+                            </div>
                             <p class="text-gray-600 text-lg leading-relaxed">
-                                Diseñamos e implementamos soluciones ERP y CRM que se alinean perfectamente con las necesidades específicas de tu negocio, optimizando cada proceso crítico.
+                                Diseñamos e implementamos soluciones ERP y CRM que se alinean perfectamente con las necesidades específicas de tu negocio, optimizando cada proceso crítico y eliminando redundancias.
                             </p>
                         </div>
                     </div>
 
                     <!-- Pilar 3 -->
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <div class="w-full md:w-1/2 aspect-video bg-cover bg-center rounded-xl shadow-md" 
+                    <div class="flex flex-col md:flex-row items-center gap-10">
+                        <div class="w-full md:w-1/2 aspect-video bg-cover bg-center rounded-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300" 
                              style='background-image: url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2032&auto=format&fit=crop");'>
                         </div>
-                        <div class="flex flex-col gap-3 md:w-1/2 text-left">
-                            <h3 class="text-accent text-2xl font-title font-bold">3. Resultados Comprobados</h3>
+                        <div class="flex flex-col gap-4 md:w-1/2 text-left">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-accent/10 text-accent p-2 rounded-full material-symbols-outlined">trending_up</span>
+                                <h3 class="text-primary text-2xl font-title font-bold">3. Resultados Comprobados</h3>
+                            </div>
                             <p class="text-gray-600 text-lg leading-relaxed">
-                                Garantizamos una implementación exitosa que se traduce en mayor eficiencia, productividad y crecimiento sostenible para tu empresa desde el primer día.
+                                Garantizamos una implementación exitosa que se traduce en mayor eficiencia, productividad y crecimiento sostenible. Medimos el impacto para que veas el retorno de inversión desde el primer día.
                             </p>
                         </div>
                     </div>
@@ -161,8 +179,8 @@
         </div>
 
         <!-- SECCIÓN DE LOGOS (MARQUEE) -->
-        <div class="bg-white py-10 mt-10 border-y border-gray-200">
-            <h4 class="text-gray-400 text-sm font-bold uppercase tracking-widest text-center mb-8">Tecnologías que implementamos</h4>
+        <div class="bg-gray-50 py-16 border-y border-gray-200">
+            <h4 class="text-gray-400 text-sm font-bold uppercase tracking-widest text-center mb-10">Tecnologías que implementamos</h4>
             <div class="relative w-full overflow-hidden">
                 <!-- Contenedor del Marquee (Duplicado para efecto infinito) -->
                 <div class="flex w-[200%] animate-marquee">
@@ -185,52 +203,20 @@
             </div>
         </div>
 
-        <!-- SECCIÓN DE FORMULARIO DE CONTACTO -->
-        <section id="contact" class="py-20 bg-gray-bg">
-            <div class="container mx-auto px-6">
-                <div class="max-w-2xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-lg border border-gray-100">
-                    <h2 class="font-title text-3xl font-bold text-center mb-2 text-primary">¿Hablemos de tu proyecto?</h2>
-                    <p class="text-gray-text text-center mb-8">Completa el formulario y uno de nuestros especialistas se pondrá en contacto contigo.</p>
-                    
-                    <form name="contact" method="POST" data-netlify="true">
-                        <input type="hidden" name="form-name" value="contact" />
-                        
-                        <div class="mb-6">
-                            <label for="name" class="block mb-2 font-bold text-primary">Tu Nombre</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all" required>
-                        </div>
-                        <div class="mb-6">
-                            <label for="email" class="block mb-2 font-bold text-primary">Tu Correo Electrónico</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all" required>
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block mb-2 font-bold text-primary">Mensaje</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all" required></textarea>
-                        </div>
-                        
-                        <div class="text-center">
-                            <button type="submit" class="w-full md:w-auto bg-accent text-white font-bold py-3 px-10 rounded-full transition-transform transform hover:scale-105 shadow-md hover:shadow-lg">
-                                Enviar Mensaje
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER versión 1 -->
+    <!-- 
     <footer class="bg-primary text-white py-12 mt-auto">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <!-- Logo y Copyright -->
+            
                 <div class="text-center md:text-left">
                     <img src="logo_innovea.png" alt="Logo Innovea" class="h-10 md:h-12">
                     <p class="text-gray-400 text-sm">© 2025 Innovea Consultoría. Todos los derechos reservados.</p>
                 </div>
                 
-                <!-- Enlaces Sociales -->
+                
                 <div class="flex gap-6">
                     <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
@@ -240,6 +226,17 @@
                     </a>
                 </div>
             </div>
+        </div>
+    </footer>
+    -->
+
+    <!-- FOOTER -->
+    <footer class="bg-primary text-white py-12 mt-auto">
+        <div class="container mx-auto px-6 text-center">
+            <a href="index.html" class="inline-block mb-4">
+                <img src="logo_innovea.png" alt="Logo Innovea" class="h-10 opacity-90 hover:opacity-100 transition-opacity">
+            </a>
+            <p class="text-gray-400 text-sm">© 2025 Innovea Consultoría. Todos los derechos reservados.</p>
         </div>
     </footer>
 

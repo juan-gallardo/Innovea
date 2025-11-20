@@ -9,7 +9,7 @@
     <!-- Script de fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Iconos de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <!-- Configuración personalizada de Tailwind -->
@@ -25,8 +25,8 @@
                         'gray-text': '#8A8A8E',
                     },
                     fontFamily: {
-                        'title': ['Poppins', 'sans-serif'],
-                        'body': ['Lato', 'sans-serif'],
+                        'title': ['Montserrat', 'sans-serif'],
+                        'body': ['Montserrat', 'sans-serif'],
                     }
                 }
             }
@@ -40,8 +40,9 @@
         .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     </style>
 </head>
-<body class="font-body text-primary bg-light">
-    <!-- BARRA DE NAVEGACIÓN (Consistente con index.html) -->
+<body class="font-body text-primary bg-light flex flex-col min-h-screen">
+    
+    <!-- BARRA DE NAVEGACIÓN -->
     <nav class="bg-primary shadow-lg fixed top-0 left-0 w-full z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="index.html">
@@ -49,10 +50,10 @@
             </a>
             <ul class="hidden md:flex space-x-6">
                 <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
-                <li><a href="quienes-somos.html" class="text-white font-bold transition-colors">Quiénes Somos</a></li>
-                <li><a href="index.html#solutions" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestro servicio</a></li>
-                <li><a href="index.html#cases" class="text-gray-300 hover:text-white font-bold transition-colors">Experiencia</a></li>
-                <li><a href="index.html#contact" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
+                <li><a href="quienes-somos.html" class="text-white font-bold transition-colors">Quiénes somos</a></li>
+                <li><a href="nuestro-servicio.html" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestro servicio</a></li>
+                <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de éxito</a></li>
+                <li><a href="contacto.html" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
             </ul>
             <button class="md:hidden" id="hamburger-btn">
                 <div class="space-y-1.5">
@@ -62,142 +63,241 @@
                 </div>
             </button>
         </div>
-        <div class="hidden md:hidden bg-primary" id="mobile-nav-panel">
-            <a href="index.html" class="block py-3 px-6 text-white text-center font-bold">Inicio</a>
-            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold">Quiénes Somos</a>
-            <a href="index.html#solutions" class="block py-3 px-6 text-white text-center font-bold">Nuestra Propuesta</a>
-            <a href="index.html#cases" class="block py-3 px-6 text-white text-center font-bold">Experiencia</a>
-            <a href="index.html#contact" class="block py-3 px-6 text-white text-center font-bold">Contacto</a>
+        <div class="hidden md:hidden bg-primary border-t border-gray-700" id="mobile-nav-panel">
+            <a href="index.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Inicio</a>
+            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Quiénes somos</a>
+            <a href="nuestro-servicio.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Nuestro servicio</a>
+            <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Casos de éxito</a>
+            <a href="contacto.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Contacto</a>
         </div>
     </nav>
 
-    <!-- HEADER DE LA PÁGINA -->
-    <header class="bg-gray-bg pt-32 pb-16 text-center">
-        <div class="container mx-auto px-6">
-            <h1 class="font-title text-4xl md:text-5xl font-bold leading-tight">Acerca de Innovea</h1>
-            <p class="text-lg text-gray-text max-w-2xl mx-auto mt-4">Nuestra misión, visión y el equipo de expertos dedicados a impulsar tu negocio.</p>
-        </div>
-    </header>
-
-    <!-- SECCIÓN DE PILARES ESTRATÉGICOS -->
-    <section class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="font-title text-3xl font-bold text-center mb-12">Nuestros Pilares Estratégicos</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Tarjeta Misión -->
-                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 text-center">
-                    <span class="material-symbols-outlined text-accent text-5xl mb-4">track_changes</span>
-                    <h3 class="font-title text-2xl font-bold mb-2">Misión</h3>
-                    <p class="text-gray-text">Ofrecer soluciones tecnológicas innovadoras que generen eficiencia y crecimiento tangible para PYMES.</p>
-                </div>
-                <!-- Tarjeta Visión -->
-                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 text-center">
-                    <span class="material-symbols-outlined text-accent text-5xl mb-4">visibility</span>
-                    <h3 class="font-title text-2xl font-bold mb-2">Visión</h3>
-                    <p class="text-gray-text">Ser el socio tecnológico más confiable para la transformación digital de las PYMES.</p>
-                </div>
-                <!-- Tarjeta Valores -->
-                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 text-center">
-                    <span class="material-symbols-outlined text-accent text-5xl mb-4">verified_user</span>
-                    <h3 class="font-title text-2xl font-bold mb-2">Valores</h3>
-                    <p class="text-gray-text">Innovación, Colaboración e Integridad son la guía de cada acción para el éxito de nuestros clientes.</p>
+    <main class="flex-grow">
+        
+        <!-- HEADER CON IMAGEN DE FONDO -->
+        <div class="@container bg-gray-bg pt-16"> <!-- Padding top para compensar navbar fijo -->
+            <div class="relative w-full py-24 md:py-32 bg-cover bg-center flex items-center justify-center text-center px-4" 
+                 style='background-image: url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop");'>
+                
+                <!-- Overlay Oscuro -->
+                <div class="absolute inset-0 bg-primary/90"></div>
+                
+                <!-- Contenido -->
+                <div class="relative z-10 flex flex-col gap-6 max-w-4xl mx-auto items-center">
+                    <h1 class="font-title text-4xl md:text-6xl font-bold leading-tight text-white">
+                        Acerca de Innovea
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+                        Conoce nuestra misión, nuestra visión y al equipo de expertos dedicados a impulsar la transformación digital de tu negocio.
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- SECCIÓN VALORES -->
-    <section id="why-us" class="py-20 text-center">
-        <div class="container mx-auto px-6">
-            <h2 class="font-title text-3xl font-bold mb-4">Nuestros Pilares</h2>
-            <p class="text-gray-text max-w-2xl mx-auto mb-12">Actuamos con un conjunto de valores que guían cada proyecto y cada relación con nuestros clientes.</p>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="text-5xl mb-4">💡</div>
-                    <h3 class="font-title text-xl font-bold mb-2">Innovación</h3>
-                    <p>Buscamos constantemente soluciones creativas y de vanguardia para los desafíos de nuestros clientes.</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl mb-4">🤝</div>
-                    <h3 class="font-title text-xl font-bold mb-2">Colaboración</h3>
-                    <p>Trabajamos en estrecha colaboración contigo para entender tus necesidades y co-crear soluciones a medida.</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl mb-4">🏆</div>
-                    <h3 class="font-title text-xl font-bold mb-2">Excelencia</h3>
-                    <p>Nos comprometemos a entregar resultados de la más alta calidad que superen tus expectativas.</p>
+        <!-- SECCIÓN DE PILARES ESTRATÉGICOS -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="font-title text-3xl font-bold text-center mb-12 text-primary">Nuestros Pilares Estratégicos</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Tarjeta Misión -->
+                    <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 text-center hover:shadow-lg transition-shadow">
+                        <span class="material-symbols-outlined text-accent text-5xl mb-4">track_changes</span>
+                        <h3 class="font-title text-2xl font-bold mb-2 text-primary">Misión</h3>
+                        <p class="text-gray-text">Ofrecer soluciones tecnológicas innovadoras que generen eficiencia y crecimiento tangible para PYMES.</p>
+                    </div>
+                    <!-- Tarjeta Visión -->
+                    <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 text-center hover:shadow-lg transition-shadow">
+                        <span class="material-symbols-outlined text-accent text-5xl mb-4">visibility</span>
+                        <h3 class="font-title text-2xl font-bold mb-2 text-primary">Visión</h3>
+                        <p class="text-gray-text">Ser el socio tecnológico más confiable a nivel global para la transformación digital de las PYMES.</p>
+                    </div>
+                    <!-- Tarjeta Valores -->
+                    <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 text-center hover:shadow-lg transition-shadow">
+                        <span class="material-symbols-outlined text-accent text-5xl mb-4">verified_user</span>
+                        <h3 class="font-title text-2xl font-bold mb-2 text-primary">Valores</h3>
+                        <p class="text-gray-text">Innovación, Colaboración e Integridad son la guía de cada acción para el éxito de nuestros clientes.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SECCIÓN SOLUCIONES -->
-    <section id="solutions" class="py-20 border-t border-gray-200">
-        <div class="container mx-auto px-6">
-            <h2 class="font-title text-3xl font-bold text-center mb-4">Soluciones Diseñadas para tu Crecimiento</h2>
-            <p class="text-gray-text text-center max-w-3xl mx-auto mb-12">Más que implementar software, diseñamos ecosistemas digitales que se traducen en beneficios concretos para tu compañía. Nuestra propuesta única es integrar tecnología de punta con un entendimiento profundo de tu negocio para generar un impacto medible.</p>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="text-center">
-                    <div class="text-5xl mb-4 text-accent">🔗</div>
-                    <h3 class="font-title text-xl font-bold mb-2">Implementación Estratégica de ERP</h3>
-                    <p class="text-gray-text">Unificamos tus operaciones (finanzas, inventario, RRHH) no solo en una plataforma, sino en una estrategia cohesiva. Transformamos datos dispersos en inteligencia de negocio para decisiones más rápidas y acertadas.</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl mb-4 text-accent">🎯</div>
-                    <h3 class="font-title text-xl font-bold mb-2">Gestión de Clientes (CRM) con Foco en Resultados</h3>
-                    <p class="text-gray-text">Centralizamos los datos de tus clientes para crear campañas personalizadas y automatizar la comunicación. Nuestra implementación se enfoca en aumentar la retención y el ticket promedio.</p>
+        <!-- SECCIÓN VALORES -->
+        <section id="why-us" class="py-20 text-center">
+            <div class="container mx-auto px-6">
+                <h2 class="font-title text-3xl font-bold mb-4">Nuestros Valores</h2>
+                <p class="text-gray-text max-w-2xl mx-auto mb-12">Actuamos con un conjunto de valores que guían cada proyecto y cada relación con nuestros clientes.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">💡</div>
+                        <h3 class="font-title text-xl font-bold mb-2">Innovación</h3>
+                        <p>Buscamos constantemente soluciones creativas y de vanguardia para los desafíos de nuestros clientes.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">🤝</div>
+                        <h3 class="font-title text-xl font-bold mb-2">Colaboración</h3>
+                        <p>Trabajamos en estrecha colaboración contigo para entender tus necesidades y co-crear soluciones a medida.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">🏆</div>
+                        <h3 class="font-title text-xl font-bold mb-2">Excelencia</h3>
+                        <p>Nos comprometemos a entregar resultados de la más alta calidad que superen tus expectativas.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- SECCIÓN DEL EQUIPO -->
-    <section class="py-20 bg-gray-bg">
+        </section>
+
+        <!-- SECCIÓN SOLUCIONES -->
+        <!-- 
+        <section id="solutions" class="py-20 border-t border-gray-200">
+            <div class="container mx-auto px-6">
+                <h2 class="font-title text-3xl font-bold text-center mb-4">Soluciones Diseñadas para tu Crecimiento</h2>
+                <p class="text-gray-text text-center max-w-3xl mx-auto mb-12">Más que implementar software, diseñamos ecosistemas digitales que se traducen en beneficios concretos para tu compañía. Nuestra propuesta única es integrar tecnología de punta con un entendimiento profundo de tu negocio para generar un impacto medible.</p>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="text-center">
+                        <div class="text-5xl mb-4 text-accent">🔗</div>
+                        <h3 class="font-title text-xl font-bold mb-2">Implementación Estratégica de ERP</h3>
+                        <p class="text-gray-text">Unificamos tus operaciones (finanzas, inventario, RRHH) no solo en una plataforma, sino en una estrategia cohesiva. Transformamos datos dispersos en inteligencia de negocio para decisiones más rápidas y acertadas.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4 text-accent">🎯</div>
+                        <h3 class="font-title text-xl font-bold mb-2">Gestión de Clientes (CRM) con Foco en Resultados</h3>
+                        <p class="text-gray-text">Centralizamos los datos de tus clientes para crear campañas personalizadas y automatizar la comunicación. Nuestra implementación se enfoca en aumentar la retención y el ticket promedio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        -->
+        
+        <!-- SECCIÓN DEL EQUIPO -->
+        <section class="py-20 bg-gray-bg">
+            <div class="container mx-auto px-6">
+                <h2 class="font-title text-3xl font-bold text-center mb-4 text-primary">Liderazgo y Expertise</h2>
+                <p class="text-gray-text text-center max-w-2xl mx-auto mb-12">El talento y la experiencia de nuestro equipo son el motor de cada proyecto exitoso.</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Miembro 1: Julieta -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden text-center transform hover:-translate-y-2 transition-transform duration-300 group h-full flex flex-col">
+                        <div class="overflow-hidden h-64">
+                            <img src="assets/team/julieta-munoz.jpg" alt="Julieta Muñoz" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-start">
+                            <h3 class="font-title text-xl font-bold text-primary">Julieta Muñoz</h3>
+                            <p class="text-accent font-bold mt-1 mb-3">Scrum Master</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Lidera la implementación de metodologías ágiles, eliminando obstáculos y asegurando la entrega oportuna y eficiente de cada proyecto.</p>
+                        </div>
+                    </div>
+
+                    <!-- Miembro 2: Juan G. -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden text-center transform hover:-translate-y-2 transition-transform duration-300 group h-full flex flex-col">
+                        <div class="overflow-hidden h-64">
+                            <img src="assets/team/juan-gallardo.jpg" alt="Juan Gallardo" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-start">
+                            <h3 class="font-title text-xl font-bold text-primary">Juan Gallardo</h3>
+                            <p class="text-accent font-bold mt-1 mb-3">Product Analyst</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Analiza las necesidades del negocio y define los requerimientos clave, actuando como el puente estratégico entre el cliente y el equipo técnico.</p>
+                        </div>
+                    </div>
+
+                    <!-- Miembro 3: Rodrigo -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden text-center transform hover:-translate-y-2 transition-transform duration-300 group h-full flex flex-col">
+                        <div class="overflow-hidden h-64">
+                            <img src="assets/team/rodrigo-merlos.jpg" alt="Rodrigo Merlos" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-start">
+                            <h3 class="font-title text-xl font-bold text-primary">Rodrigo Merlos</h3>
+                            <p class="text-accent font-bold mt-1 mb-3">Tech Lead</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Diseña la arquitectura técnica de las soluciones y supervisa la calidad del código, garantizando sistemas robustos y escalables.</p>
+                        </div>
+                    </div>
+
+                    <!-- Miembro 4: Juan M. -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden text-center transform hover:-translate-y-2 transition-transform duration-300 group h-full flex flex-col">
+                        <div class="overflow-hidden h-64">
+                            <img src="assets/team/juan-alvide.jpg" alt="Juan Manuel Alvide" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-start">
+                            <h3 class="font-title text-xl font-bold text-primary">Juan Manuel Alvide</h3>
+                            <p class="text-accent font-bold mt-1 mb-3">Tech Lead</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Lidera la integración de tecnologías emergentes y la seguridad de la infraestructura, asegurando soluciones innovadoras y fiables.</p>
+                        </div>
+                    </div>
+
+                    <!-- Miembro 5: Gabriel -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden text-center transform hover:-translate-y-2 transition-transform duration-300 group h-full flex flex-col">
+                        <div class="overflow-hidden h-64">
+                            <img src="assets/team/gabriel-apaza.jpg" alt="Gabriel Apaza" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-start">
+                            <h3 class="font-title text-xl font-bold text-primary">Gabriel Apaza</h3>
+                            <p class="text-accent font-bold mt-1 mb-3">Designer</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Transforma conceptos complejos en interfaces intuitivas y atractivas, priorizando siempre la mejor experiencia para el usuario final.</p>
+                        </div>
+                    </div>
+
+                    <!-- Miembro 6: Alejo -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden text-center transform hover:-translate-y-2 transition-transform duration-300 group h-full flex flex-col">
+                        <div class="overflow-hidden h-64">
+                            <img src="assets/team/alejo-niveyro.jpg" alt="Alejo Niveyro" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-start">
+                            <h3 class="font-title text-xl font-bold text-primary">Alejo Niveyro</h3>
+                            <p class="text-accent font-bold mt-1 mb-3">Designer</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Especialista en diseño visual y prototipado, se asegura de que cada solución refleje la identidad de marca y sea funcionalmente estética.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE LLAMADA A LA ACCIÓN (CTA) -->
+        <section class="bg-light">
+            <div class="container mx-auto px-6 py-16 text-center">
+                <h2 class="font-title text-3xl font-bold text-primary">Conectemos para el Futuro de tu Negocio</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4 mb-8">¿Listo para una transformación estratégica? Nuestros expertos están preparados para potenciar tu empresa con tecnología y resultados.</p>
+                <a href="contacto.html" class="bg-accent text-white font-bold py-3 px-8 rounded-full inline-block transition-transform transform hover:scale-105 border-2 border-transparent hover:border-white">Contacta a un Especialista</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER versión 1 -->
+    <!-- 
+    <footer class="bg-primary text-white py-12 mt-auto">
         <div class="container mx-auto px-6">
-            <h2 class="font-title text-3xl font-bold text-center mb-4">Liderazgo y Expertise</h2>
-            <p class="text-gray-text text-center max-w-2xl mx-auto mb-12">El talento y la experiencia de nuestro equipo son el motor de cada proyecto exitoso.</p>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Tarjeta de Miembro del Equipo -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden text-center transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="assets/team/julieta-munoz.jpg" alt="Foto de Julieta Muñoz" class="w-full h-56 object-cover grayscale hover:grayscale-0 transition-all duration-300">
-                    <div class="p-6">
-                        <h3 class="font-title text-xl font-bold">Julieta Muñoz</h3>
-                        <p class="text-accent font-bold">Scrum Master</p>
-                    </div>
+                <div class="text-center md:text-left">
+                    <img src="logo_innovea.png" alt="Logo Innovea" class="h-10 md:h-12">
+                    <p class="text-gray-400 text-sm">© 2025 Innovea Consultoría. Todos los derechos reservados.</p>
                 </div>
-                <!-- Tarjeta de Miembro del Equipo -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden text-center transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="assets/team/juan-gallardo.jpg" alt="Foto de Juan Gallardo" class="w-full h-56 object-cover grayscale hover:grayscale-0 transition-all duration-300">
-                    <div class="p-6">
-                        <h3 class="font-title text-xl font-bold">Juan Gallardo</h3>
-                        <p class="text-accent font-bold">Product Analyst</p>
-                    </div>
+                
+                
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616v.064c0 2.298 1.634 4.212 3.792 4.653-.562 1.254-1.332.768-2.03.32-.417.893-1.288 1.628-2.383 1.896.641.526 1.463.825 2.364.873-2.127 1.668-4.795 2.662-7.663 2.662-.499 0-.992-.029-1.475-.086 2.747 1.776 6.023 2.808 9.541 2.808 11.442 0 17.713-9.49 17.474-17.713.992-.716 1.848-1.612 2.538-2.636z"></path></svg>
+                    </a>
                 </div>
-                <!-- Tarjeta de Miembro del Equipo -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden text-center transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="assets/team/rodrigo-merlos.jpg" alt="Foto de Rodrigo Merlos" class="w-full h-56 object-cover grayscale hover:grayscale-0 transition-all duration-300">
-                    <div class="p-6">
-                        <h3 class="font-title text-xl font-bold">Rodrigo Merlos</h3>
-                        <p class="text-accent font-bold">Tech Lead</p>
-                    </div>
-                </div>
-                 <!-- Agrega las otras 3 tarjetas de equipo aquí si lo deseas, siguiendo el mismo formato -->
             </div>
         </div>
-    </section>
+    </footer>
+    -->
 
-    <!-- SECCIÓN DE LLAMADA A LA ACCIÓN (CTA) -->
-    <section class="bg-primary">
-        <div class="container mx-auto px-6 py-16 text-center">
-            <h2 class="font-title text-3xl font-bold text-white">Conectemos para el Futuro de tu Negocio</h2>
-            <p class="text-gray-300 max-w-2xl mx-auto mt-4 mb-8">¿Listo para una transformación estratégica? Nuestros expertos están preparados para potenciar tu empresa con tecnología y resultados.</p>
-            <a href="index.html#contact" class="bg-accent text-white font-bold py-3 px-8 rounded-full inline-block transition-transform transform hover:scale-105">Contacta a un Especialista</a>
+    <!-- FOOTER -->
+    <footer class="bg-primary text-white py-12 mt-auto">
+        <div class="container mx-auto px-6 text-center">
+            <a href="index.html" class="inline-block mb-4">
+                <img src="logo_innovea.png" alt="Logo Innovea" class="h-10 opacity-90 hover:opacity-100 transition-opacity">
+            </a>
+            <p class="text-gray-400 text-sm">© 2025 Innovea Consultoría. Todos los derechos reservados.</p>
         </div>
-    </section>
+    </footer>
 
     <script>
-        // --- Lógica del menú de hamburguesa ---
+        // Lógica del menú de hamburguesa
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileNavPanel = document.getElementById('mobile-nav-panel');
         if (hamburgerBtn) {
@@ -207,5 +307,8 @@
             });
         }
     </script>
+    <!-- Scripts Funcionales -->
+    <script src="main.js"></script>
+    <script src="chatbot.js"></script>
 </body>
 </html>

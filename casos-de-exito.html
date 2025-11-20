@@ -9,12 +9,13 @@
     <!-- Script de fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Iconos de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <!-- Configuración personalizada de Tailwind -->
     <script>
         tailwind.config = {
+            darkMode: "class",
             theme: {
                 extend: {
                     colors: {
@@ -25,8 +26,8 @@
                         'gray-text': '#8A8A8E',
                     },
                     fontFamily: {
-                        'title': ['Poppins', 'sans-serif'],
-                        'body': ['Lato', 'sans-serif'],
+                        'title': ['Montserrat', 'sans-serif'],
+                        'body': ['Montserrat', 'sans-serif'],
                     }
                 }
             }
@@ -40,20 +41,21 @@
         .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     </style>
 </head>
-<body class="font-body text-primary bg-gray-bg">
-    <!-- BARRA DE NAVEGACIÓN (Consistente con las otras páginas) -->
-    <nav class="bg-primary shadow-lg sticky top-0 left-0 w-full z-50">
+<body class="font-body text-primary bg-gray-bg flex flex-col min-h-screen">
+    
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="bg-primary shadow-lg fixed top-0 left-0 w-full z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="index.html">
                 <img src="logo_innovea.png" alt="Logo de Innovea" class="h-10">
             </a>
             <ul class="hidden md:flex space-x-6">
                 <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
-                <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes Somos</a></li>
-                <li><a href="index.html#solutions" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestra Propuesta</a></li>
+                <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes somos</a></li>
+                <li><a href="nuestro-servicio.html" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestro servicio</a></li>
                 <!-- El enlace activo es este -->
-                <li><a href="casos-de-exito.html" class="text-white font-bold transition-colors">Casos de Éxito</a></li>
-                <li><a href="index.html#contact" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
+                <li><a href="casos-de-exito.html" class="text-white font-bold transition-colors">Casos de éxito</a></li>
+                <li><a href="contacto.html" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
             </ul>
             <button class="md:hidden" id="hamburger-btn">
                 <div class="space-y-1.5">
@@ -63,101 +65,131 @@
                 </div>
             </button>
         </div>
-        <div class="hidden md:hidden bg-primary" id="mobile-nav-panel">
-            <!-- Menú móvil con el enlace activo -->
+        <div class="hidden md:hidden bg-primary border-t border-gray-700" id="mobile-nav-panel">
+            <a href="index.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Inicio</a>
+            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Quiénes somos</a>
+            <a href="nuestro-servicio.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Nuestro servicio</a>
+            <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Casos de éxito</a>
+            <a href="contacto.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Contacto</a>
         </div>
     </nav>
 
-    <!-- HEADER DE LA PÁGINA -->
-    <header class="pt-32 pb-16 text-center bg-white">
-        <div class="container mx-auto px-6">
-            <h1 class="font-title text-4xl md:text-5xl font-bold leading-tight">Nuestros Casos de Éxito</h1>
-            <p class="text-lg text-gray-text max-w-2xl mx-auto mt-4">Explora cómo hemos ayudado a empresas de diversas industrias a transformarse y crecer.</p>
-        </div>
-    </header>
-    
     <!-- CONTENIDO PRINCIPAL -->
-    <main class="py-20">
-        <div class="container mx-auto px-6">
-            <!-- Grid de Tarjetas de Casos de Éxito -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+    <main class="flex-grow mt-16"> <!-- Margen superior para compensar el navbar fijo -->
 
-                <!-- Card 1: Food Mascotas (Veterinaria) -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col group">
-                    <div class="relative">
-                        <!-- Usando una imagen genérica pero relevante -->
-                        <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42?q=80&w=1974&auto=format&fit=crop" alt="Veterinario atendiendo a un gato" class="w-full h-56 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <p class="text-sm font-bold text-accent mb-2">Veterinaria</p>
-                        <h3 class="font-title text-2xl font-bold text-primary mb-3">Transformación Digital de Food Mascotas</h3>
-                        <p class="text-gray-text mb-6 flex-grow">
-                            Diseñamos una transición completa desde procesos manuales hacia un ecosistema digital integrado, centrando la estrategia en la automatización de la gestión y la creación de una experiencia omnicanal.
-                        </p>
-                        <a href="caso-food-mascotas.html" class="font-bold text-accent self-start group-hover:underline">
-                            Ver el caso de estudio completo →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 2: Urbania Propiedades (Inmobiliaria) -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col group">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop" alt="Interior moderno de una casa en venta" class="w-full h-56 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <p class="text-sm font-bold text-accent mb-2">Inmobiliaria</p>
-                        <h3 class="font-title text-2xl font-bold text-primary mb-3">CRM Estratégico para Urbania Propiedades</h3>
-                        <p class="text-gray-text mb-6 flex-grow">
-                            Implementamos un CRM a medida que aceleró el ciclo de ventas en un 40% al centralizar la gestión de propiedades y automatizar el seguimiento de clientes potenciales.
-                        </p>
-                        <a href="#" class="font-bold text-gray-text self-start">
-                            Próximamente...
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 3: Vitalia Salud (Salud) -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col group">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop" alt="Doctora usando una tablet en un consultorio" class="w-full h-56 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <p class="text-sm font-bold text-accent mb-2">Salud</p>
-                        <h3 class="font-title text-2xl font-bold text-primary mb-3">Optimización de Agenda para Vitalia Salud</h3>
-                        <p class="text-gray-text mb-6 flex-grow">
-                            Optimizamos la agenda de turnos y digitalizamos el historial clínico de pacientes, reduciendo los tiempos de espera y mejorando significativamente la calidad de la atención.
-                        </p>
-                        <a href="#" class="font-bold text-gray-text self-start">
-                            Próximamente...
-                        </a>
-                    </div>
-                </div>
+        <!-- HEADER CON IMAGEN DE FONDO (HERO) -->
+        <div class="@container bg-gray-bg">
+            <div class="relative w-full py-24 md:py-32 bg-cover bg-center flex items-center justify-center text-center px-4" 
+                 style='background-image: url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2070&auto=format&fit=crop");'>
                 
-                <!-- Card 4: TrendStore (Retail) -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col group">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop" alt="Interior de una tienda de ropa" class="w-full h-56 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <p class="text-sm font-bold text-accent mb-2">Retail</p>
-                        <h3 class="font-title text-2xl font-bold text-primary mb-3">Inventario Unificado para TrendStore</h3>
-                        <p class="text-gray-text mb-6 flex-grow">
-                            Unificamos el inventario de la tienda física y el e-commerce con un ERP, eliminando quiebres de stock y sentando las bases para una exitosa estrategia omnicanal.
-                        </p>
-                        <a href="#" class="font-bold text-gray-text self-start">
-                            Próximamente...
-                        </a>
-                    </div>
+                <!-- Overlay Oscuro -->
+                <div class="absolute inset-0 bg-primary/90"></div>
+                
+                <!-- Contenido -->
+                <div class="relative z-10 flex flex-col gap-6 max-w-4xl mx-auto items-center">
+                    <h1 class="font-title text-4xl md:text-6xl font-bold leading-tight text-white">
+                        Nuestros Casos de Éxito
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+                        Explora cómo hemos ayudado a empresas de diversas industrias a transformarse y crecer mediante soluciones tecnológicas estratégicas.
+                    </p>
                 </div>
-
             </div>
         </div>
+        
+        <!-- Grid de Tarjetas -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+
+                    <!-- Card 1: Food Mascotas (Veterinaria) -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col group hover:shadow-xl transition-shadow duration-300">
+                        <div class="relative h-64 overflow-hidden">
+                            <!-- Efecto zoom en la imagen al hacer hover -->
+                            <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42?q=80&w=1974&auto=format&fit=crop" alt="Veterinario atendiendo a un gato" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <span class="inline-block bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full mb-4 w-fit uppercase tracking-wide">Veterinaria</span>
+                            <h3 class="font-title text-2xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">Transformación Digital de Food Mascotas</h3>
+                            <p class="text-gray-text mb-6 flex-grow leading-relaxed">
+                                Diseñamos una transición completa desde procesos manuales hacia un ecosistema digital integrado, centrando la estrategia en la automatización de la gestión y la creación de una experiencia omnicanal.
+                            </p>
+                            <a href="caso-food-mascotas.html" class="font-bold text-accent self-start flex items-center gap-2 group/link">
+                                Ver el caso completo 
+                                <span class="material-symbols-outlined text-lg transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Urbania Propiedades (Inmobiliaria) -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col group hover:shadow-xl transition-shadow duration-300">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop" alt="Interior moderno de una casa en venta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full mb-4 w-fit uppercase tracking-wide">Inmobiliaria</span>
+                            <h3 class="font-title text-2xl font-bold text-primary mb-3">CRM Estratégico para Urbania Propiedades</h3>
+                            <p class="text-gray-text mb-6 flex-grow leading-relaxed">
+                                Implementamos un CRM a medida que aceleró el ciclo de ventas en un 40% al centralizar la gestión de propiedades y automatizar el seguimiento de clientes potenciales.
+                            </p>
+                            <a href="#" class="font-bold text-gray-400 self-start cursor-not-allowed flex items-center gap-2">
+                                Próximamente...
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Vitalia Salud (Salud) -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col group hover:shadow-xl transition-shadow duration-300">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop" alt="Doctora usando una tablet en un consultorio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full mb-4 w-fit uppercase tracking-wide">Salud</span>
+                            <h3 class="font-title text-2xl font-bold text-primary mb-3">Optimización de Agenda para Vitalia Salud</h3>
+                            <p class="text-gray-text mb-6 flex-grow leading-relaxed">
+                                Optimizamos la agenda de turnos y digitalizamos el historial clínico de pacientes, reduciendo los tiempos de espera y mejorando significativamente la calidad de la atención.
+                            </p>
+                            <a href="#" class="font-bold text-gray-400 self-start cursor-not-allowed flex items-center gap-2">
+                                Próximamente...
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4: TrendStore (Retail) -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col group hover:shadow-xl transition-shadow duration-300">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop" alt="Interior de una tienda de ropa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <span class="inline-block bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full mb-4 w-fit uppercase tracking-wide">Retail</span>
+                            <h3 class="font-title text-2xl font-bold text-primary mb-3">Inventario Unificado para TrendStore</h3>
+                            <p class="text-gray-text mb-6 flex-grow leading-relaxed">
+                                Unificamos el inventario de la tienda física y el e-commerce con un ERP, eliminando quiebres de stock y sentando las bases para una exitosa estrategia omnicanal.
+                            </p>
+                            <a href="#" class="font-bold text-gray-400 self-start cursor-not-allowed flex items-center gap-2">
+                                Próximamente...
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary text-white py-12 mt-auto">
+        <div class="container mx-auto px-6 text-center">
+            <a href="index.html" class="inline-block mb-4">
+                <img src="logo_innovea.png" alt="Logo Innovea" class="h-10 opacity-90 hover:opacity-100 transition-opacity">
+            </a>
+            <p class="text-gray-400 text-sm">© 2025 Innovea Consultoría. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
     <!-- Script para el menú de hamburguesa -->
     <script>

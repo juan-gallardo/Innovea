@@ -9,7 +9,7 @@
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Iconos -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     
@@ -19,15 +19,15 @@
             theme: {
                 extend: {
                     colors: {
-                        'primary': '#212529', // Tu gris oscuro
-                        'accent': '#2B82C8',  // Tu azul
+                        'primary': '#162230',
+                        'accent': '#2B82C8',  
                         'light': '#FFFFFF',
                         'gray-bg': '#F5F5F7',
                         'gray-text': '#8A8A8E',
                     },
                     fontFamily: {
-                        'title': ['Poppins', 'sans-serif'],
-                        'body': ['Lato', 'sans-serif'],
+                        'title': ['Montserrat', 'sans-serif'],
+                        'body': ['Montserrat', 'sans-serif'],
                     }
                 }
             }
@@ -51,10 +51,10 @@
             </a>
             <ul class="hidden md:flex space-x-6">
                 <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
-                <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes Somos</a></li>
-                <li><a href="index.html#solutions" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestra Propuesta</a></li>
-                <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de Éxito</a></li>
-                <li><a href="index.html#contact" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
+                <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes somos</a></li>
+                <li><a href="nuestro-servicio.html" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestro servicio</a></li>
+                <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de éxito</a></li>
+                <li><a href="contacto.html" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
             </ul>
             <button class="md:hidden" id="hamburger-btn">
                 <div class="space-y-1.5">
@@ -66,10 +66,10 @@
         </div>
         <div class="hidden md:hidden bg-primary" id="mobile-nav-panel">
             <a href="index.html" class="block py-3 px-6 text-white text-center font-bold">Inicio</a>
-            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold">Quiénes Somos</a>
-            <a href="index.html#solutions" class="block py-3 px-6 text-white text-center font-bold">Nuestra Propuesta</a>
-            <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold">Casos de Éxito</a>
-            <a href="index.html#contact" class="block py-3 px-6 text-white text-center font-bold">Contacto</a>
+            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold">Quiénes somos</a>
+            <a href="nuestro-servicio.html" class="block py-3 px-6 text-white text-center font-bold">Nuestro servicio</a>
+            <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold">Casos de éxito</a>
+            <a href="contacto.html" class="block py-3 px-6 text-white text-center font-bold">Contacto</a>
         </div>
     </nav>
 
@@ -136,6 +136,16 @@
             </div>
         </div>
     </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary text-white py-12 mt-auto">
+        <div class="container mx-auto px-6 text-center">
+            <a href="index.html" class="inline-block mb-4">
+                <img src="logo_innovea.png" alt="Logo Innovea" class="h-10 opacity-90 hover:opacity-100 transition-opacity">
+            </a>
+            <p class="text-gray-400 text-sm">© 2025 Innovea Consultoría. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
     <!-- SCRIPTS -->
     <script>

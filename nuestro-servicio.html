@@ -9,7 +9,7 @@
     <!-- Fuentes Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Iconos Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     
@@ -25,8 +25,8 @@
                         'gray-text': '#8A8A8E',
                     },
                     fontFamily: {
-                        'title': ['Poppins', 'sans-serif'],
-                        'body': ['Lato', 'sans-serif'],
+                        'title': ['Montserrat', 'sans-serif'],
+                        'body': ['Montserrat', 'sans-serif'],
                     }
                 }
             }
@@ -58,11 +58,11 @@
             </a>
             <ul class="hidden md:flex space-x-6">
                 <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
-                <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes Somos</a></li>
+                <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes somos</a></li>
                 <!-- Enlace activo -->
                 <li><a href="#" class="text-white font-bold transition-colors">Nuestro servicio</a></li>
-                <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de Éxito</a></li>
-                <li><a href="index.html#contact" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
+                <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de éxito</a></li>
+                <li><a href="contacto.html" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
             </ul>
             <button class="md:hidden" id="hamburger-btn">
                 <div class="space-y-1.5">
@@ -74,30 +74,37 @@
         </div>
         <div class="hidden md:hidden bg-primary" id="mobile-nav-panel">
             <a href="index.html" class="block py-3 px-6 text-white text-center font-bold">Inicio</a>
-            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold">Quiénes Somos</a>
+            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold">Quiénes somos</a>
             <a href="#" class="block py-3 px-6 text-white text-center font-bold">Nuestro servicio</a>
-            <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold">Casos de Éxito</a>
-            <a href="index.html#contact" class="block py-3 px-6 text-white text-center font-bold">Contacto</a>
+            <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold">Casos de éxito</a>
+            <a href="contacto.html" class="block py-3 px-6 text-white text-center font-bold">Contacto</a>
         </div>
     </nav>
 
-    <main class="flex-grow mt-16">
-        <!-- HEADER -->
-        <div class="px-4 py-16 md:py-24 text-center bg-white border-b border-gray-200">
-            <div class="container mx-auto max-w-4xl">
-                <h1 class="font-title text-4xl md:text-5xl font-bold text-primary mb-4 leading-tight">
+    <main class="flex-grow">
+        
+        <!-- NUEVO HEADER CON IMAGEN DE FONDO -->
+        <div class="relative w-full py-24 md:py-32 bg-cover bg-center flex items-center justify-center text-center px-4 mt-16" 
+             style='background-image: url("https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop");'>
+            
+            <!-- Overlay Oscuro -->
+            <div class="absolute inset-0 bg-primary/90"></div>
+            
+            <!-- Contenido del Header -->
+            <div class="relative z-10 flex flex-col gap-6 max-w-5xl mx-auto items-center">
+                <h1 class="font-title text-4xl md:text-5xl font-bold text-white leading-tight">
                     Soluciones ERP & CRM para PYMES
                 </h1>
-                <h2 class="text-lg md:text-xl text-gray-text font-normal leading-relaxed max-w-2xl mx-auto">
+                <h2 class="text-lg md:text-xl text-gray-300 font-normal leading-relaxed max-w-3xl mx-auto">
                     Innovea impulsa a las pequeñas y medianas empresas a optimizar operaciones y potenciar el crecimiento mediante la implementación de tecnología experta.
                 </h2>
             </div>
         </div>
 
-        <!-- CONTROL DE PESTAÑAS (TOGGLE) -->
-        <div class="container mx-auto px-4 -mt-8 mb-12">
+        <!-- CONTROL DE PESTAÑAS (TOGGLE FLOTANTE) -->
+        <div class="container mx-auto px-4 -mt-8 mb-12 relative z-20">
             <div class="flex justify-center">
-                <div class="bg-gray-200 p-1.5 rounded-xl inline-flex shadow-inner">
+                <div class="bg-gray-200 p-1.5 rounded-xl inline-flex shadow-lg border border-white/20">
                     <button id="btn-erp" onclick="switchTab('erp')" class="px-6 py-3 rounded-lg text-sm md:text-base font-bold transition-all duration-300 shadow-sm bg-white text-accent">
                         Implementación ERP
                     </button>
@@ -153,8 +160,8 @@
                         </div>
                     </div>
                     <div class="bg-primary p-6 text-center">
-                        <a href="index.html#contact" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-accent transition-colors">
-                            Solicitar Demo de ERP
+                        <a href="contacto.html" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-accent transition-colors">
+                            Contactanos
                         </a>
                     </div>
                 </div>
@@ -202,7 +209,7 @@
                         </div>
                     </div>
                     <div class="bg-primary p-6 text-center">
-                        <a href="index.html#contact" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-accent transition-colors">
+                        <a href="contacto.html" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-accent transition-colors">
                             Contactanos
                         </a>
                     </div>
