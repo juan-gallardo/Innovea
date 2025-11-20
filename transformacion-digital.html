@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformación Digital | Food Mascotas</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="assets/logos/favicon-innovea.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'primary': '#162230', 'accent': '#2B82C8', 'light': '#FFFFFF', 'gray-bg': '#F5F5F7', 'gray-text': '#8A8A8E' },
+                    fontFamily: { 'title': ['Montserrat', 'sans-serif'], 'body': ['Montserrat', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body bg-gray-bg md:h-screen md:overflow-hidden flex flex-col">
+    <div class="flex flex-col md:flex-row w-full md:h-full">
+        <aside class="w-full md:w-64 bg-primary text-white flex-shrink-0 md:h-full md:overflow-y-auto z-20">
+            <div class="p-6 border-b border-gray-700 sticky top-0 bg-primary z-10">
+                <a href="index.html"><img src="logo_innovea.png" alt="Logo Innovea" class="h-10"></a>
+            </div>
+            <nav class="flex flex-row md:flex-col justify-around md:justify-start overflow-x-auto md:overflow-visible">
+                <a href="analisis-cliente.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Análisis Cliente</a>
+                <a href="arquitectura-comparativa.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Arq. Origen y Destino</a>
+                <a href="propuesta-tecnologica.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Propuesta Tecnológica</a>
+                <a href="analisis-proveedores.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Análisis Proveedores</a>
+                <a href="evaluacion-escenarios.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Evaluación Escenarios</a>
+                <a href="transformacion-digital.html" class="px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold transition-colors text-sm whitespace-nowrap">Transformación Digital</a>
+            </nav>
+             <div class="mt-auto p-6 border-t border-gray-700 hidden md:block"><a href="index.html" class="text-gray-400 hover:text-white text-sm">Cerrar Sesión</a></div>
+        </aside>
+
+        <main class="flex-1 p-6 md:p-10 md:h-full md:overflow-y-auto bg-gray-bg">
+            <h1 class="font-title text-3xl font-bold text-primary mb-2">Propuesta de Transformación Digital</h1>
+            <p class="text-gray-text mb-8">La solución elegida y el impacto esperado en el negocio.</p>
+
+            <!-- Proveedor Elegido -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8 border border-gray-200">
+                <div class="bg-primary p-6 text-white flex justify-between items-center">
+                    <div>
+                        <h2 class="text-xl font-bold">Proveedor Elegido: GVET</h2>
+                        <p class="text-sm text-gray-400">Solución Integral Veterinaria en la Nube</p>
+                    </div>
+                    <span class="bg-accent px-3 py-1 rounded-full text-xs font-bold tracking-wide">RECOMENDADO</span>
+                </div>
+                <div class="p-8">
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Tras el análisis exhaustivo, <strong>GVET</strong> es la solución definitiva para Food Mascotas. Su arquitectura nativa en la nube elimina costos de hardware, mientras que su integración profunda con WhatsApp Business responde directamente al objetivo estratégico de omnicanalidad y reducción de ausentismo.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-3 gap-4">
+                         <div class="flex items-center gap-3 p-3 bg-green-50 rounded border border-green-100">
+                            <span class="material-symbols-outlined text-green-600">trending_up</span>
+                            <span class="text-sm text-gray-700 font-bold">ROI Positivo</span>
+                         </div>
+                         <div class="flex items-center gap-3 p-3 bg-blue-50 rounded border border-blue-100">
+                            <span class="material-symbols-outlined text-blue-600">cloud_done</span>
+                            <span class="text-sm text-gray-700 font-bold">Escalable</span>
+                         </div>
+                         <div class="flex items-center gap-3 p-3 bg-purple-50 rounded border border-purple-100">
+                            <span class="material-symbols-outlined text-purple-600">chat</span>
+                            <span class="text-sm text-gray-700 font-bold">Omnicanal</span>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beneficios -->
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="font-bold text-primary mb-4 text-lg">Beneficios Cuantitativos</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-accent">add_task</span> <strong>Ventas:</strong> +20% proyectado por recuperación de clientes inactivos.</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-accent">schedule</span> <strong>Eficiencia:</strong> -40% tiempo administrativo en gestión de turnos.</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-accent">inventory</span> <strong>Stock:</strong> Eliminación de quiebres críticos por alertas automáticas.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="font-bold text-primary mb-4 text-lg">Mejora Cualitativa</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-accent">sentiment_satisfied</span> <strong>Cliente:</strong> Experiencia moderna, recordatorios automáticos y sin fricciones.</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-accent">medical_services</span> <strong>Clínica:</strong> Historia clínica digital completa accesible al instante.</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-accent">psychology</span> <strong>Decisiones:</strong> Gestión basada en datos reales, no en intuición.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="index.html" class="text-accent font-bold hover:underline flex justify-center items-center gap-2">
+                    <span class="material-symbols-outlined">home</span> Volver al Inicio
+                </a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Proveedores | Food Mascotas</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="assets/logos/favicon-innovea.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'primary': '#162230', 'accent': '#2B82C8', 'light': '#FFFFFF', 'gray-bg': '#F5F5F7', 'gray-text': '#8A8A8E' },
+                    fontFamily: { 'title': ['Montserrat', 'sans-serif'], 'body': ['Montserrat', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body bg-gray-bg md:h-screen md:overflow-hidden flex flex-col">
+    <div class="flex flex-col md:flex-row w-full md:h-full">
+        <aside class="w-full md:w-64 bg-primary text-white flex-shrink-0 md:h-full md:overflow-y-auto z-20">
+            <div class="p-6 border-b border-gray-700 sticky top-0 bg-primary z-10">
+                <a href="index.html"><img src="logo_innovea.png" alt="Logo Innovea" class="h-10"></a>
+            </div>
+            <nav class="flex flex-row md:flex-col justify-around md:justify-start overflow-x-auto md:overflow-visible">
+                <a href="analisis-cliente.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Análisis Cliente</a>
+                <a href="arquitectura-comparativa.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Arq. Origen y Destino</a>
+                <a href="propuesta-tecnologica.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Propuesta Tecnológica</a>
+                <a href="analisis-proveedores.html" class="px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold transition-colors text-sm whitespace-nowrap">Análisis Proveedores</a>
+                <a href="evaluacion-escenarios.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Evaluación Escenarios</a>
+                <a href="transformacion-digital.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Transformación Digital</a>
+            </nav>
+             <div class="mt-auto p-6 border-t border-gray-700 hidden md:block"><a href="index.html" class="text-gray-400 hover:text-white text-sm">Cerrar Sesión</a></div>
+        </aside>
+
+        <main class="flex-1 p-6 md:p-10 md:h-full md:overflow-y-auto bg-gray-bg">
+            <h1 class="font-title text-3xl font-bold text-primary mb-2">Análisis de Proveedores</h1>
+            <p class="text-gray-text mb-8">Comparativa técnica y funcional para la toma de decisión.</p>
+
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden mb-8">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-600">
+                        <thead class="text-xs text-primary uppercase bg-gray-100 border-b">
+                            <tr>
+                                <th class="px-6 py-4 font-bold">Característica</th>
+                                <th class="px-6 py-4 text-accent bg-blue-50 font-bold border-x border-blue-100">GVET</th>
+                                <th class="px-6 py-4">Volki</th>
+                                <th class="px-6 py-4">Dr. Vet</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="px-6 py-4 font-medium">Modelo de Despliegue</td>
+                                <td class="px-6 py-4 bg-blue-50 border-x border-blue-100">100% Cloud (SaaS)</td>
+                                <td class="px-6 py-4">100% Cloud (SaaS)</td>
+                                <td class="px-6 py-4">Híbrido / Local</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="px-6 py-4 font-medium">Gestión de Stock</td>
+                                <td class="px-6 py-4 bg-blue-50 border-x border-blue-100">Avanzada</td>
+                                <td class="px-6 py-4">Básica</td>
+                                <td class="px-6 py-4">Avanzada</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="px-6 py-4 font-medium">Integración WhatsApp</td>
+                                <td class="px-6 py-4 bg-blue-50 border-x border-blue-100 font-bold text-green-600">Nativa y Automática</td>
+                                <td class="px-6 py-4">Básica</td>
+                                <td class="px-6 py-4">Limitada</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="px-6 py-4 font-medium">Historia Clínica</td>
+                                <td class="px-6 py-4 bg-blue-50 border-x border-blue-100">Completa (Imágenes)</td>
+                                <td class="px-6 py-4">Completa</td>
+                                <td class="px-6 py-4">Completa</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 font-medium">Costo Mensual</td>
+                                <td class="px-6 py-4 bg-blue-50 border-x border-blue-100">Competitivo</td>
+                                <td class="px-6 py-4">Económico</td>
+                                <td class="px-6 py-4">Alto (Licencia)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <h3 class="font-bold text-primary mb-2 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-accent">check_circle</span> Selección: GVET
+                </h3>
+                <p class="text-gray-700 text-sm">
+                    Se selecciona <strong>GVET</strong> por ofrecer el mejor equilibrio entre funcionalidad administrativa (stock) y clínica. Su integración nativa con WhatsApp es el factor decisivo para cumplir el objetivo estratégico de reducir el ausentismo y mejorar la omnicanalidad.
+                </p>
+            </div>
+
+            <div class="mt-8 flex justify-between">
+                <a href="propuesta-tecnologica.html" class="text-gray-500 hover:text-primary font-bold py-2 px-4">← Anterior</a>
+                <a href="evaluacion-escenarios.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2">Siguiente <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación y Escenarios | Food Mascotas</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="assets/logos/favicon-innovea.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'primary': '#162230', 'accent': '#2B82C8', 'light': '#FFFFFF', 'gray-bg': '#F5F5F7', 'gray-text': '#8A8A8E' },
+                    fontFamily: { 'title': ['Montserrat', 'sans-serif'], 'body': ['Montserrat', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body bg-gray-bg md:h-screen md:overflow-hidden flex flex-col">
+    <div class="flex flex-col md:flex-row w-full md:h-full">
+        <aside class="w-full md:w-64 bg-primary text-white flex-shrink-0 md:h-full md:overflow-y-auto z-20">
+            <div class="p-6 border-b border-gray-700 sticky top-0 bg-primary z-10">
+                <a href="index.html"><img src="logo_innovea.png" alt="Logo Innovea" class="h-10"></a>
+            </div>
+            <nav class="flex flex-row md:flex-col justify-around md:justify-start overflow-x-auto md:overflow-visible">
+                <a href="analisis-cliente.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Análisis Cliente</a>
+                <a href="arquitectura-comparativa.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Arq. Origen y Destino</a>
+                <a href="propuesta-tecnologica.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Propuesta Tecnológica</a>
+                <a href="analisis-proveedores.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Análisis Proveedores</a>
+                <a href="evaluacion-escenarios.html" class="px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold transition-colors text-sm whitespace-nowrap">Evaluación Escenarios</a>
+                <a href="transformacion-digital.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Transformación Digital</a>
+            </nav>
+             <div class="mt-auto p-6 border-t border-gray-700 hidden md:block"><a href="index.html" class="text-gray-400 hover:text-white text-sm">Cerrar Sesión</a></div>
+        </aside>
+
+        <main class="flex-1 p-6 md:p-10 md:h-full md:overflow-y-auto bg-gray-bg">
+            <h1 class="font-title text-3xl font-bold text-primary mb-2">Evaluación y Análisis de Escenarios</h1>
+            <p class="text-gray-text mb-8">RFI, RFP y Análisis de Brechas para asegurar la inversión.</p>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <!-- Evaluación Económica -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="font-bold text-primary mb-4 flex items-center gap-2"><span class="material-symbols-outlined">attach_money</span> Evaluación Económica</h3>
+                    <p class="text-sm text-gray-600 mb-4">El modelo SaaS de GVET permite una implementación de bajo riesgo financiero.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex justify-between border-b border-gray-100 pb-1"><span>Inversión Inicial:</span> <span class="font-bold">Baja (Sin servidores)</span></li>
+                        <li class="flex justify-between border-b border-gray-100 pb-1"><span>Costo Mensual:</span> <span class="font-bold">Previsible (Suscripción)</span></li>
+                        <li class="flex justify-between pb-1"><span>ROI Estimado:</span> <span class="font-bold text-green-600">8 meses</span></li>
+                    </ul>
+                </div>
+
+                <!-- Escenario Elegido -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-accent">
+                    <h3 class="font-bold text-primary mb-4 flex items-center gap-2"><span class="material-symbols-outlined">tune</span> Escenario de Implementación</h3>
+                    <p class="text-sm text-gray-600 mb-4">Se elige una <strong>Implementación Modular</strong> para gestionar el cambio cultural.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-3 text-sm text-gray-600">
+                            <span class="bg-blue-100 text-accent font-bold px-2 py-1 rounded text-xs">Fase 1</span>
+                            <span>Migración de Datos y Stock</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-gray-600">
+                            <span class="bg-blue-100 text-accent font-bold px-2 py-1 rounded text-xs">Fase 2</span>
+                            <span>Agenda y CRM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Análisis de Brechas -->
+            <div class="bg-white p-8 rounded-lg shadow-sm">
+                <h2 class="font-title text-xl font-bold text-primary mb-6">Matriz de Brechas (Gap Analysis)</h2>
+                
+                <!-- Imagen Ilustrativa (Matriz PDF pág 14) -->
+                <img src="assets/images/matriz-brechas.png" onerror="this.src='https://via.placeholder.com/800x200/f8fafc/cbd5e1?text=Matriz+de+Brechas+(Negocio+-+Datos+-+Apps+-+Tecnolog%C3%ADa)'" alt="Matriz de Brechas" class="w-full rounded mb-6 border border-gray-200">
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-red-50 rounded border border-red-100">
+                        <strong class="text-red-800 block mb-1">Brecha Crítica: Datos</strong>
+                        <p class="text-sm text-gray-600">Información fragmentada en papel. Solución: Repositorio Cloud único.</p>
+                    </div>
+                    <div class="p-4 bg-red-50 rounded border border-red-100">
+                        <strong class="text-red-800 block mb-1">Brecha Crítica: Negocio</strong>
+                        <p class="text-sm text-gray-600">Procesos manuales. Solución: Automatización de turnos y stock.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 flex justify-between">
+                <a href="analisis-proveedores.html" class="text-gray-500 hover:text-primary font-bold py-2 px-4">← Anterior</a>
+                <a href="transformacion-digital.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2">Siguiente <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

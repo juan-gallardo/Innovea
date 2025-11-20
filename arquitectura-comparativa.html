@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectura Comparativa | Food Mascotas</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="assets/logos/favicon-innovea.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'primary': '#162230', 'accent': '#2B82C8', 'light': '#FFFFFF', 'gray-bg': '#F5F5F7', 'gray-text': '#8A8A8E' },
+                    fontFamily: { 'title': ['Montserrat', 'sans-serif'], 'body': ['Montserrat', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body bg-gray-bg md:h-screen md:overflow-hidden flex flex-col">
+    <div class="flex flex-col md:flex-row w-full md:h-full">
+        
+        <!-- SIDEBAR -->
+        <aside class="w-full md:w-64 bg-primary text-white flex-shrink-0 md:h-full md:overflow-y-auto z-20">
+            <div class="p-6 border-b border-gray-700 sticky top-0 bg-primary z-10">
+                <a href="index.html"><img src="logo_innovea.png" alt="Logo Innovea" class="h-10"></a>
+            </div>
+            <nav class="flex flex-row md:flex-col justify-around md:justify-start overflow-x-auto md:overflow-visible">
+                <a href="analisis-cliente.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Análisis Cliente</a>
+                <a href="arquitectura-comparativa.html" class="px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold transition-colors text-sm whitespace-nowrap">Arq. Origen y Destino</a>
+                <a href="propuesta-tecnologica.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Propuesta Tecnológica</a>
+                <a href="analisis-proveedores.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Análisis Proveedores</a>
+                <a href="evaluacion-escenarios.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Evaluación Escenarios</a>
+                <a href="transformacion-digital.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Transformación Digital</a>
+            </nav>
+             <div class="mt-auto p-6 border-t border-gray-700 hidden md:block"><a href="index.html" class="text-gray-400 hover:text-white text-sm">Cerrar Sesión</a></div>
+        </aside>
+
+        <!-- CONTENIDO -->
+        <main class="flex-1 p-6 md:p-10 md:h-full md:overflow-y-auto bg-gray-bg">
+            <h1 class="font-title text-3xl font-bold text-primary mb-2">Arquitectura: Origen vs. Destino</h1>
+            <p class="text-gray-text mb-8">Evolución desde la fragmentación hacia la integración total.</p>
+
+            <!-- Layout Vertical para Maximizar Imágenes -->
+            <div class="flex flex-col gap-10 pb-10">
+                
+                <!-- 1. Origen (AS-IS) -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden border-l-8 border-red-400">
+                    <div class="p-8">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                            <div>
+                                <h2 class="font-bold text-2xl text-primary flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-red-400 text-3xl">history</span> 
+                                    Arquitectura de Origen (AS-IS)
+                                </h2>
+                                <p class="text-gray-500 mt-1">Estado actual: Fragmentación y procesos manuales.</p>
+                            </div>
+                            <!-- Lista de características compacta -->
+                            <div class="flex gap-4 text-sm">
+                                <span class="px-3 py-1 bg-red-50 text-red-700 rounded border border-red-100">Datos Dispersos</span>
+                                <span class="px-3 py-1 bg-red-50 text-red-700 rounded border border-red-100">Sin Backup Cloud</span>
+                            </div>
+                        </div>
+                        
+                        <!-- IMAGEN GRANDE -->
+                        <div class="w-full bg-gray-50 p-4 rounded border border-gray-200 mb-6">
+                            <img src="assets/images/arquitectura-origen.png" 
+                                 onerror="this.src='https://via.placeholder.com/1200x600/f1f5f9/94a3b8?text=Diagrama+AS-IS+(Imagen+Grande)'" 
+                                 alt="Diagrama Origen" 
+                                 class="w-full h-auto object-contain">
+                        </div>
+
+                        <div class="bg-gray-50 p-4 rounded-lg text-gray-700 text-sm border-t border-gray-200">
+                            <strong class="block text-primary mb-1">Puntos de Dolor:</strong>
+                            La arquitectura actual depende de PCs locales aisladas. La información crítica del negocio viaja por canales informales (WhatsApp personal) o queda registrada en papel, imposibilitando la analítica de datos.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flecha de Transición -->
+                <div class="flex justify-center -my-4 relative z-10">
+                    <div class="bg-gray-200 p-2 rounded-full shadow-sm">
+                        <span class="material-symbols-outlined text-gray-400 text-4xl">arrow_downward</span>
+                    </div>
+                </div>
+
+                <!-- 2. Destino (TO-BE) -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden border-l-8 border-accent">
+                    <div class="p-8">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                            <div>
+                                <h2 class="font-bold text-2xl text-primary flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-accent text-3xl">rocket_launch</span> 
+                                    Arquitectura de Destino (TO-BE)
+                                </h2>
+                                <p class="text-gray-500 mt-1">Estado futuro: Ecosistema integrado en la nube.</p>
+                            </div>
+                            <!-- Lista de características compacta -->
+                            <div class="flex gap-4 text-sm">
+                                <span class="px-3 py-1 bg-blue-50 text-accent rounded border border-blue-100">100% Cloud</span>
+                                <span class="px-3 py-1 bg-blue-50 text-accent rounded border border-blue-100">Omnicanalidad</span>
+                            </div>
+                        </div>
+                        
+                        <!-- IMAGEN GRANDE -->
+                        <div class="w-full bg-blue-50/30 p-4 rounded border border-blue-100 mb-6">
+                            <img src="assets/images/arquitectura-destino.png" 
+                                 onerror="this.src='https://via.placeholder.com/1200x600/e0f2fe/3b82f6?text=Diagrama+TO-BE+(Imagen+Grande)'" 
+                                 alt="Diagrama Destino" 
+                                 class="w-full h-auto object-contain">
+                        </div>
+
+                        <div class="bg-blue-50 p-4 rounded-lg text-gray-700 text-sm border-t border-blue-100">
+                            <strong class="block text-primary mb-1">Mejoras Clave:</strong>
+                            Implementación de un núcleo digital (ERP+CRM) que centraliza toda la operación. Integración nativa con agenda web y pasarelas de pago, garantizando la integridad del dato y la seguridad de la información.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex justify-between pt-4 pb-10">
+                <a href="analisis-cliente.html" class="text-gray-500 hover:text-primary font-bold py-2 px-4">← Anterior</a>
+                <a href="propuesta-tecnologica.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg">Siguiente <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
