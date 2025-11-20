@@ -4,67 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acceso al Portal | Innovea</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    
+    <!-- Configuración de Marca Innovea -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#212529', // Tu gris oscuro
+                        'accent': '#2B82C8',  // Tu azul
+                        'light': '#FFFFFF',
+                        'gray-bg': '#F5F5F7',
+                        'gray-text': '#8A8A8E',
+                    },
+                    fontFamily: {
+                        'title': ['Poppins', 'sans-serif'],
+                        'body': ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Animación hamburguesa */
+        .bar { transition: all 0.3s ease-in-out; }
+        .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active .bar:nth-child(2) { opacity: 0; }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    </style>
 </head>
+<body class="font-body text-primary bg-gray-bg flex flex-col min-h-screen">
 
-<body class="login-page">
-
-    <nav class="navbar">
-        <a href="#home">
-            <img src="logo_innovea.png" alt="Logo de Innovea" class="logo-img">
-        </a>
-        
-        <!-- Navegación de Escritorio -->
-        <ul>
-            <li><a href="#home">Inicio</a></li>
-            <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-            <li><a href="#services">Servicios</a></li>
-            <li><a href="#cases">Casos de Éxito</a></li>
-            <li><a href="#contact">Contacto</a></li>
-        </ul>
-
-        <!-- Botón de Hamburguesa -->
-        <button class="hamburger" id="hamburger-btn">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
+    <!-- BARRA DE NAVEGACIÓN (Igual al index) -->
+    <nav class="bg-primary shadow-lg fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html">
+                <img src="logo_innovea.png" alt="Logo de Innovea" class="h-10">
+            </a>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
+                <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes Somos</a></li>
+                <li><a href="index.html#solutions" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestra Propuesta</a></li>
+                <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de Éxito</a></li>
+                <li><a href="index.html#contact" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
+            </ul>
+            <button class="md:hidden" id="hamburger-btn">
+                <div class="space-y-1.5">
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                </div>
+            </button>
+        </div>
+        <div class="hidden md:hidden bg-primary" id="mobile-nav-panel">
+            <a href="index.html" class="block py-3 px-6 text-white text-center font-bold">Inicio</a>
+            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold">Quiénes Somos</a>
+            <a href="index.html#solutions" class="block py-3 px-6 text-white text-center font-bold">Nuestra Propuesta</a>
+            <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold">Casos de Éxito</a>
+            <a href="index.html#contact" class="block py-3 px-6 text-white text-center font-bold">Contacto</a>
+        </div>
     </nav>
 
-    <!-- Panel de Navegación Móvil -->
-    <div class="mobile-nav" id="mobile-nav-panel">
-        <a href="#home">Inicio</a>
-        <a href="quienes-somos.html">Quiénes Somos</a>
-        <a href="#services">Servicios</a>
-        <a href="#cases">Casos de Éxito</a>
-        <a href="#contact">Contacto</a>
+    <!-- SECCIÓN DE CABECERA (IMAGEN DE FONDO) -->
+    <div class="relative flex h-[350px] w-full items-center justify-center overflow-hidden bg-cover bg-center mt-16" 
+         style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop');">
+        <!-- Capa oscura superpuesta para legibilidad -->
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-primary/40"></div>
     </div>
 
-    <div class="login-box">
-            <img src="Logo_innovea.png" alt="Logo de Innovea" class="logo-img">
-        <h3>Portal del Cliente: Food Mascotas</h3>
-        <form id="login-form">
-            <input type="text" id="username" placeholder="Usuario" required>
-            <input type="password" id="password" placeholder="Contraseña" required>
-            <p id="login-error">Usuario o contraseña incorrectos.</p>
-            <button type="submit" class="btn">Acceder al Caso</button>
-        </form>
-        <a href="index.html" class="back-link">Volver a la página de inicio</a>
+    <!-- SECCIÓN DEL FORMULARIO (FLOTANTE) -->
+    <div class="flex w-full flex-1 flex-col items-center p-6 -mt-16 relative z-20 pb-20">
+        <div class="flex w-full max-w-md flex-col items-center rounded-xl bg-white shadow-xl p-8 border border-gray-100">
+            
+            <!-- Títulos -->
+            <div class="mb-8 flex flex-col items-center text-center mt-6">
+                <h1 class="font-title text-2xl font-bold text-primary leading-tight">Portal del Cliente</h1>
+                <p class="text-gray-text text-sm font-normal pt-2">Acceso seguro al caso Food Mascotas y documentación estratégica.</p>
+            </div>
+
+            <!-- Formulario -->
+            <form id="login-form" class="w-full space-y-5">
+                
+                <!-- Campo Usuario -->
+                <div class="space-y-2">
+                    <label class="text-primary text-sm font-bold" for="username">Usuario</label>
+                    <input type="text" id="username" placeholder="Ingrese su usuario" required
+                        class="flex w-full h-12 rounded-lg border border-gray-300 bg-gray-50 px-4 text-base text-primary focus:border-accent focus:ring-2 focus:ring-accent focus:outline-none transition-all">
+                </div>
+
+                <!-- Campo Contraseña -->
+                <div class="space-y-2">
+                    <label class="text-primary text-sm font-bold" for="password">Contraseña</label>
+                    <div class="relative flex items-center">
+                        <input type="password" id="password" placeholder="Ingrese su contraseña" required
+                            class="flex w-full h-12 rounded-lg border border-gray-300 bg-gray-50 pl-4 pr-12 text-base text-primary focus:border-accent focus:ring-2 focus:ring-accent focus:outline-none transition-all">
+                        <!-- Icono de candado -->
+                        <div class="absolute right-0 flex items-center justify-center pr-4 text-gray-400">
+                            <span class="material-symbols-outlined text-[20px]">lock</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mensaje de Error (Oculto por defecto) -->
+                <p id="login-error" class="text-red-500 text-sm font-bold text-center hidden bg-red-50 p-2 rounded border border-red-100">
+                    Usuario o contraseña incorrectos.
+                </p>
+
+                <!-- Botón de Acción -->
+                <div class="pt-2">
+                    <button type="submit" class="flex w-full items-center justify-center rounded-full h-12 px-6 text-base font-bold text-white bg-accent hover:bg-opacity-90 transition-transform transform hover:scale-105 shadow-md">
+                        Acceder al Caso
+                    </button>
+                </div>
+
+            </form>
+
+            <!-- Footer de la tarjeta -->
+            <div class="mt-8 text-center border-t border-gray-100 w-full pt-4">
+                <a class="text-accent text-sm font-bold hover:underline flex items-center justify-center gap-1" href="index.html">
+                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                    Volver a Inicio
+                </a>
+            </div>
+        </div>
     </div>
 
+    <!-- SCRIPTS -->
     <script>
+        // Menú Hamburguesa
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNavPanel = document.getElementById('mobile-nav-panel');
+        if (hamburgerBtn) {
+            hamburgerBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.toggle('active');
+                mobileNavPanel.classList.toggle('hidden');
+            });
+        }
+
+        // Lógica de Login
         document.getElementById('login-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const errorMsg = document.getElementById('login-error');
 
+            // Credenciales Hardcodeadas
             if (username === 'uba.fce@innovea.com' && password === 'Innovea2025') {
                 window.location.href = 'diagnostico.html';
             } else {
-                errorMsg.style.display = 'block';
+                errorMsg.classList.remove('hidden');
             }
         });
     </script>
+
 </body>
 </html>

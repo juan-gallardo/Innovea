@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso Food Mascotas | Innovea</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+    <!-- Configuración de Marca Innovea -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#212529',
+                        'accent': '#2B82C8',
+                        'light': '#FFFFFF',
+                        'gray-bg': '#F5F5F7',
+                        'gray-text': '#8A8A8E',
+                    },
+                    fontFamily: {
+                        'title': ['Poppins', 'sans-serif'],
+                        'body': ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bar { transition: all 0.3s ease-in-out; }
+        .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active .bar:nth-child(2) { opacity: 0; }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        
+        /* Gradiente para el bloqueo de contenido */
+        .lock-overlay {
+            background: linear-gradient(to bottom, rgba(245, 245, 247, 0.6) 0%, rgba(245, 245, 247, 1) 60%);
+        }
+    </style>
+</head>
+<body class="font-body text-primary bg-gray-bg flex flex-col min-h-screen">
+    
+    <!-- BARRA DE NAVEGACIÓN (Estándar) -->
+    <nav class="bg-primary shadow-lg sticky top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html">
+                <img src="logo_innovea.png" alt="Logo de Innovea" class="h-10">
+            </a>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
+                <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes Somos</a></li>
+                <li><a href="index.html#solutions" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestra Propuesta</a></li>
+                <li><a href="casos-de-exito.html" class="text-white font-bold transition-colors">Casos de Éxito</a></li>
+                <li><a href="index.html#contact" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
+            </ul>
+            <button class="md:hidden" id="hamburger-btn">
+                <div class="space-y-1.5">
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                </div>
+            </button>
+        </div>
+        <div class="hidden md:hidden bg-primary" id="mobile-nav-panel">
+            <!-- Menú móvil JS -->
+        </div>
+    </nav>
+
+    <!-- CONTENIDO DEL CASO -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl">
+        
+        <!-- Botón Volver -->
+        <div class="mb-6">
+            <a href="casos-de-exito.html" class="flex items-center text-gray-text hover:text-accent transition-colors font-bold text-sm">
+                <span class="material-symbols-outlined mr-1 text-lg">arrow_back</span>
+                Volver a Casos de Éxito
+            </a>
+        </div>
+
+        <!-- Imagen Hero del Caso -->
+        <div class="rounded-xl overflow-hidden shadow-lg mb-8 relative h-64 md:h-80">
+            <img src="https://images.unsplash.com/photo-1599658880436-c617927eb9f5?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Tecnología en veterinaria" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent flex items-end p-6 md:p-8">
+                <div>
+                    <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-2 inline-block">Veterinaria</span>
+                    <h1 class="font-title text-2xl md:text-4xl font-bold text-white leading-tight">
+                        Food Mascotas: Escalando Operaciones con una Plataforma Unificada
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta: El Desafío -->
+        <div class="bg-white rounded-lg shadow-sm p-6 md:p-8 mb-6 border-l-4 border-primary">
+            <div class="flex items-center gap-3 mb-3">
+                <span class="material-symbols-outlined text-3xl text-primary">warning</span>
+                <h2 class="font-title text-xl font-bold text-primary">El Desafío Estratégico</h2>
+            </div>
+            <p class="text-gray-600 leading-relaxed">
+                Food Mascotas enfrentaba una fragmentación operativa crítica. Con una gestión de inventario manual en cuadernos y datos de ventas desconectados, la empresa sufría de quiebres de stock constantes y una incapacidad para realizar un seguimiento efectivo de sus pacientes, limitando su potencial de crecimiento en un mercado competitivo.
+            </p>
+        </div>
+
+        <!-- Tarjeta: La Solución -->
+        <div class="bg-white rounded-lg shadow-sm p-6 md:p-8 mb-8 border-l-4 border-accent">
+            <div class="flex items-center gap-3 mb-3">
+                <span class="material-symbols-outlined text-3xl text-accent">psychology</span>
+                <h2 class="font-title text-xl font-bold text-primary">La Solución Innovea</h2>
+            </div>
+            <p class="text-gray-600 leading-relaxed">
+                Diseñamos una arquitectura tecnológica basada en la nube, implementando el sistema <strong>GVET</strong> como núcleo. Unificamos inventario, historia clínica y ventas en un solo panel de control. Además, integramos una agenda online automatizada con WhatsApp para reducir el ausentismo en las citas.
+            </p>
+        </div>
+
+        <!-- SECCIÓN BLOQUEADA (Resultados) -->
+        <div class="relative rounded-xl overflow-hidden bg-white shadow-sm border border-gray-200 p-6 md:p-8">
+            
+            <!-- Contenido Borroso de Fondo (El "Teaser") -->
+            <div class="filter blur-sm select-none opacity-50">
+                <h2 class="font-title text-xl font-bold text-primary mb-4">Resultados Detallados e Impacto ROI</h2>
+                <p class="text-gray-600 mb-4">
+                    Tras 6 meses de implementación, los resultados fueron transformadores. Se observó una reducción del 40% en el tiempo administrativo y un aumento del 25% en la facturación mensual debido a la recuperación de clientes inactivos.
+                </p>
+                <div class="w-full h-40 bg-gray-200 rounded flex items-end justify-around px-4 pb-2">
+                    <div class="w-12 h-24 bg-gray-300 rounded-t"></div>
+                    <div class="w-12 h-32 bg-gray-400 rounded-t"></div>
+                    <div class="w-12 h-20 bg-gray-300 rounded-t"></div>
+                    <div class="w-12 h-36 bg-primary rounded-t"></div>
+                </div>
+                <p class="text-gray-600 mt-4">
+                    El análisis detallado de métricas muestra una correlación directa entre la automatización de recordatorios y la tasa de retención...
+                </p>
+            </div>
+
+            <!-- Capa de Bloqueo (Overlay) -->
+            <div class="absolute inset-0 lock-overlay flex flex-col items-center justify-center z-10 p-6 text-center">
+                <div class="bg-white p-4 rounded-full shadow-lg mb-4">
+                    <span class="material-symbols-outlined text-4xl text-accent">lock</span>
+                </div>
+                <h3 class="font-title text-2xl font-bold text-primary mb-2">Acceso Exclusivo para Clientes</h3>
+                <p class="text-gray-600 mb-6 max-w-md mx-auto">
+                    El análisis detallado de métricas, la arquitectura técnica y el desglose del ROI están disponibles solo en nuestro portal privado.
+                </p>
+                
+                <a href="login.html" class="bg-accent text-white font-bold py-3 px-8 rounded-full shadow-lg hover:scale-105 transition-transform duration-200 flex items-center gap-2">
+                    <span>Iniciar Sesión para Ver Todo</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+                
+                <p class="text-sm text-gray-400 mt-4">
+                    Acceso seguro vía Innovea Portal
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER SIMPLE -->
+    <footer class="bg-primary py-8 text-center mt-auto">
+        <p class="text-gray-400 text-sm">© 2025 Innovea Consultoría. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script Menú -->
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNavPanel = document.getElementById('mobile-nav-panel');
+        if (hamburgerBtn) {
+            // Clona el menú de escritorio para móvil
+            const desktopMenu = document.querySelector('nav ul');
+            if(desktopMenu) mobileNavPanel.innerHTML = desktopMenu.innerHTML;
+            
+            hamburgerBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.toggle('active');
+                mobileNavPanel.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

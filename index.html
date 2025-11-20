@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innovea | Innovamos tu Futuro, Hoy.</title>
-    <!-- Tailwind CSS a través de CDN -->
+    <title>Innovea - Soluciones ERP & CRM para PYMES</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <!-- Script de fuentes de Google -->
+    <!-- Fuentes Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Configuración personalizada de Tailwind -->
+    <!-- Iconos Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    
+    <!-- Configuración de Marca Innovea -->
     <script>
         tailwind.config = {
+            darkMode: "class",
             theme: {
                 extend: {
                     colors: {
                         'primary': '#162230',
-                        'accent': '#2B82C8',
+                        'accent': '#2B82C8',  
                         'light': '#FFFFFF',
                         'gray-bg': '#F5F5F7',
                         'gray-text': '#8A8A8E',
@@ -25,38 +29,52 @@
                     fontFamily: {
                         'title': ['Poppins', 'sans-serif'],
                         'body': ['Lato', 'sans-serif'],
+                    },
+                    animation: {
+                        marquee: 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
                     }
                 }
             }
         }
     </script>
-    <!-- Pequeño CSS para la barra de scroll y transiciones no cubiertas por Tailwind -->
     <style>
-        .case-studies-container::-webkit-scrollbar { height: 8px; }
-        .case-studies-container::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+        /* Animación Hamburguesa */
         .bar { transition: all 0.3s ease-in-out; }
         .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
         .hamburger.active .bar:nth-child(2) { opacity: 0; }
         .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        
+        /* Scrollbar personalizada */
+        body::-webkit-scrollbar { width: 8px; }
+        body::-webkit-scrollbar-thumb { background-color: #2B82C8; border-radius: 4px; }
     </style>
 </head>
-<body class="font-body text-primary">
+<body class="bg-gray-bg font-body text-primary flex flex-col min-h-screen">
+
     <!-- BARRA DE NAVEGACIÓN -->
     <nav class="bg-primary shadow-lg fixed top-0 left-0 w-full z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#home">
                 <img src="logo_innovea.png" alt="Logo de Innovea" class="h-10">
             </a>
+            
             <!-- Navegación de Escritorio -->
             <ul class="hidden md:flex space-x-6">
                 <li><a href="#home" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
                 <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes Somos</a></li>
-                <li><a href="#solutions" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestra Propuesta</a></li>
-                <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de éxito</a></li>
+                <li><a href="nuestro-servicio.html" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestro servicio</a></li>
+                <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de Éxito</a></li>
                 <li><a href="#contact" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
             </ul>
+
             <!-- Botón de Hamburguesa -->
-            <button class="md:hidden" id="hamburger-btn">
+            <button class="md:hidden hamburger" id="hamburger-btn">
                 <div class="space-y-1.5">
                     <span class="bar block w-6 h-0.5 bg-white"></span>
                     <span class="bar block w-6 h-0.5 bg-white"></span>
@@ -64,146 +82,173 @@
                 </div>
             </button>
         </div>
+
         <!-- Panel de Navegación Móvil -->
-        <div class="hidden md:hidden bg-primary" id="mobile-nav-panel">
-            <a href="#home" class="block py-3 px-6 text-white text-center font-bold">Inicio</a>
-            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold">Quiénes Somos</a>
-            <a href="#solutions" class="block py-3 px-6 text-white text-center font-bold">Nuestra Propuesta</a>
-            <a href="#cases" class="block py-3 px-6 text-white text-center font-bold">Experiencia</a>
-            <a href="#contact" class="block py-3 px-6 text-white text-center font-bold">Contacto</a>
+        <div class="hidden md:hidden bg-primary border-t border-gray-700" id="mobile-nav-panel">
+            <a href="#home" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Inicio</a>
+            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Quiénes Somos</a>
+            <a href="nuestro-servicio.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Nuestro servicio</a>
+            <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Casos de Éxito</a>
+            <a href="#contact" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Contacto</a>
         </div>
     </nav>
 
-    <!-- SECCIÓN HERO -->
-    <section id="home" class="bg-gray-bg pt-32 pb-20 text-center">
-        <div class="container mx-auto px-6">
-            <h1 class="font-title text-4xl md:text-5xl font-bold leading-tight mb-4">Innovamos tu futuro, hoy.</h1>
-            <p class="text-lg text-gray-text max-w-2xl mx-auto mb-8">Empoderamos a tu empresa para que optimice sus procesos y potencie su crecimiento a través de soluciones digitales innovadoras y personalizadas.</p>
-            <a href="#solutions" class="bg-accent text-white font-bold py-3 px-8 rounded-full inline-block transition-transform transform hover:scale-105">Explora nuestra propuesta de valor</a>
-        </div>
-    </section>
-
-    <!-- SECCIÓN VALORES -->
-    <section id="why-us" class="py-20 text-center">
-        <div class="container mx-auto px-6">
-            <h2 class="font-title text-3xl font-bold mb-4">Nuestros Pilares</h2>
-            <p class="text-gray-text max-w-2xl mx-auto mb-12">Actuamos con un conjunto de valores que guían cada proyecto y cada relación con nuestros clientes.</p>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="text-5xl mb-4">💡</div>
-                    <h3 class="font-title text-xl font-bold mb-2">Innovación</h3>
-                    <p>Buscamos constantemente soluciones creativas y de vanguardia para los desafíos de nuestros clientes.</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl mb-4">🤝</div>
-                    <h3 class="font-title text-xl font-bold mb-2">Colaboración</h3>
-                    <p>Trabajamos en estrecha colaboración contigo para entender tus necesidades y co-crear soluciones a medida.</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl mb-4">🏆</div>
-                    <h3 class="font-title text-xl font-bold mb-2">Excelencia</h3>
-                    <p>Nos comprometemos a entregar resultados de la más alta calidad que superen tus expectativas.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN SOLUCIONES -->
-    <section id="solutions" class="py-20 border-t border-gray-200">
-        <div class="container mx-auto px-6">
-            <h2 class="font-title text-3xl font-bold text-center mb-4">Soluciones Diseñadas para tu Crecimiento</h2>
-            <p class="text-gray-text text-center max-w-3xl mx-auto mb-12">Más que implementar software, diseñamos ecosistemas digitales que se traducen en beneficios concretos para tu compañía. Nuestra propuesta única es integrar tecnología de punta con un entendimiento profundo de tu negocio para generar un impacto medible.</p>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="text-center">
-                    <div class="text-5xl mb-4 text-accent">🔗</div>
-                    <h3 class="font-title text-xl font-bold mb-2">Implementación Estratégica de ERP</h3>
-                    <p class="text-gray-text">Unificamos tus operaciones (finanzas, inventario, RRHH) no solo en una plataforma, sino en una estrategia cohesiva. Transformamos datos dispersos en inteligencia de negocio para decisiones más rápidas y acertadas.</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl mb-4 text-accent">🎯</div>
-                    <h3 class="font-title text-xl font-bold mb-2">Gestión de Clientes (CRM) con Foco en Resultados</h3>
-                    <p class="text-gray-text">Centralizamos los datos de tus clientes para crear campañas personalizadas y automatizar la comunicación. Nuestra implementación se enfoca en aumentar la retención y el ticket promedio.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SECCIÓN CONTACTO -->
-    <section id="contact" class="py-20 bg-gray-bg">
-        <div class="container mx-auto px-6">
-            <div class="max-w-2xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-lg">
-                <h2 class="font-title text-3xl font-bold text-center mb-2">¿Hablemos de tu proyecto?</h2>
-                <p class="text-gray-text text-center mb-8">Completa el formulario y uno de nuestros especialistas se pondrá en contacto contigo.</p>
-                <form name="contact" method="POST" data-netlify="true">
-                    <input type="hidden" name="form-name" value="contact" />
-                    <div class="mb-6">
-                        <label for="name" class="block mb-2 font-bold text-primary">Tu Nombre</label>
-                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="email" class="block mb-2 font-bold text-primary">Tu Correo Electrónico</label>
-                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="message" class="block mb-2 font-bold text-primary">Mensaje</label>
-                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent" required></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="bg-accent text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105">Enviar Mensaje</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN CASOS DE ÉXITO -->
-    <div id="cases" class="py-20">
-        <!-- Proyecto Destacado -->
-        <section class="container mx-auto px-6 mb-20">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <p class="font-bold text-accent">Nuestro Proyecto Destacado</p>
-                    <h2 class="font-title text-3xl font-bold mt-2 mb-4">Transformación Digital de Food Mascotas</h2>
-                    <p class="text-gray-text mb-6">Para esta reconocida veterinaria, diseñamos una transición completa desde procesos manuales hacia un ecosistema digital integrado, centrado en centralizar datos, automatizar la gestión y crear una estrategia omnicanal.</p>
-                    <a href="login.html" class="bg-accent text-white font-bold py-3 px-8 rounded-full inline-block transition-transform transform hover:scale-105">Ver el caso de estudio completo</a>
-                </div>
-                <div>
-                    <img src="assets/logos/ranita.png" alt="Veterinaria moderna" class="rounded-lg shadow-xl w-full">
-                </div>
-            </div>
-        </section>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="flex-grow mt-16"> <!-- Margen superior para compensar el navbar fijo -->
         
-        <!-- Otros Casos -->
-        <section class="container mx-auto px-6">
-            <h2 class="font-title text-3xl font-bold text-center mb-12">Otros Casos de Éxito</h2>
-            <div class="flex overflow-x-auto space-x-6 pb-4 case-studies-container">
-                <!-- Tarjeta 1 -->
-                <div class="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg p-6 text-left">
-                    <div class="h-32 flex items-center justify-center mb-4"><img src="assets/logos/urbania-logo.png" alt="Logo Urbania" class="max-h-20"></div>
-                    <h3 class="font-title text-xl font-bold">Urbania Propiedades</h3>
-                    <p class="text-sm font-bold text-gray-text mb-2">Inmobiliaria</p>
-                    <p class="text-gray-text text-sm">Implementamos un CRM a medida que aceleró el ciclo de ventas en un 40% al centralizar la gestión de clientes y propiedades.</p>
+        <!-- SECCIÓN HERO -->
+        <div class="@container">
+            <div class="flex flex-col gap-6 px-4 py-16 md:py-24 items-center text-center @[480px]:gap-8">
+                <div class="flex flex-col gap-4 max-w-4xl">
+                    <h1 class="text-primary text-4xl md:text-6xl font-title font-bold leading-tight">
+                        Implementación de ERP y CRM para PYMES a tu medida
+                    </h1>
+                    <h2 class="text-gray-text text-lg md:text-xl font-normal leading-relaxed max-w-2xl mx-auto">
+                        En Innovea, transformamos la gestión de tu negocio con soluciones tecnológicas adaptadas a tu modelo único. Innovamos tu futuro, hoy.
+                    </h2>
                 </div>
-                <!-- Tarjeta 2 -->
-                <div class="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg p-6 text-left">
-                    <div class="h-32 flex items-center justify-center mb-4"><img src="assets/logos/vitalia-logo.png" alt="Logo Vitalia" class="max-h-20"></div>
-                    <h3 class="font-title text-xl font-bold">Vitalia Salud</h3>
-                    <p class="text-sm font-bold text-gray-text mb-2">Salud</p>
-                    <p class="text-gray-text text-sm">Optimizamos la agenda de turnos y el historial clínico, reduciendo los tiempos de espera y mejorando la calidad de la atención.</p>
+
+                <!-- BOTÓN CTA PRINCIPAL -->
+                <div class="mt-4">
+                    <a href="#contact" class="inline-flex items-center justify-center rounded-full h-12 px-8 bg-accent text-white text-base font-bold tracking-wide hover:bg-opacity-90 transition-transform hover:scale-105 shadow-lg">
+                        Agenda Tu Asesoría Personalizada
+                    </a>
                 </div>
-                <!-- Tarjeta 3 -->
-                <div class="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg p-6 text-left">
-                    <div class="h-32 flex items-center justify-center mb-4"><img src="assets/logos/trendstore-logo.png" alt="Logo TrendStore" class="max-h-20"></div>
-                    <h3 class="font-title text-xl font-bold">TrendStore</h3>
-                    <p class="text-sm font-bold text-gray-text mb-2">Retail</p>
-                    <p class="text-gray-text text-sm">Unificamos el inventario de la tienda física y el e-commerce, eliminando quiebres de stock y potenciando la estrategia omnicanal.</p>
+
+                <!-- BLOQUE DE 3 PILARES (IMÁGENES + TEXTO) -->
+                <div id="solutions" class="flex flex-col gap-12 mt-16 max-w-6xl mx-auto">
+                    
+                    <!-- Pilar 1 -->
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="w-full md:w-1/2 aspect-video bg-cover bg-center rounded-xl shadow-md" 
+                             style='background-image: url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop");'>
+                        </div>
+                        <div class="flex flex-col gap-3 md:w-1/2 text-left">
+                            <h3 class="text-accent text-2xl font-title font-bold">1. Entiende Tu Modelo</h3>
+                            <p class="text-gray-600 text-lg leading-relaxed">
+                                Analizamos a fondo tu operativa, procesos y objetivos para comprender la esencia de tu PYME. Nuestro enfoque empieza por ti, no por el software.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Pilar 2 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+                        <div class="w-full md:w-1/2 aspect-video bg-cover bg-center rounded-xl shadow-md" 
+                             style='background-image: url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop");'>
+                        </div>
+                        <div class="flex flex-col gap-3 md:w-1/2 text-left">
+                            <h3 class="text-accent text-2xl font-title font-bold">2. Diseño a Medida</h3>
+                            <p class="text-gray-600 text-lg leading-relaxed">
+                                Diseñamos e implementamos soluciones ERP y CRM que se alinean perfectamente con las necesidades específicas de tu negocio, optimizando cada proceso crítico.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Pilar 3 -->
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="w-full md:w-1/2 aspect-video bg-cover bg-center rounded-xl shadow-md" 
+                             style='background-image: url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2032&auto=format&fit=crop");'>
+                        </div>
+                        <div class="flex flex-col gap-3 md:w-1/2 text-left">
+                            <h3 class="text-accent text-2xl font-title font-bold">3. Resultados Comprobados</h3>
+                            <p class="text-gray-600 text-lg leading-relaxed">
+                                Garantizamos una implementación exitosa que se traduce en mayor eficiencia, productividad y crecimiento sostenible para tu empresa desde el primer día.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE LOGOS (MARQUEE) -->
+        <div class="bg-white py-10 mt-10 border-y border-gray-200">
+            <h4 class="text-gray-400 text-sm font-bold uppercase tracking-widest text-center mb-8">Tecnologías que implementamos</h4>
+            <div class="relative w-full overflow-hidden">
+                <!-- Contenedor del Marquee (Duplicado para efecto infinito) -->
+                <div class="flex w-[200%] animate-marquee">
+                    <div class="flex w-1/2 justify-around items-center gap-12 px-4">
+                        <img alt="Microsoft" class="h-8 grayscale opacity-60 hover:opacity-100 transition-opacity" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"/>
+                        <img alt="Oracle" class="h-6 grayscale opacity-60 hover:opacity-100 transition-opacity" src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg"/>
+                        <img alt="SAP" class="h-8 grayscale opacity-60 hover:opacity-100 transition-opacity" src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg"/>
+                        <img alt="Salesforce" class="h-10 grayscale opacity-60 hover:opacity-100 transition-opacity" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"/>
+                        <img alt="HubSpot" class="h-8 grayscale opacity-60 hover:opacity-100 transition-opacity" src="https://upload.wikimedia.org/wikipedia/commons/1/15/HubSpot_Logo.svg"/>
+                    </div>
+                    <!-- Duplicado exacto -->
+                    <div class="flex w-1/2 justify-around items-center gap-12 px-4">
+                        <img alt="Microsoft" class="h-8 grayscale opacity-60 hover:opacity-100 transition-opacity" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"/>
+                        <img alt="Oracle" class="h-6 grayscale opacity-60 hover:opacity-100 transition-opacity" src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg"/>
+                        <img alt="SAP" class="h-8 grayscale opacity-60 hover:opacity-100 transition-opacity" src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg"/>
+                        <img alt="Salesforce" class="h-10 grayscale opacity-60 hover:opacity-100 transition-opacity" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"/>
+                        <img alt="HubSpot" class="h-8 grayscale opacity-60 hover:opacity-100 transition-opacity" src="https://upload.wikimedia.org/wikipedia/commons/1/15/HubSpot_Logo.svg"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE FORMULARIO DE CONTACTO -->
+        <section id="contact" class="py-20 bg-gray-bg">
+            <div class="container mx-auto px-6">
+                <div class="max-w-2xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-lg border border-gray-100">
+                    <h2 class="font-title text-3xl font-bold text-center mb-2 text-primary">¿Hablemos de tu proyecto?</h2>
+                    <p class="text-gray-text text-center mb-8">Completa el formulario y uno de nuestros especialistas se pondrá en contacto contigo.</p>
+                    
+                    <form name="contact" method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="contact" />
+                        
+                        <div class="mb-6">
+                            <label for="name" class="block mb-2 font-bold text-primary">Tu Nombre</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block mb-2 font-bold text-primary">Tu Correo Electrónico</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block mb-2 font-bold text-primary">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all" required></textarea>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="w-full md:w-auto bg-accent text-white font-bold py-3 px-10 rounded-full transition-transform transform hover:scale-105 shadow-md hover:shadow-lg">
+                                Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
-    </div>
 
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary text-white py-12 mt-auto">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <!-- Logo y Copyright -->
+                <div class="text-center md:text-left">
+                    <img src="logo_innovea.png" alt="Logo Innovea" class="h-10 md:h-12">
+                    <p class="text-gray-400 text-sm">© 2025 Innovea Consultoría. Todos los derechos reservados.</p>
+                </div>
+                
+                <!-- Enlaces Sociales -->
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616v.064c0 2.298 1.634 4.212 3.792 4.653-.562 1.254-1.332.768-2.03.32-.417.893-1.288 1.628-2.383 1.896.641.526 1.463.825 2.364.873-2.127 1.668-4.795 2.662-7.663 2.662-.499 0-.992-.029-1.475-.086 2.747 1.776 6.023 2.808 9.541 2.808 11.442 0 17.713-9.49 17.474-17.713.992-.716 1.848-1.612 2.538-2.636z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Funcionales -->
+    <script src="main.js"></script>
+    <script src="chatbot.js"></script>
+    
     <script>
-        // --- Lógica del menú de hamburguesa ---
+        // Lógica extra para asegurar que el menú funcione bien
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileNavPanel = document.getElementById('mobile-nav-panel');
         if (hamburgerBtn) {

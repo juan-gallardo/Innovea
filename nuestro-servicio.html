@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones ERP & CRM | Innovea</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Fuentes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Iconos Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#162230',
+                        'accent': '#2B82C8',
+                        'light': '#FFFFFF',
+                        'gray-bg': '#F5F5F7',
+                        'gray-text': '#8A8A8E',
+                    },
+                    fontFamily: {
+                        'title': ['Poppins', 'sans-serif'],
+                        'body': ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bar { transition: all 0.3s ease-in-out; }
+        .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active .bar:nth-child(2) { opacity: 0; }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        
+        /* Animación de entrada para el contenido de las pestañas */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-bg font-body text-primary flex flex-col min-h-screen">
+
+    <!-- BARRA DE NAVEGACIÓN (Estándar Innovea) -->
+    <nav class="bg-primary shadow-lg fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html">
+                <img src="logo_innovea.png" alt="Logo de Innovea" class="h-10">
+            </a>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
+                <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes Somos</a></li>
+                <!-- Enlace activo -->
+                <li><a href="#" class="text-white font-bold transition-colors">Nuestro servicio</a></li>
+                <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de Éxito</a></li>
+                <li><a href="index.html#contact" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
+            </ul>
+            <button class="md:hidden" id="hamburger-btn">
+                <div class="space-y-1.5">
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                    <span class="bar block w-6 h-0.5 bg-white"></span>
+                </div>
+            </button>
+        </div>
+        <div class="hidden md:hidden bg-primary" id="mobile-nav-panel">
+            <a href="index.html" class="block py-3 px-6 text-white text-center font-bold">Inicio</a>
+            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold">Quiénes Somos</a>
+            <a href="#" class="block py-3 px-6 text-white text-center font-bold">Nuestro servicio</a>
+            <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold">Casos de Éxito</a>
+            <a href="index.html#contact" class="block py-3 px-6 text-white text-center font-bold">Contacto</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow mt-16">
+        <!-- HEADER -->
+        <div class="px-4 py-16 md:py-24 text-center bg-white border-b border-gray-200">
+            <div class="container mx-auto max-w-4xl">
+                <h1 class="font-title text-4xl md:text-5xl font-bold text-primary mb-4 leading-tight">
+                    Soluciones ERP & CRM para PYMES
+                </h1>
+                <h2 class="text-lg md:text-xl text-gray-text font-normal leading-relaxed max-w-2xl mx-auto">
+                    Innovea impulsa a las pequeñas y medianas empresas a optimizar operaciones y potenciar el crecimiento mediante la implementación de tecnología experta.
+                </h2>
+            </div>
+        </div>
+
+        <!-- CONTROL DE PESTAÑAS (TOGGLE) -->
+        <div class="container mx-auto px-4 -mt-8 mb-12">
+            <div class="flex justify-center">
+                <div class="bg-gray-200 p-1.5 rounded-xl inline-flex shadow-inner">
+                    <button id="btn-erp" onclick="switchTab('erp')" class="px-6 py-3 rounded-lg text-sm md:text-base font-bold transition-all duration-300 shadow-sm bg-white text-accent">
+                        Implementación ERP
+                    </button>
+                    <button id="btn-crm" onclick="switchTab('crm')" class="px-6 py-3 rounded-lg text-sm md:text-base font-bold transition-all duration-300 text-gray-500 hover:text-primary">
+                        Implementación CRM
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENIDO DINÁMICO -->
+        <div class="container mx-auto px-6 mb-20 max-w-5xl">
+            
+            <!-- CONTENIDO ERP -->
+            <div id="content-erp" class="fade-in">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="p-8 md:p-12">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center justify-center w-14 h-14 bg-accent/10 rounded-full text-accent">
+                                <span class="material-symbols-outlined text-3xl">layers</span>
+                            </div>
+                            <h3 class="font-title text-2xl md:text-3xl font-bold text-primary">Optimiza con ERP</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                            Nuestras soluciones ERP proporcionan una fuente única de verdad para una mejor toma de decisiones. Unificamos procesos de negocio clave, desde finanzas y RRHH hasta la gestión de la cadena de suministro, para una eficiencia sin igual.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-accent">check_circle</span> Finanzas Unificadas
+                                </h4>
+                                <p class="text-sm text-gray-500">Control total sobre flujo de caja, facturación y contabilidad en tiempo real.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-accent">check_circle</span> Cadena de Suministro
+                                </h4>
+                                <p class="text-sm text-gray-500">Gestión inteligente de inventario, compras y logística para reducir costos.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-accent">check_circle</span> Recursos Humanos
+                                </h4>
+                                <p class="text-sm text-gray-500">Centralización de datos de empleados, nóminas y gestión de talento.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-accent">check_circle</span> Escalabilidad
+                                </h4>
+                                <p class="text-sm text-gray-500">Tecnología que crece contigo, preparada para futuras expansiones.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-primary p-6 text-center">
+                        <a href="index.html#contact" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-accent transition-colors">
+                            Solicitar Demo de ERP
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENIDO CRM (Inicialmente oculto) -->
+            <div id="content-crm" class="hidden fade-in">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="p-8 md:p-12">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center justify-center w-14 h-14 bg-accent/10 rounded-full text-accent">
+                                <span class="material-symbols-outlined text-3xl">groups</span>
+                            </div>
+                            <h3 class="font-title text-2xl md:text-3xl font-bold text-primary">Acelera con CRM</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                            Un CRM robusto es clave para comprender y cultivar tu base de clientes. Te ayudamos a implementar sistemas para la automatización de ventas, campañas de marketing dirigidas y un servicio al cliente excepcional.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-accent">check_circle</span> Visión 360° del Cliente
+                                </h4>
+                                <p class="text-sm text-gray-500">Historial completo de interacciones, compras y preferencias en un solo lugar.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-accent">check_circle</span> Automatización de Ventas
+                                </h4>
+                                <p class="text-sm text-gray-500">Seguimiento automático de leads y gestión eficiente del pipeline.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-accent">check_circle</span> Marketing Dirigido
+                                </h4>
+                                <p class="text-sm text-gray-500">Campañas segmentadas basadas en datos reales para mayor conversión.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-accent">check_circle</span> Servicio Post-Venta
+                                </h4>
+                                <p class="text-sm text-gray-500">Gestión de tickets y soporte para aumentar la fidelización.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-primary p-6 text-center">
+                        <a href="index.html#contact" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-accent transition-colors">
+                            Contactanos
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- POR QUÉ ELEGIRNOS -->
+        <section class="bg-white py-20 border-t border-gray-200">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-title text-3xl font-bold text-primary mb-4">¿Por qué elegir Innovea?</h2>
+                <p class="text-gray-text max-w-2xl mx-auto mb-12">Ofrecemos beneficios tangibles adaptados a los desafíos y oportunidades únicos de las PYMES.</p>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-shadow">
+                        <span class="material-symbols-outlined text-accent text-4xl mb-4">apartment</span>
+                        <h3 class="font-bold text-lg mb-2">Adaptado para PYMES</h3>
+                        <p class="text-sm text-gray-500">Soluciones diseñadas específicamente para la escala y el presupuesto de pequeñas y medianas empresas.</p>
+                    </div>
+                    <div class="p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-shadow">
+                        <span class="material-symbols-outlined text-accent text-4xl mb-4">support_agent</span>
+                        <h3 class="font-bold text-lg mb-2">Asesoramiento Experto</h3>
+                        <p class="text-sm text-gray-500">Nuestros consultores certificados brindan soporte en cada etapa, desde la planificación hasta la post-implementación.</p>
+                    </div>
+                    <div class="p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-shadow">
+                        <span class="material-symbols-outlined text-accent text-4xl mb-4">integration_instructions</span>
+                        <h3 class="font-bold text-lg mb-2">Integración Total</h3>
+                        <p class="text-sm text-gray-500">Nos aseguramos de que tus nuevos sistemas funcionen perfectamente con tus herramientas existentes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary text-white py-12 mt-auto">
+        <div class="container mx-auto px-6 text-center">
+            <a href="index.html" class="inline-block mb-4">
+                <img src="logo_innovea.png" alt="Logo Innovea" class="h-10 opacity-90 hover:opacity-100 transition-opacity">
+            </a>
+            <p class="text-gray-400 text-sm">© 2025 Innovea Consultoría. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Menú Hamburguesa
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNavPanel = document.getElementById('mobile-nav-panel');
+        if (hamburgerBtn) {
+            hamburgerBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.toggle('active');
+                mobileNavPanel.classList.toggle('hidden');
+            });
+        }
+
+        // LÓGICA DE PESTAÑAS (ERP vs CRM)
+        function switchTab(tab) {
+            const erpContent = document.getElementById('content-erp');
+            const crmContent = document.getElementById('content-crm');
+            const erpBtn = document.getElementById('btn-erp');
+            const crmBtn = document.getElementById('btn-crm');
+
+            // Clases para estado activo e inactivo
+            const activeClasses = ['bg-white', 'text-accent', 'shadow-sm'];
+            const inactiveClasses = ['text-gray-500', 'hover:text-primary', 'bg-transparent', 'shadow-none'];
+
+            if (tab === 'erp') {
+                // Mostrar ERP, Ocultar CRM
+                erpContent.classList.remove('hidden');
+                crmContent.classList.add('hidden');
+                
+                // Estilos Botón ERP Activo
+                erpBtn.classList.add(...activeClasses);
+                erpBtn.classList.remove(...inactiveClasses);
+                
+                // Estilos Botón CRM Inactivo
+                crmBtn.classList.remove(...activeClasses);
+                crmBtn.classList.add(...inactiveClasses);
+            } else {
+                // Mostrar CRM, Ocultar ERP
+                crmContent.classList.remove('hidden');
+                erpContent.classList.add('hidden');
+                
+                // Estilos Botón CRM Activo
+                crmBtn.classList.add(...activeClasses);
+                crmBtn.classList.remove(...inactiveClasses);
+                
+                // Estilos Botón ERP Inactivo
+                erpBtn.classList.remove(...activeClasses);
+                erpBtn.classList.add(...inactiveClasses);
+            }
+        }
+    </script>
+</body>
+</html>
