@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soluciones ERP & CRM | Innovea</title>
+    <title>Servicios Integrales | Innovea</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <!-- Fuentes Google -->
@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     <link rel="icon" type="image/png" href="assets/logos/favicon-innovea.png">
 
+    
     <script>
         tailwind.config = {
             theme: {
@@ -39,10 +40,7 @@
         .hamburger.active .bar:nth-child(2) { opacity: 0; }
         .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
         
-        /* Animación de entrada para el contenido de las pestañas */
-        .fade-in {
-            animation: fadeIn 0.5s ease-in-out;
-        }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -51,7 +49,7 @@
 </head>
 <body class="bg-gray-bg font-body text-primary flex flex-col min-h-screen">
 
-    <!-- BARRA DE NAVEGACIÓN (Estándar Innovea) -->
+    <!-- BARRA DE NAVEGACIÓN -->
     <nav class="bg-primary shadow-lg fixed top-0 left-0 w-full z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="index.html">
@@ -60,7 +58,6 @@
             <ul class="hidden md:flex space-x-6">
                 <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
                 <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes somos</a></li>
-                <!-- Enlace activo -->
                 <li><a href="#" class="text-white font-bold transition-colors">Nuestro servicio</a></li>
                 <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de éxito</a></li>
                 <li><a href="contacto.html" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
@@ -84,20 +81,16 @@
 
     <main class="flex-grow">
         
-        <!-- NUEVO HEADER CON IMAGEN DE FONDO -->
+        <!-- HEADER CON IMAGEN DE FONDO -->
         <div class="relative w-full py-24 md:py-32 bg-cover bg-center flex items-center justify-center text-center px-4 mt-16" 
              style='background-image: url("https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop");'>
-            
-            <!-- Overlay Oscuro -->
             <div class="absolute inset-0 bg-primary/90"></div>
-            
-            <!-- Contenido del Header -->
             <div class="relative z-10 flex flex-col gap-6 max-w-5xl mx-auto items-center">
                 <h1 class="font-title text-4xl md:text-5xl font-bold text-white leading-tight">
-                    Soluciones ERP & CRM para PYMES
+                    Soluciones tecnológicas integrales para Pymes
                 </h1>
                 <h2 class="text-lg md:text-xl text-gray-300 font-normal leading-relaxed max-w-3xl mx-auto">
-                    Innovea impulsa a las pequeñas y medianas empresas a optimizar operaciones y potenciar el crecimiento mediante la implementación de tecnología experta.
+                    Innovea transforma la gestión de tu negocio con un ecosistema de herramientas digitales adaptadas a tu modelo de negocio único: ERP, CRM, SCM, BPM y GIS.
                 </h2>
             </div>
         </div>
@@ -105,12 +98,22 @@
         <!-- CONTROL DE PESTAÑAS (TOGGLE FLOTANTE) -->
         <div class="container mx-auto px-4 -mt-8 mb-12 relative z-20">
             <div class="flex justify-center">
-                <div class="bg-gray-200 p-1.5 rounded-xl inline-flex shadow-lg border border-white/20">
-                    <button id="btn-erp" onclick="switchTab('erp')" class="px-6 py-3 rounded-lg text-sm md:text-base font-bold transition-all duration-300 shadow-sm bg-white text-accent">
-                        Implementación ERP
+                <!-- Usamos flex-wrap para móviles -->
+                <div class="bg-gray-200 p-1.5 rounded-xl inline-flex flex-wrap justify-center shadow-lg border border-white/20 gap-1">
+                    <button id="btn-erp" onclick="switchTab('erp')" class="px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 shadow-sm bg-white text-accent flex-grow md:flex-grow-0">
+                        ERP
                     </button>
-                    <button id="btn-crm" onclick="switchTab('crm')" class="px-6 py-3 rounded-lg text-sm md:text-base font-bold transition-all duration-300 text-gray-500 hover:text-primary">
-                        Implementación CRM
+                    <button id="btn-crm" onclick="switchTab('crm')" class="px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 text-gray-500 hover:text-primary flex-grow md:flex-grow-0">
+                        CRM
+                    </button>
+                    <button id="btn-scm" onclick="switchTab('scm')" class="px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 text-gray-500 hover:text-primary flex-grow md:flex-grow-0">
+                        SCM
+                    </button>
+                    <button id="btn-bpm" onclick="switchTab('bpm')" class="px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 text-gray-500 hover:text-primary flex-grow md:flex-grow-0">
+                        BPM
+                    </button>
+                    <button id="btn-gis" onclick="switchTab('gis')" class="px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 text-gray-500 hover:text-primary flex-grow md:flex-grow-0">
+                        GIS
                     </button>
                 </div>
             </div>
@@ -119,7 +122,7 @@
         <!-- CONTENIDO DINÁMICO -->
         <div class="container mx-auto px-6 mb-20 max-w-5xl">
             
-            <!-- CONTENIDO ERP -->
+            <!-- 1. CONTENIDO ERP -->
             <div id="content-erp" class="fade-in">
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
                     <div class="p-8 md:p-12">
@@ -130,45 +133,34 @@
                             <h3 class="font-title text-2xl md:text-3xl font-bold text-primary">Optimiza con ERP</h3>
                         </div>
                         <p class="text-gray-600 text-lg mb-8 leading-relaxed">
-                            Nuestras soluciones ERP proporcionan una fuente única de verdad para una mejor toma de decisiones. Unificamos procesos de negocio clave, desde finanzas y RRHH hasta la gestión de la cadena de suministro, para una eficiencia sin igual.
+                            Nuestras soluciones ERP proporcionan una fuente única de verdad. Unificamos procesos clave desde finanzas y RRHH hasta operaciones para una eficiencia sin igual.
                         </p>
-                        
                         <div class="grid md:grid-cols-2 gap-8">
                             <div class="bg-gray-bg p-6 rounded-xl">
-                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-accent">check_circle</span> Finanzas Unificadas
-                                </h4>
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Finanzas Unificadas</h4>
                                 <p class="text-sm text-gray-500">Control total sobre flujo de caja, facturación y contabilidad en tiempo real.</p>
                             </div>
                             <div class="bg-gray-bg p-6 rounded-xl">
-                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-accent">check_circle</span> Cadena de Suministro
-                                </h4>
-                                <p class="text-sm text-gray-500">Gestión inteligente de inventario, compras y logística para reducir costos.</p>
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Integración Total</h4>
+                                <p class="text-sm text-gray-500">Conecta todas las áreas de la empresa en una sola plataforma.</p>
                             </div>
                             <div class="bg-gray-bg p-6 rounded-xl">
-                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-accent">check_circle</span> Recursos Humanos
-                                </h4>
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Recursos Humanos</h4>
                                 <p class="text-sm text-gray-500">Centralización de datos de empleados, nóminas y gestión de talento.</p>
                             </div>
                             <div class="bg-gray-bg p-6 rounded-xl">
-                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-accent">check_circle</span> Escalabilidad
-                                </h4>
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Escalabilidad</h4>
                                 <p class="text-sm text-gray-500">Tecnología que crece contigo, preparada para futuras expansiones.</p>
                             </div>
                         </div>
                     </div>
                     <div class="bg-primary p-6 text-center">
-                        <a href="contacto.html" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-accent transition-colors">
-                            Contactanos
-                        </a>
+                        <a href="contacto.html" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-accent transition-colors">Contactanos</a>
                     </div>
                 </div>
             </div>
 
-            <!-- CONTENIDO CRM (Inicialmente oculto) -->
+            <!-- 2. CONTENIDO CRM -->
             <div id="content-crm" class="hidden fade-in">
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
                     <div class="p-8 md:p-12">
@@ -179,40 +171,143 @@
                             <h3 class="font-title text-2xl md:text-3xl font-bold text-primary">Acelera con CRM</h3>
                         </div>
                         <p class="text-gray-600 text-lg mb-8 leading-relaxed">
-                            Un CRM robusto es clave para comprender y cultivar tu base de clientes. Te ayudamos a implementar sistemas para la automatización de ventas, campañas de marketing dirigidas y un servicio al cliente excepcional.
+                            Un CRM robusto es clave para comprender y cultivar tu base de clientes. Implementamos sistemas para la automatización de ventas y marketing dirigido.
                         </p>
-                        
                         <div class="grid md:grid-cols-2 gap-8">
                             <div class="bg-gray-bg p-6 rounded-xl">
-                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-accent">check_circle</span> Visión 360° del Cliente
-                                </h4>
-                                <p class="text-sm text-gray-500">Historial completo de interacciones, compras y preferencias en un solo lugar.</p>
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Visión 360° del Cliente</h4>
+                                <p class="text-sm text-gray-500">Historial completo de interacciones para personalizar la experiencia.</p>
                             </div>
                             <div class="bg-gray-bg p-6 rounded-xl">
-                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-accent">check_circle</span> Automatización de Ventas
-                                </h4>
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Automatización de Ventas</h4>
                                 <p class="text-sm text-gray-500">Seguimiento automático de leads y gestión eficiente del pipeline.</p>
                             </div>
                             <div class="bg-gray-bg p-6 rounded-xl">
-                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-accent">check_circle</span> Marketing Dirigido
-                                </h4>
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Marketing Dirigido</h4>
                                 <p class="text-sm text-gray-500">Campañas segmentadas basadas en datos reales para mayor conversión.</p>
                             </div>
                             <div class="bg-gray-bg p-6 rounded-xl">
-                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-accent">check_circle</span> Servicio Post-Venta
-                                </h4>
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Servicio Post-Venta</h4>
                                 <p class="text-sm text-gray-500">Gestión de tickets y soporte para aumentar la fidelización.</p>
                             </div>
                         </div>
                     </div>
                     <div class="bg-primary p-6 text-center">
-                        <a href="contacto.html" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-accent transition-colors">
-                            Contactanos
-                        </a>
+                        <a href="contacto.html" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-accent transition-colors">Contactanos</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. CONTENIDO SCM (NUEVO) -->
+            <div id="content-scm" class="hidden fade-in">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="p-8 md:p-12">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center justify-center w-14 h-14 bg-accent/10 rounded-full text-accent">
+                                <span class="material-symbols-outlined text-3xl">local_shipping</span>
+                            </div>
+                            <h3 class="font-title text-2xl md:text-3xl font-bold text-primary">Administración de la cadena de suministros (SCM)</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                            Optimiza el flujo de bienes y servicios. Nuestras soluciones SCM te permiten gestionar la cadena de suministro de extremo a extremo con máxima eficiencia y menores costos.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Visibilidad en Tiempo Real</h4>
+                                <p class="text-sm text-gray-500">Monitoreo del inventario y envíos en cada etapa del proceso logístico.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Planificación de Demanda</h4>
+                                <p class="text-sm text-gray-500">Herramientas predictivas para evitar quiebres de stock y exceso de inventario.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Gestión de Proveedores</h4>
+                                <p class="text-sm text-gray-500">Plataformas colaborativas para mejorar la negociación y tiempos de entrega.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Reducción de Costos</h4>
+                                <p class="text-sm text-gray-500">Optimización de rutas y almacenamiento para maximizar la rentabilidad.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-primary p-6 text-center">
+                        <a href="contacto.html" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-accent transition-colors">Contactanos</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. CONTENIDO BPM (NUEVO) -->
+            <div id="content-bpm" class="hidden fade-in">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="p-8 md:p-12">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center justify-center w-14 h-14 bg-accent/10 rounded-full text-accent">
+                                <span class="material-symbols-outlined text-3xl">account_tree</span>
+                            </div>
+                            <h3 class="font-title text-2xl md:text-3xl font-bold text-primary">Gestión de Procesos (BPM)</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                            Transforma la forma en que opera tu empresa. Implementamos BPM para modelar, automatizar y optimizar tus procesos de negocio, eliminando ineficiencias.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Automatización de Flujos</h4>
+                                <p class="text-sm text-gray-500">Reduce tareas manuales repetitivas y minimiza el error humano.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Estandarización</h4>
+                                <p class="text-sm text-gray-500">Asegura la calidad y consistencia en cada entrega y operación interna.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Mejora Continua</h4>
+                                <p class="text-sm text-gray-500">Analíticas detalladas para identificar cuellos de botella y optimizar.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Agilidad Operativa</h4>
+                                <p class="text-sm text-gray-500">Adapta tus procesos rápidamente a los cambios del mercado.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-primary p-6 text-center">
+                        <a href="contacto.html" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-accent transition-colors">Contactanos</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. CONTENIDO GIS (NUEVO) -->
+            <div id="content-gis" class="hidden fade-in">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="p-8 md:p-12">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center justify-center w-14 h-14 bg-accent/10 rounded-full text-accent">
+                                <span class="material-symbols-outlined text-3xl">public</span>
+                            </div>
+                            <h3 class="font-title text-2xl md:text-3xl font-bold text-primary">Sistemas de información geográfica (GIS)</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                            Aprovecha el poder de la ubicación. Nuestras soluciones GIS te permiten visualizar, analizar e interpretar datos espaciales para tomar decisiones estratégicas más inteligentes.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Análisis Espacial</h4>
+                                <p class="text-sm text-gray-500">Descubre patrones y tendencias ocultas en tus datos geográficos.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Optimización de Rutas</h4>
+                                <p class="text-sm text-gray-500">Mejora la logística de distribución y reduce tiempos de traslado.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Geomarketing</h4>
+                                <p class="text-sm text-gray-500">Identifica las mejores ubicaciones para expansión y segmenta a tu audiencia.</p>
+                            </div>
+                            <div class="bg-gray-bg p-6 rounded-xl">
+                                <h4 class="font-bold text-primary mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-accent">check_circle</span> Gestión de Activos</h4>
+                                <p class="text-sm text-gray-500">Monitoreo preciso de infraestructura y recursos en campo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-primary p-6 text-center">
+                        <a href="contacto.html" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-accent transition-colors">Contactanos</a>
                     </div>
                 </div>
             </div>
@@ -268,42 +363,32 @@
             });
         }
 
-        // LÓGICA DE PESTAÑAS (ERP vs CRM)
-        function switchTab(tab) {
-            const erpContent = document.getElementById('content-erp');
-            const crmContent = document.getElementById('content-crm');
-            const erpBtn = document.getElementById('btn-erp');
-            const crmBtn = document.getElementById('btn-crm');
-
+        // LÓGICA DE PESTAÑAS (DINÁMICA)
+        function switchTab(selectedTab) {
+            const tabs = ['erp', 'crm', 'scm', 'bpm', 'gis'];
+            
             // Clases para estado activo e inactivo
             const activeClasses = ['bg-white', 'text-accent', 'shadow-sm'];
             const inactiveClasses = ['text-gray-500', 'hover:text-primary', 'bg-transparent', 'shadow-none'];
 
-            if (tab === 'erp') {
-                // Mostrar ERP, Ocultar CRM
-                erpContent.classList.remove('hidden');
-                crmContent.classList.add('hidden');
+            tabs.forEach(tab => {
+                const content = document.getElementById(`content-${tab}`);
+                const btn = document.getElementById(`btn-${tab}`);
                 
-                // Estilos Botón ERP Activo
-                erpBtn.classList.add(...activeClasses);
-                erpBtn.classList.remove(...inactiveClasses);
-                
-                // Estilos Botón CRM Inactivo
-                crmBtn.classList.remove(...activeClasses);
-                crmBtn.classList.add(...inactiveClasses);
-            } else {
-                // Mostrar CRM, Ocultar ERP
-                crmContent.classList.remove('hidden');
-                erpContent.classList.add('hidden');
-                
-                // Estilos Botón CRM Activo
-                crmBtn.classList.add(...activeClasses);
-                crmBtn.classList.remove(...inactiveClasses);
-                
-                // Estilos Botón ERP Inactivo
-                erpBtn.classList.remove(...activeClasses);
-                erpBtn.classList.add(...inactiveClasses);
-            }
+                if (tab === selectedTab) {
+                    // Mostrar contenido seleccionado
+                    content.classList.remove('hidden');
+                    // Activar botón
+                    btn.classList.add(...activeClasses);
+                    btn.classList.remove(...inactiveClasses);
+                } else {
+                    // Ocultar otros contenidos
+                    content.classList.add('hidden');
+                    // Desactivar otros botones
+                    btn.classList.remove(...activeClasses);
+                    btn.classList.add(...inactiveClasses);
+                }
+            });
         }
     </script>
 </body>
