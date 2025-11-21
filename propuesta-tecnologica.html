@@ -6,6 +6,7 @@
     <title>Propuesta Tecnológica | Food Mascotas</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Iconos Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     <link rel="icon" type="image/png" href="assets/logos/favicon-innovea.png">
     <script>
@@ -18,26 +19,99 @@
             }
         }
     </script>
+    <style>
+        /* Transición suave para el ancho del sidebar */
+        #sidebar { transition: width 0.3s ease-in-out; }
+        
+        /* Ocultar texto suavemente */
+        .sidebar-text { transition: opacity 0.2s ease-in-out; white-space: nowrap; }
+        .collapsed .sidebar-text { opacity: 0; pointer-events: none; display: none; }
+        
+        /* Centrar iconos cuando está colapsado */
+        .collapsed nav a { justify-content: center; padding-left: 0; padding-right: 0; }
+        
+        /* --- LÓGICA DEL LOGO --- */
+        .logo-icon { display: none; }
+        .logo-full { display: block; }
+
+        /* Cuando está colapsado */
+        .collapsed .logo-full { display: none; } 
+        .collapsed .logo-icon { display: block; margin: 0 auto; height: 32px; width: auto; }
+        .collapsed .logo-container { padding-left: 0; padding-right: 0; display: flex; justify-content: center; }
+        
+        /* Ajuste de posición del botón cuando está colapsado */
+        .collapsed #toggleSidebar { right: -20px !important; }
+    </style>
 </head>
 <body class="font-body bg-gray-bg md:h-screen md:overflow-hidden flex flex-col">
     <div class="flex flex-col md:flex-row w-full md:h-full">
         
-        <aside class="w-full md:w-64 bg-primary text-white flex-shrink-0 md:h-full md:overflow-y-auto z-20">
-            <div class="p-6 border-b border-gray-700 sticky top-0 bg-primary z-10">
-                <a href="index.html"><img src="logo_innovea.png" alt="Logo Innovea" class="h-10"></a>
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="w-full md:w-64 bg-primary text-white flex-shrink-0 md:h-full z-20 flex flex-col transition-all duration-300 relative shadow-2xl">
+            
+            <!-- Botón de Colapsar -->
+            <button id="toggleSidebar" class="hidden md:flex absolute -right-4 top-20 bg-white text-accent border border-gray-200 rounded-full shadow-md z-50 hover:bg-accent hover:text-white hover:scale-110 transition-all duration-200 items-center justify-center h-8 w-8">
+                <span class="material-symbols-outlined font-bold text-lg" id="toggleIcon">chevron_left</span>
+            </button>
+
+            <!-- Contenedor interno con scroll -->
+            <div class="flex flex-col h-full overflow-y-auto overflow-x-hidden">
+                
+                <!-- Logo Container -->
+                <div class="p-6 border-b border-gray-700 sticky top-0 bg-primary z-10 logo-container transition-all shrink-0">
+                    <a href="index.html" class="block">
+                        <img src="logo_innovea.png" alt="Innovea" class="h-10 logo-full">
+                        <img src="assets/logos/favicon-innovea.png" alt="I" class="logo-icon">
+                    </a>
+                </div>
+
+                <!-- Navegación -->
+                <nav class="flex flex-row md:flex-col justify-around md:justify-start flex-grow">
+                    
+                    <a href="analisis-cliente.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Análisis Cliente">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">analytics</span>
+                        <span class="sidebar-text">Análisis Cliente</span>
+                    </a>
+
+                    <a href="arquitectura-comparativa.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Arq. Origen y Destino">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">schema</span>
+                        <span class="sidebar-text">Arq. Origen y Destino</span>
+                    </a>
+
+                    <!-- Enlace Activo -->
+                    <a href="propuesta-tecnologica.html" class="group flex items-center px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold transition-colors text-sm whitespace-nowrap gap-4" title="Propuesta Tecnológica">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">dns</span>
+                        <span class="sidebar-text">Propuesta Tecnológica</span>
+                    </a>
+
+                    <a href="analisis-proveedores.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Análisis Proveedores">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">group</span>
+                        <span class="sidebar-text">Análisis Proveedores</span>
+                    </a>
+
+                    <a href="evaluacion-escenarios.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Evaluación Escenarios">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">balance</span>
+                        <span class="sidebar-text">Evaluación Escenarios</span>
+                    </a>
+
+                    <a href="transformacion-digital.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Transformación Digital">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">rocket_launch</span>
+                        <span class="sidebar-text">Transformación Digital</span>
+                    </a>
+                </nav>
+
+                <!-- Footer Sidebar -->
+                <div class="mt-auto p-6 border-t border-gray-700 hidden md:flex items-center gap-4 overflow-hidden shrink-0">
+                    <a href="index.html" class="text-gray-400 hover:text-white text-sm flex items-center gap-4 whitespace-nowrap" title="Cerrar Sesión">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">logout</span>
+                        <span class="sidebar-text">Cerrar Sesión</span>
+                    </a>
+                </div>
             </div>
-            <nav class="flex flex-row md:flex-col justify-around md:justify-start overflow-x-auto md:overflow-visible">
-                <a href="analisis-cliente.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Análisis Cliente</a>
-                <a href="arquitectura-comparativa.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Arq. Origen y Destino</a>
-                <a href="propuesta-tecnologica.html" class="px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold transition-colors text-sm whitespace-nowrap">Propuesta Tecnológica</a>
-                <a href="analisis-proveedores.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Análisis Proveedores</a>
-                <a href="evaluacion-escenarios.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Evaluación Escenarios</a>
-                <a href="transformacion-digital.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Transformación Digital</a>
-            </nav>
-             <div class="mt-auto p-6 border-t border-gray-700 hidden md:block"><a href="index.html" class="text-gray-400 hover:text-white text-sm">Cerrar Sesión</a></div>
         </aside>
 
-        <main class="flex-1 p-6 md:p-10 md:h-full md:overflow-y-auto bg-gray-bg">
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="flex-1 p-6 md:p-10 md:h-full md:overflow-y-auto bg-gray-bg transition-all duration-300">
             <h1 class="font-title text-3xl font-bold text-primary mb-2">Propuesta Tecnológica</h1>
             <p class="text-gray-text mb-8">Soluciones de mercado con foco en la industria veterinaria.</p>
 
@@ -58,52 +132,86 @@
 
             <!-- Mercado -->
             <h3 class="font-bold text-primary text-lg mb-4">Disponibilidad en el Mercado Veterinario</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
                 
                 <!-- GVET -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition">
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition flex flex-col">
                     <div class="h-32 bg-white p-4 flex items-center justify-center border-b">
-                        <!-- Imagen GVET (PDF pág 8) -->
-                        <img src="assets/images/logo-gvet.png" onerror="this.src='https://via.placeholder.com/150x60?text=GVET'" alt="GVET Logo" class="max-h-16">
+                        <img src="assets/logos/logo-gvet.jpg" onerror="this.src='https://via.placeholder.com/150x60?text=GVET'" alt="GVET Logo" class="max-h-20 max-w-full object-contain">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex-grow">
                         <h4 class="font-bold text-primary text-lg">GVET</h4>
-                        <p class="text-xs font-bold text-accent mb-2">SaaS / Nube</p>
-                        <p class="text-sm text-gray-600">Solución integral con fuerte foco en la historia clínica y comunicación automática por WhatsApp.</p>
+                        <p class="text-xs font-bold text-purple-600 mb-2 uppercase tracking-wide">SaaS / Nube</p>
+                        <p class="text-sm text-gray-600">Plataforma integral líder en Latam. Destaca por su módulo clínico y gestión administrativa unificada.</p>
                     </div>
                 </div>
 
-                <!-- Volki -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition">
+                <!-- VETLOGY -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition flex flex-col">
                     <div class="h-32 bg-white p-4 flex items-center justify-center border-b">
-                        <!-- Imagen Volki (PDF pág 8) -->
-                        <img src="assets/images/logo-volki.png" onerror="this.src='https://via.placeholder.com/150x60?text=Volki'" alt="Volki Logo" class="max-h-16">
+                        <img src="assets/logos/logo-vetlogy.png" onerror="this.src='https://via.placeholder.com/150x60?text=Vetlogy'" alt="Vetlogy Logo" class="max-h-20 max-w-full object-contain">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex-grow">
+                        <h4 class="font-bold text-primary text-lg">Vetlogy</h4>
+                        <p class="text-xs font-bold text-blue-500 mb-2 uppercase tracking-wide">SaaS / Nube</p>
+                        <p class="text-sm text-gray-600">Software intuitivo enfocado en la experiencia del usuario y la gestión ágil de citas y pacientes.</p>
+                    </div>
+                </div>
+
+                <!-- OKVET -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition flex flex-col">
+                    <div class="h-32 bg-white p-4 flex items-center justify-center border-b">
+                        <img src="assets/logos/logo-okvet.png" onerror="this.src='https://via.placeholder.com/150x60?text=OkVet'" alt="OkVet Logo" class="max-h-20 max-w-full object-contain">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h4 class="font-bold text-primary text-lg">OkVet</h4>
+                        <p class="text-xs font-bold text-cyan-600 mb-2 uppercase tracking-wide">SaaS / Nube</p>
+                        <p class="text-sm text-gray-600">Solución robusta con herramientas avanzadas para clínicas de alto volumen y hospitales veterinarios.</p>
+                    </div>
+                </div>
+
+                <!-- VOLKI -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition flex flex-col">
+                    <div class="h-32 bg-white p-4 flex items-center justify-center border-b">
+                        <img src="assets/logos/logo-volki.jpg" onerror="this.src='https://via.placeholder.com/150x60?text=Volki'" alt="Volki Logo" class="max-h-20 max-w-full object-contain">
+                    </div>
+                    <div class="p-6 flex-grow">
                         <h4 class="font-bold text-primary text-lg">Volki</h4>
-                        <p class="text-xs font-bold text-purple-600 mb-2">SaaS / Nube</p>
-                        <p class="text-sm text-gray-600">Interfaz moderna ideal para clínicas pequeñas y veterinarios a domicilio. App móvil nativa.</p>
+                        <p class="text-xs font-bold text-teal-600 mb-2 uppercase tracking-wide">SaaS / Nube</p>
+                        <p class="text-sm text-gray-600">Interfaz moderna ideal para veterinarios independientes y pet shops. Excelente app móvil.</p>
                     </div>
                 </div>
 
-                <!-- Dr Vet (Ilustrativo) -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition">
-                    <div class="h-32 bg-white p-4 flex items-center justify-center border-b">
-                        <span class="text-2xl font-bold text-gray-400">Dr. Vet</span>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="font-bold text-primary text-lg">Dr. Vet</h4>
-                        <p class="text-xs font-bold text-gray-500 mb-2">Híbrido</p>
-                        <p class="text-sm text-gray-600">Opción robusta tradicional. Requiere mayor configuración pero ofrece gran profundidad clínica.</p>
-                    </div>
-                </div>
             </div>
 
-            <div class="mt-8 flex justify-between">
-                <a href="arquitectura-comparativa.html" class="text-gray-500 hover:text-primary font-bold py-2 px-4">← Anterior</a>
-                <a href="analisis-proveedores.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2">Siguiente <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+            <div class="flex justify-between pt-10 pb-10">
+                <a href="arquitectura-comparativa.html" class="text-gray-500 hover:text-primary font-bold py-2 px-4 flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_back</span> Anterior</a>
+                <a href="analisis-proveedores.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg">Siguiente <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
             </div>
         </main>
     </div>
+
+    <!-- LÓGICA PARA COLAPSAR LA BARRA LATERAL -->
+    <script>
+        const toggleBtn = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
+        const icon = document.getElementById('toggleIcon');
+        
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('md:w-64');
+            sidebar.classList.toggle('md:w-20');
+            sidebar.classList.toggle('collapsed');
+            
+            if (sidebar.classList.contains('collapsed')) {
+                icon.textContent = 'chevron_right';
+                toggleBtn.classList.remove('-right-4');
+                toggleBtn.classList.add('-right-5'); 
+            } else {
+                icon.textContent = 'chevron_left';
+                toggleBtn.classList.remove('-right-5');
+                toggleBtn.classList.add('-right-4');
+            }
+        });
+    </script>
 </body>
 </html>

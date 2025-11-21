@@ -12,87 +12,275 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { 'primary': '#162230', 'accent': '#2B82C8', 'light': '#FFFFFF', 'gray-bg': '#F5F5F7', 'gray-text': '#8A8A8E' },
+                    colors: { 'primary': '#162230', 'accent': '#2B82C8', 'light': '#FFFFFF', 'gray-bg': '#F5F5F7', 'gray-text': '#8A8A8E', 'gvet': '#1e3a8a', 'vetlogy': '#93c5fd' },
                     fontFamily: { 'title': ['Montserrat', 'sans-serif'], 'body': ['Montserrat', 'sans-serif'] }
                 }
             }
         }
     </script>
+    <style>
+        #sidebar { transition: width 0.3s ease-in-out; }
+        .sidebar-text { transition: opacity 0.2s ease-in-out; white-space: nowrap; }
+        .collapsed .sidebar-text { opacity: 0; pointer-events: none; display: none; }
+        .collapsed nav a { justify-content: center; padding-left: 0; padding-right: 0; }
+        .logo-icon { display: none; }
+        .logo-full { display: block; }
+        .collapsed .logo-full { display: none; } 
+        .collapsed .logo-icon { display: block; margin: 0 auto; height: 32px; width: auto; }
+        .collapsed .logo-container { padding-left: 0; padding-right: 0; display: flex; justify-content: center; }
+        .collapsed #toggleSidebar { right: -20px !important; }
+    </style>
 </head>
 <body class="font-body bg-gray-bg md:h-screen md:overflow-hidden flex flex-col">
     <div class="flex flex-col md:flex-row w-full md:h-full">
-        <aside class="w-full md:w-64 bg-primary text-white flex-shrink-0 md:h-full md:overflow-y-auto z-20">
-            <div class="p-6 border-b border-gray-700 sticky top-0 bg-primary z-10">
-                <a href="index.html"><img src="logo_innovea.png" alt="Logo Innovea" class="h-10"></a>
-            </div>
-            <nav class="flex flex-row md:flex-col justify-around md:justify-start overflow-x-auto md:overflow-visible">
-                <a href="analisis-cliente.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Análisis Cliente</a>
-                <a href="arquitectura-comparativa.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Arq. Origen y Destino</a>
-                <a href="propuesta-tecnologica.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Propuesta Tecnológica</a>
-                <a href="analisis-proveedores.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Análisis Proveedores</a>
-                <a href="evaluacion-escenarios.html" class="px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold transition-colors text-sm whitespace-nowrap">Evaluación Escenarios</a>
-                <a href="transformacion-digital.html" class="px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap">Transformación Digital</a>
-            </nav>
-             <div class="mt-auto p-6 border-t border-gray-700 hidden md:block"><a href="index.html" class="text-gray-400 hover:text-white text-sm">Cerrar Sesión</a></div>
-        </aside>
+        
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="w-full md:w-64 bg-primary text-white flex-shrink-0 md:h-full z-20 flex flex-col transition-all duration-300 relative shadow-2xl">
+            <button id="toggleSidebar" class="hidden md:flex absolute -right-4 top-20 bg-white text-accent border border-gray-200 rounded-full shadow-md z-50 hover:bg-accent hover:text-white hover:scale-110 transition-all duration-200 items-center justify-center h-8 w-8">
+                <span class="material-symbols-outlined font-bold text-lg" id="toggleIcon">chevron_left</span>
+            </button>
 
-        <main class="flex-1 p-6 md:p-10 md:h-full md:overflow-y-auto bg-gray-bg">
-            <h1 class="font-title text-3xl font-bold text-primary mb-2">Evaluación y Análisis de Escenarios</h1>
-            <p class="text-gray-text mb-8">RFI, RFP y Análisis de Brechas para asegurar la inversión.</p>
-
-            <div class="grid md:grid-cols-2 gap-8 mb-8">
-                <!-- Evaluación Económica -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="font-bold text-primary mb-4 flex items-center gap-2"><span class="material-symbols-outlined">attach_money</span> Evaluación Económica</h3>
-                    <p class="text-sm text-gray-600 mb-4">El modelo SaaS de GVET permite una implementación de bajo riesgo financiero.</p>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="flex justify-between border-b border-gray-100 pb-1"><span>Inversión Inicial:</span> <span class="font-bold">Baja (Sin servidores)</span></li>
-                        <li class="flex justify-between border-b border-gray-100 pb-1"><span>Costo Mensual:</span> <span class="font-bold">Previsible (Suscripción)</span></li>
-                        <li class="flex justify-between pb-1"><span>ROI Estimado:</span> <span class="font-bold text-green-600">8 meses</span></li>
-                    </ul>
+            <div class="flex flex-col h-full overflow-y-auto overflow-x-hidden">
+                <div class="p-6 border-b border-gray-700 sticky top-0 bg-primary z-10 logo-container transition-all shrink-0">
+                    <a href="index.html" class="block">
+                        <img src="logo_innovea.png" alt="Innovea" class="h-10 logo-full">
+                        <img src="assets/logos/favicon-innovea.png" alt="I" class="logo-icon">
+                    </a>
                 </div>
 
-                <!-- Escenario Elegido -->
-                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-accent">
-                    <h3 class="font-bold text-primary mb-4 flex items-center gap-2"><span class="material-symbols-outlined">tune</span> Escenario de Implementación</h3>
-                    <p class="text-sm text-gray-600 mb-4">Se elige una <strong>Implementación Modular</strong> para gestionar el cambio cultural.</p>
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-3 text-sm text-gray-600">
-                            <span class="bg-blue-100 text-accent font-bold px-2 py-1 rounded text-xs">Fase 1</span>
-                            <span>Migración de Datos y Stock</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-sm text-gray-600">
-                            <span class="bg-blue-100 text-accent font-bold px-2 py-1 rounded text-xs">Fase 2</span>
-                            <span>Agenda y CRM</span>
-                        </div>
+                <nav class="flex flex-row md:flex-col justify-around md:justify-start flex-grow">
+                    <a href="analisis-cliente.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Análisis Cliente">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">analytics</span>
+                        <span class="sidebar-text">Análisis Cliente</span>
+                    </a>
+                    <a href="arquitectura-comparativa.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Arq. Origen y Destino">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">schema</span>
+                        <span class="sidebar-text">Arq. Origen y Destino</span>
+                    </a>
+                    <a href="propuesta-tecnologica.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Propuesta Tecnológica">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">dns</span>
+                        <span class="sidebar-text">Propuesta Tecnológica</span>
+                    </a>
+                    <a href="analisis-proveedores.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Análisis Proveedores">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">group</span>
+                        <span class="sidebar-text">Análisis Proveedores</span>
+                    </a>
+                    <a href="evaluacion-escenarios.html" class="group flex items-center px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold transition-colors text-sm whitespace-nowrap gap-4" title="Evaluación Escenarios">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">balance</span>
+                        <span class="sidebar-text">Evaluación Escenarios</span>
+                    </a>
+                    <a href="transformacion-digital.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Transformación Digital">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">rocket_launch</span>
+                        <span class="sidebar-text">Transformación Digital</span>
+                    </a>
+                </nav>
+
+                <div class="mt-auto p-6 border-t border-gray-700 hidden md:flex items-center gap-4 overflow-hidden shrink-0">
+                    <a href="index.html" class="text-gray-400 hover:text-white text-sm flex items-center gap-4 whitespace-nowrap" title="Cerrar Sesión">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">logout</span>
+                        <span class="sidebar-text">Cerrar Sesión</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="flex-1 p-6 md:p-10 md:h-full md:overflow-y-auto bg-gray-bg transition-all duration-300">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                <div>
+                    <h1 class="font-title text-3xl font-bold text-primary">Evaluación Económica y Escenarios</h1>
+                    <p class="text-gray-text">Comparativa de Costos (TCO) y Análisis de Retorno de Inversión (ROI).</p>
+                </div>
+                <div class="bg-white px-4 py-2 rounded shadow-sm text-sm border border-gray-200">
+                    <span class="font-bold text-primary">Proveedor Seleccionado:</span> 
+                    <span class="text-accent font-bold ml-1">GVET</span>
+                </div>
+            </div>
+
+            <!-- KPIs Resumen -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-accent relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-gray-500 text-sm font-bold uppercase">TCO (3 Años)</h3>
+                        <span class="material-symbols-outlined text-accent bg-blue-50 p-1 rounded">savings</span>
+                    </div>
+                    <div class="flex items-end gap-2">
+                        <span class="text-2xl font-bold text-primary">U$D 6,934</span>
+                        <span class="text-xs text-green-600 font-bold mb-1">GVET</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-1">vs U$D 8,271 (Vetlogy)</p>
+                    <p class="text-xs text-gray-500 mt-2">Ahorro acumulado del <strong>16%</strong> aprox.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-indigo-500">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-gray-500 text-sm font-bold uppercase">Inversión Inicial</h3>
+                        <span class="material-symbols-outlined text-indigo-500 bg-indigo-50 p-1 rounded">payments</span>
+                    </div>
+                    <div class="flex items-end gap-2">
+                        <span class="text-2xl font-bold text-primary">U$D 2,442</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-1">Hardware + Windows 11</p>
+                    <p class="text-xs text-gray-500 mt-2">Consultoría e implementación bonificada.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-emerald-500">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-gray-500 text-sm font-bold uppercase">Retorno (ROI)</h3>
+                        <span class="material-symbols-outlined text-emerald-500 bg-emerald-50 p-1 rounded">trending_up</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-1 font-semibold">Impulsores de Valor:</p>
+                    <ul class="text-xs text-gray-500 mt-2 space-y-1 list-disc list-inside">
+                        <li>Automatización de turnos</li>
+                        <li>Control de stock (menor pérdida)</li>
+                        <li>Aumento ventas canal online</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 1: IMAGEN GRÁFICO CTS -->
+            <div class="bg-white p-6 rounded-lg shadow-sm mb-8 w-full">
+                <h3 class="font-bold text-primary mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined">show_chart</span> 
+                    Evolución del Costo Total del Servicio (CTS)
+                </h3>
+                <p class="text-sm text-gray-500 mb-6">Gráfico comparativo de flujos de fondos y costos acumulados entre GVET y Vetlogy.</p>
+                
+                <!-- Contenedor de la Imagen -->
+                <div class="w-full flex justify-center bg-gray-50 rounded-lg border border-gray-100 p-4">
+                    <!-- 
+                        IMPORTANTE: Asegúrate de que la imagen 'grafico-cts.png' 
+                        esté en la carpeta 'assets/images/' 
+                    -->
+                    <img src="assets/images/grafico-cts.png" 
+                         alt="Gráfico Evolución CTS GVET vs Vetlogy" 
+                         class="max-w-full h-auto max-h-[500px] object-contain rounded shadow-sm"
+                         onerror="this.src='https://via.placeholder.com/800x400/e2e8f0/1e293b?text=Aqu%C3%AD+va+tu+imagen+grafico-cts.png'">
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2: TABLA DETALLE (ANCHO COMPLETO) -->
+            <div class="bg-white p-6 rounded-lg shadow-sm flex flex-col w-full mb-8">
+                <h3 class="font-bold text-primary mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined">table_chart</span>
+                    Detalle de Costos (USD)
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 border-b border-gray-200">
+                            <tr>
+                                <th class="px-6 py-3 w-1/3">Ítem</th>
+                                <th class="px-6 py-3 w-1/3 text-blue-800 font-bold text-base">GVET</th>
+                                <th class="px-6 py-3 w-1/3 font-bold text-base">Vetlogy</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="px-6 py-4 font-medium text-gray-800">Costo Inicial / Puesta en Marcha</td>
+                                <td class="px-6 py-4 font-bold text-gray-800">$2,442</td>
+                                <td class="px-6 py-4">$2,436</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="px-6 py-4 font-medium pl-8 text-gray-500 italic">— Hardware & OS (Win 11)</td>
+                                <td class="px-6 py-4 text-xs text-gray-500">Notebook + Firewall + Licencias</td>
+                                <td class="px-6 py-4 text-xs text-gray-500">Igual configuración</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="px-6 py-4 font-medium text-gray-800">Suscripciones SaaS (Anual)</td>
+                                <td class="px-6 py-4 font-bold text-green-600">$360</td>
+                                <td class="px-6 py-4 text-red-500">$1,210</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="px-6 py-4 font-medium text-gray-800">Infraestructura Recurrente (Anual)</td>
+                                <td class="px-6 py-4">$1,137</td>
+                                <td class="px-6 py-4">$736</td>
+                            </tr>
+                            <tr class="bg-gray-50 border-t-2 border-gray-200">
+                                <td class="px-6 py-4 font-bold text-primary">TOTAL ANUAL (Recurrente)</td>
+                                <td class="px-6 py-4 font-bold text-primary">$1,497</td>
+                                <td class="px-6 py-4 font-bold text-gray-600">$1,946</td>
+                            </tr>
+                            <tr class="bg-blue-50 border-t border-blue-100">
+                                <td class="px-6 py-4 font-bold text-xl text-primary">TCO PROYECTADO (3 Años)</td>
+                                <td class="px-6 py-4 font-bold text-xl text-primary">$6,934</td>
+                                <td class="px-6 py-4 font-bold text-xl text-gray-500">$8,271</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 text-xs text-gray-500 bg-yellow-50 p-3 rounded border border-yellow-100 flex gap-2">
+                    <span class="material-symbols-outlined text-yellow-600 text-sm">info</span>
+                    <div>
+                        <strong>Nota de ahorro:</strong> La solución GVET incluye migración de datos gratuita y bonificación en consultoría al contratar por 6 meses, lo que reduce significativamente el CAPEX inicial.
                     </div>
                 </div>
             </div>
 
             <!-- Análisis de Brechas -->
-            <div class="bg-white p-8 rounded-lg shadow-sm">
-                <h2 class="font-title text-xl font-bold text-primary mb-6">Matriz de Brechas (Gap Analysis)</h2>
-                
-                <!-- Imagen Ilustrativa (Matriz PDF pág 14) -->
-                <img src="assets/images/matriz-brechas.png" onerror="this.src='https://via.placeholder.com/800x200/f8fafc/cbd5e1?text=Matriz+de+Brechas+(Negocio+-+Datos+-+Apps+-+Tecnolog%C3%ADa)'" alt="Matriz de Brechas" class="w-full rounded mb-6 border border-gray-200">
-
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="p-4 bg-red-50 rounded border border-red-100">
-                        <strong class="text-red-800 block mb-1">Brecha Crítica: Datos</strong>
-                        <p class="text-sm text-gray-600">Información fragmentada en papel. Solución: Repositorio Cloud único.</p>
+            <div class="bg-white p-8 rounded-lg shadow-sm mb-8">
+                <h2 class="font-title text-xl font-bold text-primary mb-6">Análisis de Brechas e Implementación</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-accent text-sm uppercase border-b pb-2">Estado Actual (As-Is)</h4>
+                        <div class="flex gap-3 items-start">
+                            <span class="material-symbols-outlined text-red-400 text-xl">cancel</span>
+                            <p class="text-sm text-gray-600">Windows 10 o inferior en equipos obsoletos.</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="material-symbols-outlined text-red-400 text-xl">cancel</span>
+                            <p class="text-sm text-gray-600">Datos fragmentados y gestión manual de stock.</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="material-symbols-outlined text-red-400 text-xl">cancel</span>
+                            <p class="text-sm text-gray-600">Sin firewall físico (Riesgo de seguridad).</p>
+                        </div>
                     </div>
-                    <div class="p-4 bg-red-50 rounded border border-red-100">
-                        <strong class="text-red-800 block mb-1">Brecha Crítica: Negocio</strong>
-                        <p class="text-sm text-gray-600">Procesos manuales. Solución: Automatización de turnos y stock.</p>
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-green-600 text-sm uppercase border-b pb-2">Estado Deseado (To-Be)</h4>
+                        <div class="flex gap-3 items-start">
+                            <span class="material-symbols-outlined text-green-500 text-xl">check_circle</span>
+                            <p class="text-sm text-gray-600">Actualización a Windows 11 Pro + Hardware nuevo.</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="material-symbols-outlined text-green-500 text-xl">check_circle</span>
+                            <p class="text-sm text-gray-600">Integración GVET con Facturación ARCA y WhatsApp.</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="material-symbols-outlined text-green-500 text-xl">check_circle</span>
+                            <p class="text-sm text-gray-600">Microsoft 365 para colaboración y backups seguros.</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Navegación Footer -->
             <div class="mt-8 flex justify-between">
-                <a href="analisis-proveedores.html" class="text-gray-500 hover:text-primary font-bold py-2 px-4">← Anterior</a>
-                <a href="transformacion-digital.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2">Siguiente <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                <a href="analisis-proveedores.html" class="text-gray-500 hover:text-primary font-bold py-2 px-4 flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_back</span> Anterior</a>
+                <a href="transformacion-digital.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg">Plan de Transformación <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
             </div>
         </main>
     </div>
+
+    <script>
+        const toggleBtn = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
+        const icon = document.getElementById('toggleIcon');
+        
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('md:w-64');
+            sidebar.classList.toggle('md:w-20');
+            sidebar.classList.toggle('collapsed');
+            
+            if (sidebar.classList.contains('collapsed')) {
+                icon.textContent = 'chevron_right';
+                toggleBtn.classList.remove('-right-4');
+                toggleBtn.classList.add('-right-5'); 
+            } else {
+                icon.textContent = 'chevron_left';
+                toggleBtn.classList.remove('-right-5');
+                toggleBtn.classList.add('-right-4');
+            }
+        });
+    </script>
 </body>
 </html>

@@ -31,83 +31,91 @@
         .collapsed nav a { justify-content: center; padding-left: 0; padding-right: 0; }
         
         /* --- LÓGICA DEL LOGO --- */
-        .logo-icon { display: none; } /* Oculto por defecto */
-        .logo-full { display: block; } /* Visible por defecto */
+        .logo-icon { display: none; }
+        .logo-full { display: block; }
 
-        /* Cuando está colapsado: */
+        /* Cuando está colapsado */
         .collapsed .logo-full { display: none; } 
         .collapsed .logo-icon { display: block; margin: 0 auto; height: 32px; width: auto; }
         .collapsed .logo-container { padding-left: 0; padding-right: 0; display: flex; justify-content: center; }
+        
+        /* Ajuste de posición del botón cuando está colapsado */
+        .collapsed #toggleSidebar { right: -20px !important; }
     </style>
 </head>
 <body class="font-body bg-gray-bg md:h-screen md:overflow-hidden flex flex-col">
     <div class="flex flex-col md:flex-row w-full md:h-full">
         
         <!-- SIDEBAR -->
-        <aside id="sidebar" class="w-full md:w-64 bg-primary text-white flex-shrink-0 md:h-full md:overflow-y-auto z-20 flex flex-col transition-all duration-300 relative">
+        <!-- Quitamos el overflow-y-auto de aquí para que el botón pueda 'salirse' del contenedor sin cortarse -->
+        <aside id="sidebar" class="w-full md:w-64 bg-primary text-white flex-shrink-0 md:h-full z-20 flex flex-col transition-all duration-300 relative shadow-2xl">
             
-            <!-- Botón de Colapsar -->
-            <button id="toggleSidebar" class="hidden md:flex absolute -right-3 top-20 bg-accent text-white rounded-full p-1 shadow-lg z-50 hover:bg-white hover:text-accent transition-colors border-2 border-primary">
-                <span class="material-symbols-outlined text-sm" id="toggleIcon">chevron_left</span>
+            <!-- BOTÓN DE COLAPSAR (MEJORADO) -->
+            <!-- Ajustado con -right-4 para que quede centrado en el borde -->
+            <button id="toggleSidebar" class="hidden md:flex absolute -right-4 top-20 bg-white text-accent border border-gray-200 rounded-full shadow-md z-50 hover:bg-accent hover:text-white hover:scale-110 transition-all duration-200 items-center justify-center h-8 w-8">
+                <span class="material-symbols-outlined font-bold text-lg" id="toggleIcon">chevron_left</span>
             </button>
 
-            <!-- Logo Container -->
-            <div class="p-6 border-b border-gray-700 sticky top-0 bg-primary z-10 logo-container transition-all">
-                <a href="index.html" class="block">
-                    <!-- IMAGEN 1: Logo Completo (Se ve cuando está expandido) -->
-                    <img src="logo_innovea.png" alt="Innovea" class="h-10 logo-full">
-                    
-                    <!-- IMAGEN 2: Icono Favicon (Se ve cuando está colapsado) -->
-                    <!-- Asegúrate de tener esta imagen en tu carpeta assets/logos/ -->
-                    <img src="assets/logos/favicon-innovea.png" alt="I" class="logo-icon">
-                </a>
-            </div>
-
-            <!-- Navegación -->
-            <nav class="flex flex-row md:flex-col justify-around md:justify-start overflow-x-auto md:overflow-visible flex-grow">
+            <!-- CONTENEDOR INTERNO CON SCROLL -->
+            <!-- Aquí es donde ocurre el scroll del menú si la pantalla es muy bajita -->
+            <div class="flex flex-col h-full overflow-y-auto overflow-x-hidden">
                 
-                <a href="analisis-cliente.html" class="group flex items-center px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold transition-colors text-sm whitespace-nowrap gap-4" title="Análisis Cliente">
-                    <span class="material-symbols-outlined text-xl">analytics</span>
-                    <span class="sidebar-text">Análisis Cliente</span>
-                </a>
+                <!-- Logo Container -->
+                <div class="p-6 border-b border-gray-700 sticky top-0 bg-primary z-10 logo-container transition-all shrink-0">
+                    <a href="index.html" class="block">
+                        <img src="logo_innovea.png" alt="Innovea" class="h-10 logo-full">
+                        <img src="assets/logos/favicon-innovea.png" alt="I" class="logo-icon">
+                    </a>
+                </div>
 
-                <a href="arquitectura-comparativa.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Arq. Origen y Destino">
-                    <span class="material-symbols-outlined text-xl">schema</span>
-                    <span class="sidebar-text">Arq. Origen y Destino</span>
-                </a>
+                <!-- Navegación -->
+                <nav class="flex flex-row md:flex-col justify-around md:justify-start flex-grow">
+                    
+                    <a href="analisis-cliente.html" class="group flex items-center px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold transition-colors text-sm whitespace-nowrap gap-4" title="Análisis Cliente">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">analytics</span>
+                        <span class="sidebar-text">Análisis Cliente</span>
+                    </a>
 
-                <a href="propuesta-tecnologica.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Propuesta Tecnológica">
-                    <span class="material-symbols-outlined text-xl">dns</span>
-                    <span class="sidebar-text">Propuesta Tecnológica</span>
-                </a>
+                    <a href="arquitectura-comparativa.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Arq. Origen y Destino">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">schema</span>
+                        <span class="sidebar-text">Arq. Origen y Destino</span>
+                    </a>
 
-                <a href="analisis-proveedores.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Análisis Proveedores">
-                    <span class="material-symbols-outlined text-xl">group</span>
-                    <span class="sidebar-text">Análisis Proveedores</span>
-                </a>
+                    <a href="propuesta-tecnologica.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Propuesta Tecnológica">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">dns</span>
+                        <span class="sidebar-text">Propuesta Tecnológica</span>
+                    </a>
 
-                <a href="evaluacion-escenarios.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Evaluación Escenarios">
-                    <span class="material-symbols-outlined text-xl">balance</span>
-                    <span class="sidebar-text">Evaluación Escenarios</span>
-                </a>
+                    <a href="analisis-proveedores.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Análisis Proveedores">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">group</span>
+                        <span class="sidebar-text">Análisis Proveedores</span>
+                    </a>
 
-                <a href="transformacion-digital.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Transformación Digital">
-                    <span class="material-symbols-outlined text-xl">rocket_launch</span>
-                    <span class="sidebar-text">Transformación Digital</span>
-                </a>
-            </nav>
+                    <a href="evaluacion-escenarios.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Evaluación Escenarios">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">balance</span>
+                        <span class="sidebar-text">Evaluación Escenarios</span>
+                    </a>
 
-             <!-- Footer Sidebar -->
-             <div class="mt-auto p-6 border-t border-gray-700 hidden md:flex items-center gap-4 overflow-hidden">
-                <a href="index.html" class="text-gray-400 hover:text-white text-sm flex items-center gap-4 whitespace-nowrap" title="Cerrar Sesión">
-                    <span class="material-symbols-outlined text-xl">logout</span>
-                    <span class="sidebar-text">Cerrar Sesión</span>
-                </a>
-            </div>
+                    <a href="transformacion-digital.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Transformación Digital">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">rocket_launch</span>
+                        <span class="sidebar-text">Transformación Digital</span>
+                    </a>
+                </nav>
+
+                <!-- Footer Sidebar -->
+                <div class="mt-auto p-6 border-t border-gray-700 hidden md:flex items-center gap-4 overflow-hidden shrink-0">
+                    <a href="index.html" class="text-gray-400 hover:text-white text-sm flex items-center gap-4 whitespace-nowrap" title="Cerrar Sesión">
+                        <span class="material-symbols-outlined text-xl min-w-[24px]">logout</span>
+                        <span class="sidebar-text">Cerrar Sesión</span>
+                    </a>
+                </div>
+
+            </div> <!-- Fin del contenedor interno -->
         </aside>
 
-        <!-- CONTENIDO -->
+        <!-- CONTENIDO PRINCIPAL -->
         <main class="flex-1 p-6 md:p-10 md:h-full md:overflow-y-auto bg-gray-bg transition-all duration-300">
+            <!-- ... (El resto de tu contenido principal sigue igual) ... -->
             
             <!-- Encabezado -->
             <div class="mb-8">
@@ -115,31 +123,17 @@
                 <p class="text-gray-text">Fundamentos organizacionales y situación actual.</p>
             </div>
 
-            <!-- Situación Actual -->
+            <!-- Situación Actual (ANCHO COMPLETO) -->
             <div class="bg-white p-8 rounded-lg shadow-sm mb-8 border-l-4 border-red-400">
                 <h2 class="font-title text-xl font-bold text-primary mb-4">Situación Actual y Problemática</h2>
-                
-                <!-- Texto descriptivo -->
                 <p class="text-gray-600 mb-6">Food Mascotas es un referente local con 20 años de trayectoria, pero su gestión se basa en <strong>procesos manuales</strong> (cuadernos) y sistemas aislados. Esto genera ineficiencias críticas en la gestión de turnos, stock y seguimiento de pacientes.</p>
-                
-                <!-- Imagen Fachada -->
                 <div class="w-full mb-6">
                     <img src="assets/images/fachada-food-mascotas.png" onerror="this.src='https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1000&auto=format&fit=crop'" alt="Fachada Local" class="rounded-lg shadow-lg w-full h-96 object-cover">
                 </div>
-
                 <ul class="grid md:grid-cols-3 gap-4 mt-4">
-                    <li class="bg-red-50 p-3 rounded border border-red-100 text-sm text-gray-700 flex items-start gap-2">
-                        <span class="material-symbols-outlined text-red-500 text-lg">close</span> 
-                        Gestión de turnos manual por WhatsApp.
-                    </li>
-                    <li class="bg-red-50 p-3 rounded border border-red-100 text-sm text-gray-700 flex items-start gap-2">
-                        <span class="material-symbols-outlined text-red-500 text-lg">close</span> 
-                        Control de stock visual (riesgo de quiebres).
-                    </li>
-                    <li class="bg-red-50 p-3 rounded border border-red-100 text-sm text-gray-700 flex items-start gap-2">
-                        <span class="material-symbols-outlined text-red-500 text-lg">close</span> 
-                        Falta de historial clínico digital centralizado.
-                    </li>
+                    <li class="bg-red-50 p-3 rounded border border-red-100 text-sm text-gray-700 flex items-start gap-2"><span class="material-symbols-outlined text-red-500 text-lg">close</span> Gestión de turnos manual por WhatsApp.</li>
+                    <li class="bg-red-50 p-3 rounded border border-red-100 text-sm text-gray-700 flex items-start gap-2"><span class="material-symbols-outlined text-red-500 text-lg">close</span> Control de stock visual (riesgo de quiebres).</li>
+                    <li class="bg-red-50 p-3 rounded border border-red-100 text-sm text-gray-700 flex items-start gap-2"><span class="material-symbols-outlined text-red-500 text-lg">close</span> Falta de historial clínico digital centralizado.</li>
                 </ul>
             </div>
 
@@ -164,9 +158,7 @@
 
             <!-- Organigrama -->
             <div class="bg-white p-8 rounded-lg shadow-sm mb-8">
-                <h3 class="font-bold text-primary mb-4 text-xl flex items-center gap-2">
-                    <span class="material-symbols-outlined">account_tree</span> Organigrama
-                </h3>
+                <h3 class="font-bold text-primary mb-4 text-xl flex items-center gap-2"><span class="material-symbols-outlined">account_tree</span> Organigrama</h3>
                 <div class="w-full bg-gray-50 p-6 rounded border border-gray-200 flex justify-center">
                     <img src="assets/images/organigrama-food-mascotas.png" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=text-gray-400>Imagen organigrama no disponible</span>'" alt="Organigrama" class="w-full max-w-4xl h-auto object-contain">
                 </div>
@@ -176,18 +168,9 @@
             <div class="bg-white p-8 rounded-lg shadow-sm mb-8">
                 <h3 class="font-bold text-primary mb-6 text-xl">Objetivos Estratégicos (Horizonte 5 años)</h3>
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div class="border border-gray-200 rounded-lg p-6 text-center">
-                        <span class="font-black text-accent text-4xl block mb-2">150%</span>
-                        <span class="text-gray-600 font-medium">Aumento de ventas totales</span>
-                    </div>
-                    <div class="border border-gray-200 rounded-lg p-6 text-center">
-                        <span class="font-black text-accent text-4xl block mb-2">200%</span>
-                        <span class="text-gray-600 font-medium">Incremento alcance digital</span>
-                    </div>
-                    <div class="border border-gray-200 rounded-lg p-6 text-center">
-                        <span class="font-black text-accent text-4xl block mb-2">50%</span>
-                        <span class="text-gray-600 font-medium">Reducción de "No-shows"</span>
-                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6 text-center"><span class="font-black text-accent text-4xl block mb-2">150%</span><span class="text-gray-600 font-medium">Aumento de ventas totales</span></div>
+                    <div class="border border-gray-200 rounded-lg p-6 text-center"><span class="font-black text-accent text-4xl block mb-2">200%</span><span class="text-gray-600 font-medium">Incremento alcance digital</span></div>
+                    <div class="border border-gray-200 rounded-lg p-6 text-center"><span class="font-black text-accent text-4xl block mb-2">50%</span><span class="text-gray-600 font-medium">Reducción de "No-shows"</span></div>
                 </div>
             </div>
 
@@ -197,15 +180,14 @@
                     <h2 class="font-title text-xl font-bold text-primary">Diagnóstico Organizacional</h2>
                     <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-bold border border-yellow-200">Nivel CMM 2: Repetible</span>
                 </div>
-                <p class="text-gray-600 text-base leading-relaxed">
-                    Se detectó que los procesos son conocidos por el personal ("Todos saben hacer todo") pero carecen de estandarización formal. Esto genera una dependencia crítica del capital humano actual y dificulta la escalabilidad del modelo de negocio a nuevas sucursales.
-                </p>
+                <p class="text-gray-600 text-base leading-relaxed">Se detectó que los procesos son conocidos por el personal ("Todos saben hacer todo") pero carecen de estandarización formal. Esto genera una dependencia crítica del capital humano actual y dificulta la escalabilidad del modelo de negocio a nuevas sucursales.</p>
             </div>
 
             <!-- Navegación -->
             <div class="flex justify-end pb-10">
                 <a href="arquitectura-comparativa.html" class="bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">Siguiente <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
             </div>
+
         </main>
     </div>
 
@@ -216,19 +198,19 @@
         const icon = document.getElementById('toggleIcon');
         
         toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('md:w-64'); // Ancho original
-            sidebar.classList.toggle('md:w-20'); // Ancho colapsado
-            sidebar.classList.toggle('collapsed'); // Clase para ocultar textos en CSS
+            sidebar.classList.toggle('md:w-64');
+            sidebar.classList.toggle('md:w-20');
+            sidebar.classList.toggle('collapsed');
             
-            // Rotar el icono del botón
             if (sidebar.classList.contains('collapsed')) {
                 icon.textContent = 'chevron_right';
-                icon.parentElement.classList.remove('-right-3');
-                icon.parentElement.classList.add('right-6'); // Ajuste de posición del botón
+                // Ajuste adicional si es necesario cuando está colapsado
+                toggleBtn.classList.remove('-right-4');
+                toggleBtn.classList.add('-right-5'); 
             } else {
                 icon.textContent = 'chevron_left';
-                icon.parentElement.classList.add('-right-3');
-                icon.parentElement.classList.remove('right-6');
+                toggleBtn.classList.remove('-right-5');
+                toggleBtn.classList.add('-right-4');
             }
         });
     </script>
