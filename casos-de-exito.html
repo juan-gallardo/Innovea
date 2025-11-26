@@ -51,6 +51,7 @@
             <a href="index.html">
                 <img src="logo_innovea.png" alt="Logo de Innovea" class="h-10">
             </a>
+            <!-- Navegación de Escritorio -->
             <ul class="hidden md:flex space-x-6">
                 <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
                 <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes somos</a></li>
@@ -59,7 +60,8 @@
                 <li><a href="casos-de-exito.html" class="text-white font-bold transition-colors">Casos de éxito</a></li>
                 <li><a href="contacto.html" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
             </ul>
-            <button class="md:hidden" id="hamburger-btn">
+            <!-- Botón de Hamburguesa -->
+            <button class="md:hidden hamburger" id="hamburger-btn">
                 <div class="space-y-1.5">
                     <span class="bar block w-6 h-0.5 bg-white"></span>
                     <span class="bar block w-6 h-0.5 bg-white"></span>
@@ -67,12 +69,15 @@
                 </div>
             </button>
         </div>
+
+        <!-- Panel de Navegación Móvil -->
         <div class="hidden md:hidden bg-primary border-t border-gray-700" id="mobile-nav-panel">
-            <a href="index.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Inicio</a>
-            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Quiénes somos</a>
-            <a href="nuestro-servicio.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Nuestro servicio</a>
-            <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Casos de éxito</a>
-            <a href="contacto.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Contacto</a>
+            <a href="index.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800 transition-colors">Inicio</a>
+            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800 transition-colors">Quiénes somos</a>
+            <a href="nuestro-servicio.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800 transition-colors">Nuestro servicio</a>
+            <!-- Enlace activo resaltado en móvil -->
+            <a href="casos-de-exito.html" class="block py-3 px-6 text-accent text-center font-bold bg-gray-800 transition-colors">Casos de éxito</a>
+            <a href="contacto.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800 transition-colors">Contacto</a>
         </div>
     </nav>
 
@@ -107,9 +112,7 @@
                     <!-- Card 1: Food Mascotas (Veterinaria) -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col group hover:shadow-xl transition-shadow duration-300">
                         <div class="relative h-64 overflow-hidden">
-                            <!-- Efecto zoom en la imagen al hacer hover -->
                             <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42?q=80&w=1974&auto=format&fit=crop" alt="Veterinario atendiendo a un gato" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"> 
-                            <!-- <img src="assets/images/michi.png" alt="Michi de Juli" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"> -->
                             <div class="absolute inset-0 bg-black bg-opacity-20"></div>
                         </div>
                         <div class="p-8 flex flex-col flex-grow">
@@ -194,15 +197,11 @@
         </div>
     </footer>
 
-    <!-- Script para el menú de hamburguesa -->
+    <!-- Script para el menú de hamburguesa (CORREGIDO: Sin clonación de HTML) -->
     <script>
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileNavPanel = document.getElementById('mobile-nav-panel');
         if (hamburgerBtn) {
-            // Clona los enlaces del menú de escritorio al móvil para mantener consistencia
-            const desktopMenu = document.querySelector('nav ul');
-            if(desktopMenu) mobileNavPanel.innerHTML = desktopMenu.innerHTML;
-            
             hamburgerBtn.addEventListener('click', () => {
                 hamburgerBtn.classList.toggle('active');
                 mobileNavPanel.classList.toggle('hidden');

@@ -58,6 +58,7 @@
                 <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
                 <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes somos</a></li>
                 <li><a href="nuestro-servicio.html" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestro servicio</a></li>
+                <!-- Enlace Activo -->
                 <li><a href="casos-de-exito.html" class="text-white font-bold transition-colors">Casos de éxito</a></li>
                 <li><a href="contacto.html" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
             </ul>
@@ -69,8 +70,14 @@
                 </div>
             </button>
         </div>
-        <div class="hidden md:hidden bg-primary" id="mobile-nav-panel">
-            <!-- Menú móvil JS -->
+        
+        <!-- Panel de Navegación Móvil (Estructura explícita y estilizada) -->
+        <div class="hidden md:hidden bg-primary border-t border-gray-700" id="mobile-nav-panel">
+            <a href="index.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800 transition-colors">Inicio</a>
+            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800 transition-colors">Quiénes somos</a>
+            <a href="nuestro-servicio.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800 transition-colors">Nuestro servicio</a>
+            <a href="casos-de-exito.html" class="block py-3 px-6 text-accent text-center font-bold bg-gray-800 transition-colors">Casos de éxito</a> <!-- Activo -->
+            <a href="contacto.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800 transition-colors">Contacto</a>
         </div>
     </nav>
 
@@ -149,7 +156,7 @@
                 </div>
                 <h3 class="font-title text-2xl font-bold text-primary mb-2">Acceso exclusivo para clientes</h3>
                 <p class="text-gray-600 mb-6 max-w-md mx-auto">
-                    El análisis detallado del caso, la arquitectura origen y destino, análisis de proveedores  y evaluación financiera están disponibles solo en nuestro portal privado.
+                    El análisis detallado del caso, la arquitectura origen y destino, análisis de proveedores y evaluación financiera están disponibles solo en nuestro portal privado.
                 </p>
                 
                 <a href="login.html" class="bg-accent text-white font-bold py-3 px-8 rounded-full shadow-lg hover:scale-105 transition-transform duration-200 flex items-center gap-2">
@@ -175,15 +182,13 @@
         </div>
     </footer>
 
-    <!-- Script Menú -->
+    <!-- Script Menú (CORREGIDO) -->
     <script>
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileNavPanel = document.getElementById('mobile-nav-panel');
-        if (hamburgerBtn) {
-            // Clona el menú de escritorio para móvil
-            const desktopMenu = document.querySelector('nav ul');
-            if(desktopMenu) mobileNavPanel.innerHTML = desktopMenu.innerHTML;
-            
+        
+        if (hamburgerBtn && mobileNavPanel) {
+            // Ya no clonamos el menú, usamos el que está definido en el HTML
             hamburgerBtn.addEventListener('click', () => {
                 hamburgerBtn.classList.toggle('active');
                 mobileNavPanel.classList.toggle('hidden');
