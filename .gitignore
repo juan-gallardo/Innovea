@@ -1,2 +1,26 @@
-// Ignorar el archivo de configuración
+# Archivo de configuración con tokens sensibles (para desarrollo local)
 config.js
+
+# Netlify
+.netlify/
+netlify/functions/node_modules/
+
+# Node modules
+node_modules/
+
+# Variables de entorno locales
+.env
+.env.local
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivo css pre tailwind css
+style.css
