@@ -29,13 +29,80 @@
         .collapsed .logo-icon { display: block; margin: 0 auto; height: 32px; width: auto; }
         .collapsed .logo-container { padding-left: 0; padding-right: 0; display: flex; justify-content: center; }
         .collapsed #toggleSidebar { right: -20px !important; }
+        
+        #mobileMenu {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        #mobileMenu.active {
+            transform: translateY(0);
+        }
+        
+        /* Scrollbar personalizada para Chrome, Safari, Edge*/
+        main::-webkit-scrollbar { width: 8px; }
+        main::-webkit-scrollbar-track { background: #f1f1f1; }
+        main::-webkit-scrollbar-thumb { background-color: #2B82C8; border-radius: 4px; }
+        main::-webkit-scrollbar-thumb:hover { background-color: #1e5a8a; }
+
+        /* Scrollbar personalizada para Firefox */
+        main { scrollbar-width: thin; scrollbar-color: #2B82C8 #f1f1f1; }
     </style>
 </head>
 <body class="font-body bg-gray-bg md:h-screen md:overflow-hidden flex flex-col">
+    
+    <header class="md:hidden bg-primary text-white p-4 flex items-center justify-between sticky top-0 z-50 shadow-lg">
+        <a href="index.html">
+            <img src="logo_innovea.png" alt="Innovea" class="h-8">
+        </a>
+        <button id="mobileMenuToggle" class="text-white">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+    </header>
+
+    <div id="mobileMenu" class="md:hidden fixed top-0 left-0 right-0 bg-primary text-white z-40 shadow-2xl">
+        <div class="p-4 border-b border-gray-700 flex items-center justify-between">
+            <a href="index.html">
+                <img src="logo_innovea.png" alt="Innovea" class="h-8">
+            </a>
+            <button id="closeMobileMenu" class="text-white">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col">
+            <a href="analisis-cliente.html" class="flex items-center px-6 py-4 text-gray-300 border-l-4 border-transparent gap-4 hover:bg-gray-700">
+                <span class="material-symbols-outlined text-xl">analytics</span>
+                <span>Análisis Cliente</span>
+            </a>
+            <a href="arquitectura-comparativa.html" class="flex items-center px-6 py-4 text-gray-300 border-l-4 border-transparent gap-4 hover:bg-gray-700">
+                <span class="material-symbols-outlined text-xl">schema</span>
+                <span>Arq. Origen y Destino</span>
+            </a>
+            <a href="propuesta-tecnologica.html" class="flex items-center px-6 py-4 text-gray-300 border-l-4 border-transparent gap-4 hover:bg-gray-700">
+                <span class="material-symbols-outlined text-xl">dns</span>
+                <span>Propuesta Tecnológica</span>
+            </a>
+            <a href="analisis-proveedores.html" class="flex items-center px-6 py-4 text-gray-300 border-l-4 border-transparent gap-4 hover:bg-gray-700">
+                <span class="material-symbols-outlined text-xl">group</span>
+                <span>Análisis Proveedores</span>
+            </a>
+            <a href="evaluacion-escenarios.html" class="flex items-center px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold gap-4">
+                <span class="material-symbols-outlined text-xl">balance</span>
+                <span>Evaluación Escenarios</span>
+            </a>
+            <a href="transformacion-digital.html" class="flex items-center px-6 py-4 text-gray-300 border-l-4 border-transparent gap-4 hover:bg-gray-700">
+                <span class="material-symbols-outlined text-xl">rocket_launch</span>
+                <span>Transformación Digital</span>
+            </a>
+            <a href="index.html" class="flex items-center px-6 py-4 text-gray-400 border-t border-gray-700 gap-4 hover:text-white">
+                <span class="material-symbols-outlined text-xl">logout</span>
+                <span>Cerrar Sesión</span>
+            </a>
+        </nav>
+    </div>
+
     <div class="flex flex-col md:flex-row w-full md:h-full">
         
-        <!-- SIDEBAR -->
-        <aside id="sidebar" class="w-full md:w-64 bg-primary text-white flex-shrink-0 md:h-full z-20 flex flex-col transition-all duration-300 relative shadow-2xl">
+        <aside id="sidebar" class="hidden md:flex w-full md:w-64 bg-primary text-white flex-shrink-0 md:h-full z-20 flex-col transition-all duration-300 relative shadow-2xl">
             <button id="toggleSidebar" class="hidden md:flex absolute -right-4 top-20 bg-white text-accent border border-gray-200 rounded-full shadow-md z-50 hover:bg-accent hover:text-white hover:scale-110 transition-all duration-200 items-center justify-center h-8 w-8">
                 <span class="material-symbols-outlined font-bold text-lg" id="toggleIcon">chevron_left</span>
             </button>
@@ -84,20 +151,21 @@
             </div>
         </aside>
 
-        <!-- CONTENIDO PRINCIPAL -->
         <main class="flex-1 p-6 md:p-10 md:h-full md:overflow-y-auto bg-gray-bg transition-all duration-300">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                 <div>
                     <h1 class="font-title text-3xl font-bold text-primary">Evaluación Económica y Escenarios</h1>
                     <p class="text-gray-text">Comparativa de Costos (TCO) y Análisis de Retorno de Inversión (ROI).</p>
                 </div>
+                <!-- Leyenda proveedor seleccionado -->
+                <!--
                 <div class="bg-white px-4 py-2 rounded shadow-sm text-sm border border-gray-200">
                     <span class="font-bold text-primary">Proveedor Seleccionado:</span> 
                     <span class="text-accent font-bold ml-1">GVET</span>
                 </div>
+                -->
             </div>
 
-            <!-- KPIs Resumen -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-accent relative overflow-hidden">
                     <div class="flex justify-between items-start mb-2">
@@ -138,7 +206,6 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN 1: IMAGEN GRÁFICO CTS -->
             <div class="bg-white p-6 rounded-lg shadow-sm mb-8 w-full">
                 <h3 class="font-bold text-primary mb-4 flex items-center gap-2">
                     <span class="material-symbols-outlined">show_chart</span> 
@@ -146,12 +213,7 @@
                 </h3>
                 <p class="text-sm text-gray-500 mb-6">Gráfico comparativo de flujos de fondos y costos acumulados entre GVET y Vetlogy.</p>
                 
-                <!-- Contenedor de la Imagen -->
-                <div class="w-full flex justify-center bg-gray-50 rounded-lg border border-gray-100 p-4">
-                    <!-- 
-                        IMPORTANTE: Asegúrate de que la imagen 'grafico-cts.png' 
-                        esté en la carpeta 'assets/images/' 
-                    -->
+                <div class="w-full flex justify-center bg-light rounded-lg border border-gray-100 p-4">
                     <img src="assets/images/grafico-cts.png" 
                          alt="Gráfico Evolución CTS GVET vs Vetlogy" 
                          class="max-w-full h-auto max-h-[500px] object-contain rounded shadow-sm"
@@ -159,7 +221,6 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN 2: TABLA DETALLE (ANCHO COMPLETO) -->
             <div class="bg-white p-6 rounded-lg shadow-sm flex flex-col w-full mb-8">
                 <h3 class="font-bold text-primary mb-4 flex items-center gap-2">
                     <span class="material-symbols-outlined">table_chart</span>
@@ -216,7 +277,6 @@
                 </div>
             </div>
 
-            <!-- Análisis de Brechas -->
             <div class="bg-white p-8 rounded-lg shadow-sm mb-8">
                 <h2 class="font-title text-xl font-bold text-primary mb-6">Análisis de Brechas e Implementación</h2>
                 <div class="grid md:grid-cols-2 gap-6">
@@ -253,10 +313,9 @@
                 </div>
             </div>
 
-            <!-- Navegación Footer -->
             <div class="mt-8 flex justify-between">
                 <a href="analisis-proveedores.html" class="text-gray-500 hover:text-primary font-bold py-2 px-4 flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_back</span> Anterior</a>
-                <a href="transformacion-digital.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg">Plan de Transformación <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                <a href="transformacion-digital.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg">Siguiente <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
             </div>
         </main>
     </div>
@@ -280,6 +339,25 @@
                 toggleBtn.classList.remove('-right-5');
                 toggleBtn.classList.add('-right-4');
             }
+        });
+        
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+        
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
         });
     </script>
 </body>

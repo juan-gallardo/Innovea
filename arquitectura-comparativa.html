@@ -6,7 +6,6 @@
     <title>Arquitectura Comparativa | Food Mascotas</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- Iconos Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     <link rel="icon" type="image/png" href="assets/logos/favicon-innovea.png">
     <script>
@@ -20,44 +19,101 @@
         }
     </script>
     <style>
-        /* Transición suave para el ancho del sidebar */
         #sidebar { transition: width 0.3s ease-in-out; }
-        
-        /* Ocultar texto suavemente */
         .sidebar-text { transition: opacity 0.2s ease-in-out; white-space: nowrap; }
         .collapsed .sidebar-text { opacity: 0; pointer-events: none; display: none; }
-        
-        /* Centrar iconos cuando está colapsado */
         .collapsed nav a { justify-content: center; padding-left: 0; padding-right: 0; }
-        
-        /* --- LÓGICA DEL LOGO --- */
         .logo-icon { display: none; }
         .logo-full { display: block; }
-
-        /* Cuando está colapsado */
         .collapsed .logo-full { display: none; } 
         .collapsed .logo-icon { display: block; margin: 0 auto; height: 32px; width: auto; }
         .collapsed .logo-container { padding-left: 0; padding-right: 0; display: flex; justify-content: center; }
-        
-        /* Ajuste de posición del botón cuando está colapsado */
         .collapsed #toggleSidebar { right: -20px !important; }
+        
+        /* Mobile Menu */
+        #mobileMenu {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        #mobileMenu.active {
+            transform: translateY(0);
+        }
+
+        /* Scrollbar personalizada para Chrome, Safari, Edge*/
+        main::-webkit-scrollbar { width: 8px; }
+        main::-webkit-scrollbar-track { background: #f1f1f1; }
+        main::-webkit-scrollbar-thumb { background-color: #2B82C8; border-radius: 4px; }
+        main::-webkit-scrollbar-thumb:hover { background-color: #1e5a8a; }
+
+        /* Scrollbar personalizada para Firefox */
+        main { scrollbar-width: thin; scrollbar-color: #2B82C8 #f1f1f1; }
     </style>
 </head>
 <body class="font-body bg-gray-bg md:h-screen md:overflow-hidden flex flex-col">
+    
+    <!-- HEADER MOBILE -->
+    <header class="md:hidden bg-primary text-white p-4 flex items-center justify-between sticky top-0 z-50 shadow-lg">
+        <a href="index.html">
+            <img src="logo_innovea.png" alt="Innovea" class="h-8">
+        </a>
+        <button id="mobileMenuToggle" class="text-white">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+    </header>
+
+    <!-- MENÚ MOBILE DESPLEGABLE -->
+    <div id="mobileMenu" class="md:hidden fixed top-0 left-0 right-0 bg-primary text-white z-40 shadow-2xl">
+        <div class="p-4 border-b border-gray-700 flex items-center justify-between">
+            <a href="index.html">
+                <img src="logo_innovea.png" alt="Innovea" class="h-8">
+            </a>
+            <button id="closeMobileMenu" class="text-white">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col">
+            <a href="analisis-cliente.html" class="flex items-center px-6 py-4 text-gray-300 border-l-4 border-transparent gap-4 hover:bg-gray-700">
+                <span class="material-symbols-outlined text-xl">analytics</span>
+                <span>Análisis Cliente</span>
+            </a>
+            <a href="arquitectura-comparativa.html" class="flex items-center px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold gap-4">
+                <span class="material-symbols-outlined text-xl">schema</span>
+                <span>Arq. Origen y Destino</span>
+            </a>
+            <a href="propuesta-tecnologica.html" class="flex items-center px-6 py-4 text-gray-300 border-l-4 border-transparent gap-4 hover:bg-gray-700">
+                <span class="material-symbols-outlined text-xl">dns</span>
+                <span>Propuesta Tecnológica</span>
+            </a>
+            <a href="analisis-proveedores.html" class="flex items-center px-6 py-4 text-gray-300 border-l-4 border-transparent gap-4 hover:bg-gray-700">
+                <span class="material-symbols-outlined text-xl">group</span>
+                <span>Análisis Proveedores</span>
+            </a>
+            <a href="evaluacion-escenarios.html" class="flex items-center px-6 py-4 text-gray-300 border-l-4 border-transparent gap-4 hover:bg-gray-700">
+                <span class="material-symbols-outlined text-xl">balance</span>
+                <span>Evaluación Escenarios</span>
+            </a>
+            <a href="transformacion-digital.html" class="flex items-center px-6 py-4 text-gray-300 border-l-4 border-transparent gap-4 hover:bg-gray-700">
+                <span class="material-symbols-outlined text-xl">rocket_launch</span>
+                <span>Transformación Digital</span>
+            </a>
+            <a href="index.html" class="flex items-center px-6 py-4 text-gray-400 border-t border-gray-700 gap-4 hover:text-white">
+                <span class="material-symbols-outlined text-xl">logout</span>
+                <span>Cerrar Sesión</span>
+            </a>
+        </nav>
+    </div>
+
     <div class="flex flex-col md:flex-row w-full md:h-full">
         
-        <!-- SIDEBAR (Con lógica colapsable) -->
-        <aside id="sidebar" class="w-full md:w-64 bg-primary text-white flex-shrink-0 md:h-full z-20 flex flex-col transition-all duration-300 relative shadow-2xl">
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="hidden md:flex w-full md:w-64 bg-primary text-white flex-shrink-0 md:h-full z-20 flex-col transition-all duration-300 relative shadow-2xl">
             
-            <!-- Botón de Colapsar -->
             <button id="toggleSidebar" class="hidden md:flex absolute -right-4 top-20 bg-white text-accent border border-gray-200 rounded-full shadow-md z-50 hover:bg-accent hover:text-white hover:scale-110 transition-all duration-200 items-center justify-center h-8 w-8">
                 <span class="material-symbols-outlined font-bold text-lg" id="toggleIcon">chevron_left</span>
             </button>
 
-            <!-- Contenedor interno con scroll -->
             <div class="flex flex-col h-full overflow-y-auto overflow-x-hidden">
                 
-                <!-- Logo Container -->
                 <div class="p-6 border-b border-gray-700 sticky top-0 bg-primary z-10 logo-container transition-all shrink-0">
                     <a href="index.html" class="block">
                         <img src="logo_innovea.png" alt="Innovea" class="h-10 logo-full">
@@ -65,7 +121,6 @@
                     </a>
                 </div>
 
-                <!-- Navegación -->
                 <nav class="flex flex-row md:flex-col justify-around md:justify-start flex-grow">
                     
                     <a href="analisis-cliente.html" class="group flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors border-l-4 border-transparent text-sm whitespace-nowrap gap-4" title="Análisis Cliente">
@@ -73,7 +128,6 @@
                         <span class="sidebar-text">Análisis Cliente</span>
                     </a>
 
-                    <!-- Enlace Activo -->
                     <a href="arquitectura-comparativa.html" class="group flex items-center px-6 py-4 bg-gray-700 text-accent border-l-4 border-accent font-bold transition-colors text-sm whitespace-nowrap gap-4" title="Arq. Origen y Destino">
                         <span class="material-symbols-outlined text-xl min-w-[24px]">schema</span>
                         <span class="sidebar-text">Arq. Origen y Destino</span>
@@ -100,7 +154,6 @@
                     </a>
                 </nav>
 
-                <!-- Footer Sidebar -->
                 <div class="mt-auto p-6 border-t border-gray-700 hidden md:flex items-center gap-4 overflow-hidden shrink-0">
                     <a href="index.html" class="text-gray-400 hover:text-white text-sm flex items-center gap-4 whitespace-nowrap" title="Cerrar Sesión">
                         <span class="material-symbols-outlined text-xl min-w-[24px]">logout</span>
@@ -115,10 +168,8 @@
             <h1 class="font-title text-3xl font-bold text-primary mb-2">Arquitectura: Origen vs. Destino</h1>
             <p class="text-gray-text mb-8">Evolución desde la fragmentación hacia la integración total.</p>
 
-            <!-- Layout Vertical para Maximizar Imágenes -->
             <div class="flex flex-col gap-10 pb-10">
                 
-                <!-- 1. Origen (AS-IS) -->
                 <div class="bg-white rounded-xl shadow-md overflow-hidden border-l-8 border-red-400">
                     <div class="p-8">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
@@ -129,14 +180,12 @@
                                 </h2>
                                 <p class="text-gray-500 mt-1">Estado actual: Fragmentación y procesos manuales.</p>
                             </div>
-                            <!-- Lista de características compacta -->
                             <div class="flex gap-4 text-sm">
                                 <span class="px-3 py-1 bg-red-50 text-red-700 rounded border border-red-100">Datos Dispersos</span>
                                 <span class="px-3 py-1 bg-red-50 text-red-700 rounded border border-red-100">Sin Backup Cloud</span>
                             </div>
                         </div>
                         
-                        <!-- IMAGEN GRANDE (Full Width) -->
                         <div class="w-full bg-gray-50 p-4 rounded border border-gray-200 mb-6">
                             <img src="assets/images/arquitectura-origen.png" 
                                  onerror="this.src='https://via.placeholder.com/1200x600/f1f5f9/94a3b8?text=Diagrama+AS-IS+(Imagen+Grande)'" 
@@ -151,14 +200,12 @@
                     </div>
                 </div>
 
-                <!-- Flecha de Transición -->
                 <div class="flex justify-center -my-4 relative z-10">
                     <div class="bg-gray-200 p-2 rounded-full shadow-sm">
                         <span class="material-symbols-outlined text-gray-400 text-4xl">arrow_downward</span>
                     </div>
                 </div>
 
-                <!-- 2. Destino (TO-BE) -->
                 <div class="bg-white rounded-xl shadow-md overflow-hidden border-l-8 border-accent">
                     <div class="p-8">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
@@ -169,14 +216,12 @@
                                 </h2>
                                 <p class="text-gray-500 mt-1">Estado futuro: Ecosistema integrado en la nube.</p>
                             </div>
-                            <!-- Lista de características compacta -->
                             <div class="flex gap-4 text-sm">
                                 <span class="px-3 py-1 bg-blue-50 text-accent rounded border border-blue-100">100% Cloud</span>
                                 <span class="px-3 py-1 bg-blue-50 text-accent rounded border border-blue-100">Omnicanalidad</span>
                             </div>
                         </div>
                         
-                        <!-- IMAGEN GRANDE (Full Width) -->
                         <div class="w-full bg-blue-50/30 p-4 rounded border border-blue-100 mb-6">
                             <img src="assets/images/arquitectura-destino.png" 
                                  onerror="this.src='https://via.placeholder.com/1200x600/e0f2fe/3b82f6?text=Diagrama+TO-BE+(Imagen+Grande)'" 
@@ -193,7 +238,6 @@
 
             </div>
 
-            <!-- Botones de Navegación -->
             <div class="flex justify-between pt-4 pb-10">
                 <a href="analisis-cliente.html" class="text-gray-500 hover:text-primary font-bold py-2 px-4">← Anterior</a>
                 <a href="propuesta-tecnologica.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg">Siguiente <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
@@ -201,7 +245,6 @@
         </main>
     </div>
 
-    <!-- LÓGICA PARA COLAPSAR LA BARRA LATERAL -->
     <script>
         const toggleBtn = document.getElementById('toggleSidebar');
         const sidebar = document.getElementById('sidebar');
@@ -221,6 +264,26 @@
                 toggleBtn.classList.remove('-right-5');
                 toggleBtn.classList.add('-right-4');
             }
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+        
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
         });
     </script>
 </body>
