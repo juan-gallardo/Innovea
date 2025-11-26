@@ -9,6 +9,11 @@
     <!-- Iconos Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     <link rel="icon" type="image/png" href="assets/logos/favicon-innovea.png">
+    <!-- Mapbox CSS y JS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js'></script>
+    <!-- Configuración segura del token -->
+    <script src="config.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -128,7 +133,11 @@
                 <h2 class="font-title text-xl font-bold text-primary mb-4">Situación Actual y Problemática</h2>
                 <p class="text-gray-600 mb-6">Food Mascotas es un referente local con 20 años de trayectoria, pero su gestión se basa en <strong>procesos manuales</strong> (cuadernos) y sistemas aislados. Esto genera ineficiencias críticas en la gestión de turnos, stock y seguimiento de pacientes.</p>
                 <div class="w-full mb-6">
+                    <!-- Mapa de Mapbox -->
+                    <div id="map" class="rounded-lg shadow-lg w-full h-96"></div>
+                    <!-- Imagen mapa estático 
                     <img src="assets/images/fachada-food-mascotas.png" onerror="this.src='https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1000&auto=format&fit=crop'" alt="Fachada Local" class="rounded-lg shadow-lg w-full h-96 object-cover">
+                    -->
                 </div>
                 <ul class="grid md:grid-cols-3 gap-4 mt-4">
                     <li class="bg-red-50 p-3 rounded border border-red-100 text-sm text-gray-700 flex items-start gap-2"><span class="material-symbols-outlined text-red-500 text-lg">close</span> Gestión de turnos manual por WhatsApp.</li>
@@ -213,6 +222,31 @@
                 toggleBtn.classList.add('-right-4');
             }
         });
+    </script>
+
+    <!-- INICIALIZACIÓN DEL MAPA DE MAPBOX -->
+    <script>
+        // Usar el token desde el archivo de configuración
+        mapboxgl.accessToken = CONFIG.MAPBOX_TOKEN;
+        
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v12',
+            center: [-58.38888441642226, -34.706697014672606], // Coordenadas de Pres. Domingo Faustino Sarmiento 1866
+            zoom: 14
+        });
+
+        // Agregar controles de navegación
+        map.addControl(new mapboxgl.NavigationControl());
+
+        // Agregar marcador en la ubicación
+        const marker = new mapboxgl.Marker({ color: '#2B82C8' })
+            .setLngLat([-58.38888441642226, -34.706697014672606])
+            .setPopup(
+                new mapboxgl.Popup({ offset: 25 })
+                .setHTML('<div style="padding: 10px;"><h3 style="font-weight: bold; margin-bottom: 5px;">Food Mascotas</h3><p style="font-size: 14px;">Pres. Domingo Faustino Sarmiento 1866<br>B1820 Buenos Aires</p></div>')
+            )
+            .addTo(map);
     </script>
 </body>
 </html>
