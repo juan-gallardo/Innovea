@@ -40,6 +40,10 @@
         .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
         .hamburger.active .bar:nth-child(2) { opacity: 0; }
         .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* Scrollbar personalizada */
+        body::-webkit-scrollbar { width: 8px; }
+        body::-webkit-scrollbar-thumb { background-color: #2B82C8; border-radius: 4px; }
     </style>
 </head>
 <body class="font-body text-primary bg-light flex flex-col min-h-screen">
