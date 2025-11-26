@@ -40,11 +40,11 @@
         .hamburger.active .bar:nth-child(2) { opacity: 0; }
         .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
         
-        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        /* .fade-in { animation: fadeIn 0.5s ease-in-out; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
-        }
+        } */
 
         /* Scrollbar personalizada */
         body::-webkit-scrollbar { width: 8px; }
@@ -59,13 +59,16 @@
             <a href="index.html">
                 <img src="logo_innovea.png" alt="Logo de Innovea" class="h-10">
             </a>
+            <!-- Navegación de Escritorio -->
             <ul class="hidden md:flex space-x-6">
                 <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
                 <li><a href="quienes-somos.html" class="text-gray-300 hover:text-white font-bold transition-colors">Quiénes somos</a></li>
-                <li><a href="#" class="text-white font-bold transition-colors">Nuestro servicio</a></li>
+                <!-- El enlace activo es este -->                
+                <li><a href="nuestro-servicio.html" class="text-white font-bold transition-colors">Nuestro servicio</a></li>
                 <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de éxito</a></li>
                 <li><a href="contacto.html" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
             </ul>
+            <!-- Botón de Hamburguesa -->
             <button class="md:hidden" id="hamburger-btn">
                 <div class="space-y-1.5">
                     <span class="bar block w-6 h-0.5 bg-white"></span>
@@ -77,7 +80,8 @@
         <div class="hidden md:hidden bg-primary" id="mobile-nav-panel">
             <a href="index.html" class="block py-3 px-6 text-white text-center font-bold">Inicio</a>
             <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold">Quiénes somos</a>
-            <a href="#" class="block py-3 px-6 text-white text-center font-bold">Nuestro servicio</a>
+            <!-- Enlace activo resaltado en móvil -->
+            <a href="nuestro-servicio.html" class="block py-3 px-6 text-accent text-center font-bold bg-gray-800 transition-colors">Nuestro servicio</a>
             <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold">Casos de éxito</a>
             <a href="contacto.html" class="block py-3 px-6 text-white text-center font-bold">Contacto</a>
         </div>

@@ -56,12 +56,14 @@
             </a>
             <ul class="hidden md:flex space-x-6">
                 <li><a href="index.html" class="text-gray-300 hover:text-white font-bold transition-colors">Inicio</a></li>
+                <!-- El enlace activo es este -->
                 <li><a href="quienes-somos.html" class="text-white font-bold transition-colors">Quiénes somos</a></li>
                 <li><a href="nuestro-servicio.html" class="text-gray-300 hover:text-white font-bold transition-colors">Nuestro servicio</a></li>
                 <li><a href="casos-de-exito.html" class="text-gray-300 hover:text-white font-bold transition-colors">Casos de éxito</a></li>
                 <li><a href="contacto.html" class="text-gray-300 hover:text-white font-bold transition-colors">Contacto</a></li>
             </ul>
-            <button class="md:hidden" id="hamburger-btn">
+            <!-- Botón de Hamburguesa -->
+            <button class="md:hidden hamburger" id="hamburger-btn">
                 <div class="space-y-1.5">
                     <span class="bar block w-6 h-0.5 bg-white"></span>
                     <span class="bar block w-6 h-0.5 bg-white"></span>
@@ -69,9 +71,12 @@
                 </div>
             </button>
         </div>
+
+        <!-- Panel de Navegación Móvil -->
         <div class="hidden md:hidden bg-primary border-t border-gray-700" id="mobile-nav-panel">
             <a href="index.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Inicio</a>
-            <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Quiénes somos</a>
+            <!-- El enlace activo es este -->
+            <a href="quienes-somos.html" class="block py-3 px-6 text-accent text-center font-bold bg-gray-800 transition-colors">Quiénes somos</a>
             <a href="nuestro-servicio.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Nuestro servicio</a>
             <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Casos de éxito</a>
             <a href="contacto.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Contacto</a>
@@ -322,8 +327,5 @@
             });
         }
     </script>
-    <!-- Scripts Funcionales -->
-    <script src="main.js"></script>
-    <script src="chatbot.js"></script>
 </body>
 </html>

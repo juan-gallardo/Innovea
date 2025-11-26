@@ -26,6 +26,7 @@
                         'light': '#FFFFFF',
                         'gray-bg': '#F5F5F7',
                         'gray-text': '#8A8A8E',
+                        'success': '#10B981', 
                     },
                     fontFamily: {
                         'title': ['Montserrat', 'sans-serif'],
@@ -40,6 +41,15 @@
         .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
         .hamburger.active .bar:nth-child(2) { opacity: 0; }
         .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        
+        /* Animación para el mensaje de éxito */
+        .fade-in-up {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         /* Scrollbar personalizada */
         body::-webkit-scrollbar { width: 8px; }
@@ -81,7 +91,7 @@
             <a href="quienes-somos.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Quiénes somos</a>
             <a href="nuestro-servicio.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Nuestro servicio</a>
             <a href="casos-de-exito.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Casos de éxito</a>
-            <a href="contacto.html" class="block py-3 px-6 text-white text-center font-bold hover:bg-gray-800">Contacto</a>
+            <a href="contacto.html" class="block py-3 px-6 text-accent text-center font-bold bg-gray-800 transition-colors">Contacto</a>
         </div>
     </nav>
 
@@ -111,8 +121,8 @@
         </header>
 
         <!-- GRID DE CONTACTO -->
-        <section class="py-20 -mt-16 relative z-20">
-            <div class="container mx-auto px-6">
+        <section class="py-20 -mt-16 relative z-20 px-4">
+            <div class="container mx-auto px-0 md:px-6">
                 <div class="grid md:grid-cols-2 gap-8 items-start max-w-6xl mx-auto">
                     
                     <!-- Columna Izquierda: Información (Tarjeta Flotante) -->
@@ -123,7 +133,7 @@
                         </p>
 
                         <div class="space-y-8">
-                            <!-- Item Info -->
+                            <!-- Email -->
                             <div class="flex items-start gap-4 group">
                                 <div class="w-12 h-12 bg-accent/10 group-hover:bg-accent transition-colors rounded-full flex items-center justify-center text-accent group-hover:text-white flex-shrink-0">
                                     <span class="material-symbols-outlined">mail</span>
@@ -135,7 +145,7 @@
                                 </div>
                             </div>
 
-                            <!-- Item Info -->
+                            <!-- Ubicación -->
                             <div class="flex items-start gap-4 group">
                                 <div class="w-12 h-12 bg-accent/10 group-hover:bg-accent transition-colors rounded-full flex items-center justify-center text-accent group-hover:text-white flex-shrink-0">
                                     <span class="material-symbols-outlined">location_on</span>
@@ -147,7 +157,7 @@
                                 </div>
                             </div>
 
-                            <!-- Item Info -->
+                            <!-- Horario -->
                             <div class="flex items-start gap-4 group">
                                 <div class="w-12 h-12 bg-accent/10 group-hover:bg-accent transition-colors rounded-full flex items-center justify-center text-accent group-hover:text-white flex-shrink-0">
                                     <span class="material-symbols-outlined">schedule</span>
@@ -161,13 +171,15 @@
                     </div>
 
                     <!-- Columna Derecha: Formulario (Tarjeta Flotante) -->
-                    <div class="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-gray-100">
-                        <h3 class="text-xl font-title font-bold text-primary mb-6">Envíanos un mensaje</h3>
+                    <!-- CORRECCIÓN AQUÍ: Se eliminó overflow-hidden y relative para que el contenido fluya mejor -->
+                    <div class="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-gray-100 h-full flex flex-col justify-center">
                         
-                        <form name="contact" method="POST" data-netlify="true">
-                            <input type="hidden" name="form-name" value="contact" />
-                            
-                            <div class="space-y-5">
+                        <!-- Contenedor del Formulario -->
+                        <div id="formContainer">
+                            <h3 class="text-xl font-title font-bold text-primary mb-6">Envíanos un mensaje</h3>
+                            <form id="contactForm" name="contact" method="POST" data-netlify="true" class="space-y-5">
+                                <input type="hidden" name="form-name" value="contact" />
+                                
                                 <div>
                                     <label for="name" class="block mb-2 text-sm font-bold text-primary">Nombre Completo</label>
                                     <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all" placeholder="Ej. Juan Pérez" required>
@@ -181,13 +193,13 @@
                                 <div>
                                     <label for="subject" class="block mb-2 text-sm font-bold text-primary">Asunto</label>
                                     <div class="relative">
-                                        <select id="subject" name="subject" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all appearance-none">
+                                        <select id="subject" name="subject" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all appearance-none cursor-pointer">
                                             <option>Consulta General</option>
                                             <option>Implementación de ERP</option>
                                             <option>Implementación de CRM</option>
                                             <option>Solicitud de Presupuesto</option>
                                         </select>
-                                        <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-gray-500">
+                                        <div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-gray-500">
                                             <span class="material-symbols-outlined">expand_more</span>
                                         </div>
                                     </div>
@@ -202,8 +214,24 @@
                                     <span>Enviar Mensaje</span>
                                     <span class="material-symbols-outlined text-sm">send</span>
                                 </button>
+                            </form>
+                        </div>
+
+                        <!-- Mensaje de Éxito (CORREGIDO: Sin position absolute) -->
+                        <div id="successMessage" class="hidden flex-col items-center justify-center text-center py-10 fade-in-up">
+                            <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center text-success mb-6 mx-auto">
+                                <span class="material-symbols-outlined text-6xl">check_circle</span>
                             </div>
-                        </form>
+                            <h3 class="text-3xl font-bold text-primary mb-4">¡Mensaje Enviado!</h3>
+                            <p class="text-gray-600 leading-relaxed mb-8 text-lg">
+                                Gracias por contactarnos. A la brevedad, en <strong>24 horas hábiles</strong>, uno de nuestros especialistas responderá tu consulta.
+                            </p>
+                            <button onclick="resetForm()" class="text-accent font-bold hover:underline text-lg flex items-center gap-2 justify-center">
+                                <span class="material-symbols-outlined">refresh</span>
+                                Enviar otro mensaje
+                            </button>
+                        </div>
+
                     </div>
 
                 </div>
@@ -245,10 +273,11 @@
             </a>
             <p class="text-gray-400 text-sm">© 2025 Innovea Consultoría. Todos los derechos reservados.</p>
         </div>
-    </footer>    
+    </footer>   
 
+    <!-- SCRIPTS -->
     <script>
-        // Script del Menú Hamburguesa
+        // MENÚ HAMBURGUESA
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileNavPanel = document.getElementById('mobile-nav-panel');
         if (hamburgerBtn) {
@@ -256,6 +285,40 @@
                 hamburgerBtn.classList.toggle('active');
                 mobileNavPanel.classList.toggle('hidden');
             });
+        }
+
+        // LÓGICA DE ENVÍO DEL FORMULARIO CON AJAX
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        const formContainer = document.getElementById('formContainer'); // Contenedor del formulario
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const myForm = e.target;
+            const formData = new FormData(myForm);
+            
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(() => {
+                // Ocultar el contenedor del formulario en lugar de solo el form
+                formContainer.classList.add('hidden');
+                // Mostrar el mensaje de éxito
+                successMessage.classList.remove('hidden');
+                successMessage.classList.add('flex');
+            })
+            .catch((error) => alert("Hubo un error al enviar el mensaje. Por favor intenta nuevamente."));
+        });
+
+        function resetForm() {
+            // Resetear y volver al estado inicial
+            contactForm.reset();
+            successMessage.classList.add('hidden');
+            successMessage.classList.remove('flex');
+            formContainer.classList.remove('hidden');
         }
     </script>
 </body>
