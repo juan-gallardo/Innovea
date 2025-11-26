@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Iconos Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols" rel="stylesheet"/>
     <link rel="icon" type="image/png" href="assets/logos/favicon-innovea.png">
     <!-- Mapbox CSS y JS -->
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css' rel='stylesheet' />
@@ -261,7 +262,7 @@
 
         </main>
     </div>
-
+    
     <!-- LÓGICA PARA COLAPSAR LA BARRA LATERAL -->
     <script>
         const toggleBtn = document.getElementById('toggleSidebar');
@@ -308,15 +309,97 @@
 
     <!-- INICIALIZACIÓN DEL MAPA DE MAPBOX -->
     <script>
-        // Obtener el token desde Netlify Function (más seguro)
+        // Reemplaza tu función initMap() actual con esta versión completamente nueva y mejorada.
         async function initMap() {
             try {
-                // Fetch del token desde la función serverless
-                const response = await fetch('/.netlify/functions/mapbox-token');
-                const data = await response.json();
+                // Pega tu token público de Mapbox aquí
+                mapboxgl.accessToken = 'pk.eyJ1IjoianVhbmVnYWxsYXJkbyIsImEiOiJjbWlmamg2bjcwZWhwM2Rva2R1bGFrbGFvIn0.-Mxukxr57UY2BSYaVCkfzg'; 
                 
-                // Configurar Mapbox con el token
-                mapboxgl.accessToken = data.token;
+                const map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v12', // Puedes probar otros estilos como 'mapbox://styles/mapbox/light-v11'
+                    center: [-58.3914915, -34.7068999],   
+                    zoom: 14.7 // Un poco más de zoom para enfocar mejor
+                });
+
+                // Agregar controles de navegación (zoom, rotación)
+                map.addControl(new mapboxgl.NavigationControl());
+
+                // --- 1. DISEÑO DEL TOOLTIP (POPUP) PERSONALIZADO ---
+                // Creamos el contenido HTML para el popup usando clases de Tailwind
+                const popupHTML = `
+                    <div class="p-3 font-body text-sm rounded-lg shadow-lg border border-gray-100">
+                        <h3 class="font-title font-bold text-primary mb-1 text-base" style="color: #162230; font-family: 'Montserrat', sans-serif;">
+                            Food Mascotas
+                        </h3>
+                        <p class="text-gray-text" style="font-family: 'Montserrat', sans-serif;">
+                            Pres. Domingo Faustino Sarmiento 1866<br>
+                            B1820 Lanús, Buenos Aires
+                        </p>
+                        <a 
+                            href="https://www.foodmascotas.com.ar" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="mt-3 inline-block bg-accent text-white text-xs px-4 py-2 rounded-full hover:bg-opacity-90 transition font-bold"
+                        >
+                            Ver sitio web
+                        </a>
+                    </div>
+                `;
+                
+                const customPopup = new mapboxgl.Popup({ 
+                    offset: 12, // Ajusta la distancia del popup al icono
+                    closeButton: false, // Opcional: quita el botón 'x' para un look más limpio
+                    className: 'mapbox-popup-custom' // Clase para estilos CSS si es necesario
+                }).setHTML(popupHTML);
+
+                // --- 2. CREACIÓN DEL MARCADOR CON TEXTO PERMANENTE ---
+                // a. Crear el contenedor principal para el marcador
+                const markerElement = document.createElement('div');
+                markerElement.className = 'flex items-center gap-2 cursor-pointer';
+
+                // b. Crear el icono (usando Material Symbols)
+                const iconElement = document.createElement('span');
+                iconElement.className = 'material-symbols text-accent';
+                iconElement.style.fontSize = '32px'; // Hacemos el icono un poco más grande
+                iconElement.textContent = 'pets'; // Un icono más temático
+
+                // c. Crear el texto del label
+                const textElement = document.createElement('div');
+                textElement.textContent = 'Food Mascotas';
+                textElement.className = 'font-title font-bold bg-accent backdrop-blur-sm px-2 py-1 rounded-md shadow-sm';
+                textElement.style.color = '#ffffff';
+                textElement.style.fontFamily = 'Montserrat, sans-serif';
+
+                // d. Juntar el icono y el texto en el contenedor
+                markerElement.appendChild(iconElement);
+                markerElement.appendChild(textElement);
+
+                // --- 3. AÑADIR EL MARCADOR Y POPUP AL MAPA ---
+                new mapboxgl.Marker(markerElement)
+                    .setLngLat([-58.389083, -34.706776])
+                    .setPopup(customPopup) // Asignamos el popup personalizado
+                    .addTo(map);
+
+            } catch (error) {
+                console.error('Error al cargar el mapa:', error);
+                // Mantenemos la imagen de fallback en caso de que todo falle
+                document.getElementById('map').innerHTML = 
+                    '<div class="flex items-center justify-center h-full bg-gray-100 text-gray-600"><img src="assets/images/fachada-food-mascotas.png" alt="Fachada Local" class="rounded-lg shadow-lg w-full h-96 object-cover"></div>';
+            }
+        }
+        
+        // Inicializar el mapa cuando cargue la página
+        initMap();
+    </script>
+
+    <!-- INICIALIZACIÓN DEL MAPA DE MAPBOX -->
+    <!-- 
+    <script>
+        function initMap() {
+            try {
+                // Pega tu token público de Mapbox aquí
+                mapboxgl.accessToken = 'pk.eyJ1IjoianVhbmVnYWxsYXJkbyIsImEiOiJjbWlmamg2bjcwZWhwM2Rva2R1bGFrbGFvIn0.-Mxukxr57UY2BSYaVCkfzg'; 
                 
                 const map = new mapboxgl.Map({
                     container: 'map',
@@ -325,11 +408,9 @@
                     zoom: 14
                 });
 
-                // Agregar controles de navegación
                 map.addControl(new mapboxgl.NavigationControl());
 
-                // Agregar marcador en la ubicación
-                const marker = new mapboxgl.Marker({ color: '#2B82C8' })
+                new mapboxgl.Marker({ color: '#2B82C8' })
                     .setLngLat([-58.3914915, -34.7068999])
                     .setPopup(
                         new mapboxgl.Popup({ offset: 25 })
@@ -346,5 +427,6 @@
         // Inicializar el mapa cuando cargue la página
         initMap();
     </script>
+    -->
 </body>
 </html>
