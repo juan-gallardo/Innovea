@@ -160,75 +160,130 @@
         </aside>
 
         <main class="flex-1 p-6 md:p-10 md:h-full md:overflow-y-auto bg-gray-bg transition-all duration-300">
-            <h1 class="font-title text-3xl font-bold text-primary mb-2">Propuesta Tecnológica</h1>
-            <p class="text-gray-text mb-8">Soluciones de mercado con foco en la industria veterinaria.</p>
+            <h1 class="font-title text-3xl font-bold text-primary mb-2"><span class="material-symbols-outlined">dns</span> Propuesta Tecnológica</h1>
+            <p class="text-gray-text mb-8">Definición de requerimientos, análisis del mercado y selección de candidatos.</p>
 
-            <div class="bg-white p-8 rounded-lg shadow-sm mb-8">
-                <h2 class="font-bold text-xl text-primary mb-4">Necesidad Integral: ERP + CRM</h2>
+            <div class="bg-white p-6 md:p-8 rounded-lg shadow-sm mb-8 border-l-4 border-accent">
+                <h2 class="font-title font-bold text-xl text-primary mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-accent">layers</span>Componentes Clave de la Solución</h2>
+                <p class="text-gray-600 mb-6">Para resolver la fragmentación operativa de Food Mascotas, se requiere una solución que integre dos áreas funcionales críticas en una única plataforma:</p>
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                        <h3 class="font-bold text-accent mb-2">ERP (Gestión)</h3>
-                        <p class="text-sm text-gray-600">Para controlar inventario, compras a proveedores, facturación fiscal y contabilidad.</p>
+                    <div class="bg-gray-50 p-6 rounded-lg border-2 border-gray-200">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="material-symbols-outlined text-3xl text-primary">database</span>
+                            <h3 class="font-bold text-lg text-primary">ERP (Gestión de Recursos)</h3>
+                        </div>
+                        <p class="text-sm text-gray-600">Centraliza el control de inventario, gestión de compras a proveedores, facturación y contabilidad para garantizar la eficiencia operativa.</p>
                     </div>
-                    <div class="bg-green-50 p-4 rounded-lg border border-green-100">
-                        <h3 class="font-bold text-green-700 mb-2">CRM (Clientes)</h3>
-                        <p class="text-sm text-gray-600">Para historia clínica, recordatorios de vacunas, seguimiento de pacientes y fidelización.</p>
+                    <div class="bg-gray-50 p-6 rounded-lg border-2 border-gray-200">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="material-symbols-outlined text-3xl text-primary">groups</span>
+                            <h3 class="font-bold text-lg text-primary">CRM (Gestión de Clientes)</h3>
+                        </div>
+                        <p class="text-sm text-gray-600">Unifica la historia clínica de las mascotas, automatiza recordatorios, gestiona turnos y permite campañas de fidelización.</p>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mt-4 italic">La clave del éxito reside en encontrar una solución SaaS (Software como Servicio) que integre ambas funcionalidades de manera nativa, evitando futuras complejidades técnicas.</p>
+            </div>
+
+            <div class="bg-white p-6 md:p-8 rounded-lg shadow-sm mb-8">
+                <h2 class="font-title font-bold text-xl text-primary mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-primary">search</span>Análisis del Mercado de Software Veterinario</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                    <!-- Tarjeta de Proveedor -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:border-accent hover:shadow-xl transition-all duration-200 flex flex-col">
+                        <div class="h-32 bg-light-50 p-4 flex items-center justify-center border-b">
+                            <img src="assets/logos/logo-gvet.png" onerror="this.src='https://via.placeholder.com/150x60?text=GVET'" alt="GVET Logo" class="max-h-24 max-w-full object-contain">
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <h4 class="font-bold text-primary text-lg">GVET</h4>
+                            <p class="text-sm text-gray-500 mb-3">Solución integral con fuerte presencia en Latinoamérica.</p>
+                            <div class="text-sm space-y-2 mt-auto">
+                                <p><strong><span class="font-semibold text-gray-700">Segmento:</span></strong> Clínicas medianas y grandes.</p>
+                                <p><strong><span class="font-semibold text-gray-700">Fortalezas:</span></strong> Módulo clínico robusto y gestión administrativa completa.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta de Proveedor -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:border-accent hover:shadow-xl transition-all duration-200 flex flex-col">
+                        <div class="h-32 bg-light-50 p-4 flex items-center justify-center border-b">
+                            <img src="assets/logos/logo-vetlogy.png" onerror="this.src='https://via.placeholder.com/150x60?text=Vetlogy'" alt="Vetlogy Logo" class="max-h-24 max-w-full object-contain">
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <h4 class="font-bold text-primary text-lg">Vetlogy</h4>
+                            <p class="text-sm text-gray-500 mb-3">Plataforma moderna y de fácil uso.</p>
+                             <div class="text-sm space-y-2 mt-auto">
+                                <p><strong><span class="font-semibold text-gray-700">Segmento:</span></strong> Clínicas pequeñas y medianas.</p>
+                                <p><strong><span class="font-semibold text-gray-700">Fortalezas:</span></strong> Interfaz intuitiva y gestión ágil de citas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta de Proveedor -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:border-accent hover:shadow-xl transition-all duration-200 flex flex-col">
+                        <div class="h-32 bg-light-50 p-4 flex items-center justify-center border-b">
+                            <img src="assets/logos/logo-okvet.png" onerror="this.src='https://via.placeholder.com/150x60?text=OkVet'" alt="OkVet Logo" class="max-h-24 max-w-full object-contain">
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <h4 class="font-bold text-primary text-lg">OkVet</h4>
+                            <p class="text-sm text-gray-500 mb-3">Herramienta robusta con enfoque en el modelo freemium.</p>
+                             <div class="text-sm space-y-2 mt-auto">
+                                <p><strong><span class="font-semibold text-gray-700">Segmento:</span></strong> Clínicas de alto volumen y hospitales.</p>
+                                <p><strong><span class="font-semibold text-gray-700">Fortalezas:</span></strong> Módulos avanzados y facturación electrónica.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta de Proveedor -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:border-accent hover:shadow-xl transition-all duration-200 flex flex-col">
+                        <div class="h-32 bg-light-50 p-4 flex items-center justify-center border-b">
+                            <img src="assets/logos/logo-volki.png" onerror="this.src='https://via.placeholder.com/150x60?text=Volki'" alt="Volki Logo" class="max-h-24 max-w-full object-contain">
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <h4 class="font-bold text-primary text-lg">Volki</h4>
+                            <p class="text-sm text-gray-500 mb-3">Software local instalable, simple y directo.</p>
+                             <div class="text-sm space-y-2 mt-auto">
+                                <p><strong><span class="font-semibold text-gray-700">Segmento:</span></strong> Veterinarios independientes y pet shops.</p>
+                                <p><strong><span class="font-semibold text-gray-700">Fortalezas:</span></strong> No requiere conexión a internet constante, app móvil.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <h3 class="font-bold text-primary text-lg mb-4">Disponibilidad en el Mercado Veterinario</h3>
-            <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-                
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition flex flex-col">
-                    <div class="h-32 bg-white p-4 flex items-center justify-center border-b">
-                        <img src="assets/logos/logo-gvet.png" onerror="this.src='https://via.placeholder.com/150x60?text=GVET'" alt="GVET Logo" class="max-h-20 max-w-full object-contain">
+            <div class="bg-white p-6 md:p-8 rounded-lg shadow-sm mb-8">
+                <h2 class="font-title font-bold text-xl text-primary mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-primary">checklist</span>Criterios de Selección y Finalistas</h2>
+                <p class="text-gray-600 mb-6">Tras un análisis inicial basado en los requerimientos de Food Mascotas, se definieron los siguientes criterios para la pre-selección. Se priorizaron las soluciones SaaS por su bajo costo de mantenimiento y alta escalabilidad.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="text-center p-4 bg-gray-50 rounded-lg border">
+                        <span class="material-symbols-outlined text-3xl text-accent mb-2">public</span>
+                        <p class="font-semibold text-sm">Adaptación al Mercado Argentino</p>
                     </div>
-                    <div class="p-6 flex-grow">
-                        <h4 class="font-bold text-primary text-lg">GVET</h4>
-                        <p class="text-xs font-bold text-purple-600 mb-2 uppercase tracking-wide">SaaS / Nube</p>
-                        <p class="text-sm text-gray-600">Plataforma integral líder en Latam. Destaca por su módulo clínico y gestión administrativa unificada.</p>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg border">
+                        <span class="material-symbols-outlined text-3xl text-accent mb-2">contact_support</span>
+                        <p class="font-semibold text-sm">Facilidad de Uso y Soporte Técnico</p>
                     </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition flex flex-col">
-                    <div class="h-32 bg-white p-4 flex items-center justify-center border-b">
-                        <img src="assets/logos/logo-vetlogy.png" onerror="this.src='https://via.placeholder.com/150x60?text=Vetlogy'" alt="Vetlogy Logo" class="max-h-20 max-w-full object-contain">
+                    <div class="text-center p-4 bg-gray-50 rounded-lg border">
+                        <span class="material-symbols-outlined text-3xl text-accent mb-2">trending_up</span>
+                        <p class="font-semibold text-sm">Escalabilidad y Costo Total (TCO)</p>
                     </div>
-                    <div class="p-6 flex-grow">
-                        <h4 class="font-bold text-primary text-lg">Vetlogy</h4>
-                        <p class="text-xs font-bold text-blue-500 mb-2 uppercase tracking-wide">SaaS / Nube</p>
-                        <p class="text-sm text-gray-600">Software intuitivo enfocado en la experiencia del usuario y la gestión ágil de citas y pacientes.</p>
+                     <div class="text-center p-4 bg-gray-50 rounded-lg border">
+                        <span class="material-symbols-outlined text-3xl text-accent mb-2">integration_instructions</span>
+                        <p class="font-semibold text-sm">Capacidad de Integración</p>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition flex flex-col">
-                    <div class="h-32 bg-white p-4 flex items-center justify-center border-b">
-                        <img src="assets/logos/logo-okvet.png" onerror="this.src='https://via.placeholder.com/150x60?text=OkVet'" alt="OkVet Logo" class="max-h-20 max-w-full object-contain">
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <h4 class="font-bold text-primary text-lg">OkVet</h4>
-                        <p class="text-xs font-bold text-cyan-600 mb-2 uppercase tracking-wide">SaaS / Nube</p>
-                        <p class="text-sm text-gray-600">Solución robusta con herramientas avanzadas para clínicas de alto volumen y hospitales veterinarios.</p>
-                    </div>
+                <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
+                    <h3 class="font-bold text-green-800 text-lg mb-2">Candidatos Finalistas Seleccionados</h3>
+                    <p class="text-green-900">Basado en los criterios, <strong>GVET</strong> y <strong>Vetlogy</strong> fueron seleccionados para un análisis profundo. Ambas soluciones ofrecen un modelo SaaS y cubren las funcionalidades ERP/CRM necesarias, destacando por su <strong>especialización en el mercado veterinario</strong> de la región.</p>
                 </div>
-
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition flex flex-col">
-                    <div class="h-32 bg-white p-4 flex items-center justify-center border-b">
-                        <img src="assets/logos/logo-volki.png" onerror="this.src='https://via.placeholder.com/150x60?text=Volki'" alt="Volki Logo" class="max-h-20 max-w-full object-contain">
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <h4 class="font-bold text-primary text-lg">Volki</h4>
-                        <p class="text-xs font-bold text-teal-600 mb-2 uppercase tracking-wide">SaaS / Nube</p>
-                        <p class="text-sm text-gray-600">Interfaz moderna ideal para veterinarios independientes y pet shops. Excelente app móvil.</p>
-                    </div>
-                </div>
-
             </div>
 
-            <div class="flex justify-between pt-10 pb-10">
-                <a href="arquitectura-comparativa.html" class="text-gray-500 hover:text-primary font-bold py-2 px-4 flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_back</span> Anterior</a>
-                <a href="analisis-proveedores.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg">Siguiente <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+            <div class="flex justify-between items-center pt-4 pb-10">
+                <a href="arquitectura-comparativa.html" class="bg-white text-gray-600 font-bold py-3 px-6 rounded-full hover:bg-gray-200 transition flex items-center gap-2 shadow-sm border border-gray-200">
+                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                    <span>Anterior</span>
+                </a>
+                <a href="analisis-proveedores.html" class="bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <span>Siguiente</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
             </div>
         </main>
     </div>

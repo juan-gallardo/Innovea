@@ -130,12 +130,12 @@
         <main class="flex-1 p-6 md:p-10 md:h-full md:overflow-y-auto bg-gray-bg transition-all duration-300">
             
             <div class="mb-8">
-                <span class="bg-blue-100 text-accent text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-2 inline-block">Selección de Vendor</span>
-                <h1 class="font-title text-3xl font-bold text-primary">Análisis de Proveedores</h1>
+                <!-- <span class="bg-blue-100 text-accent text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-2 inline-block">Selección de Vendor</span> -->
+                <h1 class="font-title text-3xl font-bold text-primary"><span class="material-symbols-outlined">group</span> Análisis de Proveedores</h1>
                 <p class="text-gray-text mt-1">Comparativa detallada basada en el proceso formal de RFI y RFP.</p>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-sm mb-10 border-l-4 border-accent">
+            <!-- <div class="bg-white p-6 rounded-xl shadow-sm mb-10 border-l-4 border-accent">
                 <h2 class="font-title text-xl font-bold text-primary mb-6">Criterios de Ponderación (RFP)</h2>
                 <div class="flex justify-center bg-gray-50 rounded-lg p-4 border border-gray-200">
                     <img src="assets/images/rfp.png" 
@@ -146,87 +146,200 @@
                 <p class="text-sm text-gray-500 mt-4 text-center italic">
                     La evaluación se dividió en 4 ejes: Funcional (30%), Proveedor (30%), Económico (20%) y Técnico (20%).
                 </p>
+            </div> -->
+
+            <!-- SECCIÓN DE METODOLOGÍA ACTUALIZADA CON EXPLICACIÓN DE RFP -->
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-sm mb-10">
+                <h2 class="font-title text-2xl font-bold text-primary mb-6 flex items-center gap-3"><span class="material-symbols-outlined text-primary">rule_settings</span>Metodología y Criterios de Ponderación</h2>
+                <div class="flex flex-col lg:flex-row items-start gap-8">
+                    <!-- Columna Izquierda: Imagen -->
+                    <div class="w-full lg:w-1/3 flex-shrink-0">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="material-symbols-outlined text-3xl text-primary">quiz</span>
+                            <h3 class="font-title font-bold text-xl text-primary">El Proceso: ¿Qué es un RFP?</h3>
+                        </div>
+                        <div class="text-sm text-gray-700 leading-relaxed border-l-2 border-accent pl-4 mb-6">
+                            <p class="mb-2">
+                                Para garantizar una decisión objetiva y basada en datos, aplicamos un proceso formal de <strong>Solicitud de Propuesta (RFP - Request for Proposal)</strong>.
+                            </p>
+                            <p>
+                                Este documento estructurado se envió a los proveedores preseleccionados, invitándolos a presentar una propuesta detallada que respondiera a las necesidades funcionales, técnicas y comerciales específicas de Food Mascotas. El uso de un RFP nos permite comparar las ofertas de manera equitativa y fundamentar nuestra recomendación final en evidencia concreta.
+                            </p>
+                        </div>
+                        <div class="bg-light rounded-lg p-1 border border-gray-200 sticky top-10">
+                            <img src="assets/images/rfp.png" 
+                                onerror="this.parentElement.innerHTML='<p class=text-gray-400>Diagrama RFP no disponible</p>'" 
+                                alt="Gráfico de Ponderaciones RFP" 
+                                class="max-w-full h-auto object-contain rounded">
+                            <p class="text-xs text-gray-500 mt-3 text-center italic">
+                                Ponderación de ejes de evaluación para la selección.
+                            </p>
+                            <div class="flex justify-end pt-4 pb-4">
+                                <a href="https://economicasuba-my.sharepoint.com/:x:/g/personal/96lc30494821_campus_economicas_uba_ar/EZM66Ahlx4hDjw5AM6tochEBvZ56yB0qf8E7uKe150xmzA?e=rEAn8u" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg">Ver RFP<span class="material-symbols-outlined text-md">download</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Columna Derecha: Detalles de los Aspectos -->
+                    <div class="w-full lg:w-2/3 space-y-8">
+                        <!-- Aspecto Proveedor -->
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="material-symbols-outlined text-2xl text-accent">handshake</span>
+                                <h3 class="font-title font-bold text-lg text-primary">Aspecto Proveedor (30%)</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed border-l-2 border-gray-200 pl-4">
+                                Analizamos la solidez corporativa y la confiabilidad de la empresa ofertante, ponderando principalmente su trayectoria en el mercado a través de años de experiencia, casos de éxito comprobables y referencias de clientes. Asimismo, evaluamos la capacidad operativa del equipo humano, la formalidad de sus metodologías de implementación y gestión de riesgos, y la calidad de los procesos de transferencia de conocimiento hacia el cliente.
+                            </p>
+                        </div>
+                        <!-- Aspecto Funcional -->
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="material-symbols-outlined text-2xl text-accent">checklist_rtl</span>
+                                <h3 class="font-title font-bold text-lg text-primary">Aspecto Funcional (30%)</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed border-l-2 border-gray-200 pl-4">
+                                Analizamos la capacidad operativa de la solución para cubrir los procesos de negocio, evaluando módulos críticos como la gestión de compras y proveedores, el ciclo de ventas con integración de canales digitales y el control de stock en tiempo real. También examinamos las funcionalidades administrativas centrales ("Core") como facturación y contabilidad, junto con las herramientas de CRM destinadas a la gestión de agenda, alertas y atención automatizada al cliente.
+                            </p>
+                        </div>
+                        <!-- Aspecto Económico -->
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="material-symbols-outlined text-2xl text-accent">monitoring</span>
+                                <h3 class="font-title font-bold text-lg text-primary">Aspecto Económico (20%)</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed border-l-2 border-gray-200 pl-4">
+                                Evaluamos la estructura financiera completa de la propuesta para determinar el costo total de propiedad, desglosando la inversión inicial (licencias, implementación y capacitación) frente a los gastos recurrentes de operación y mantenimiento. Además, analizamos la transparencia en el desglose de precios, la flexibilidad en las condiciones de pago y las políticas de escalabilidad o ajuste de tarifas a largo plazo.
+                            </p>
+                        </div>
+                        <!-- Aspecto Técnico -->
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="material-symbols-outlined text-2xl text-accent">security</span>
+                                <h3 class="font-title font-bold text-lg text-primary">Aspecto Técnico (20%)</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed border-l-2 border-gray-200 pl-4">
+                                Examinamos la robustez y sostenibilidad de la infraestructura tecnológica, verificando la arquitectura del software, su escalabilidad y el stack de tecnologías utilizadas. Este aspecto pone especial énfasis en los estándares de seguridad de la información (cifrado, accesos, backups), la existencia de planes de recuperación ante desastres y la calidad del soporte técnico, incluyendo políticas de actualización y monitoreo proactivo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <h2 class="font-title text-2xl font-bold text-primary mb-6">Análisis Detallado de Finalistas</h2>
+            <h2 class="font-title text-2xl font-bold text-primary mb-6">Resultados de la evaluación</h2>
+            <p class="text-gray-600 mb-6"><strong>Aclaración:</strong> Este análisis fue completado con <strong>información de investigación propia</strong>, a falta de respuesta de los proveedores.</p>
             
             <div class="grid lg:grid-cols-2 gap-8 mb-10">
                 
-                <div class="flex flex-col gap-6">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-green-500">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center gap-3">
-                                <img src="assets/logos/logo-gvet.png" alt="GVET" class="h-8">
-                                <h3 class="font-bold text-xl text-primary">GVET</h3>
-                            </div>
-                            <span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded">Puntaje Global Alto</span>
+                <!-- Tarjeta GVET (Recomendado) -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-green-500 flex flex-col gap-2">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-4"><img src="assets/logos/logo-gvet.png" alt="Gvet" class="h-16"></div>
+                        <!-- <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1.5 rounded-full border border-green-200">Opción Recomendada</span> -->
+                    </div>
+                    
+                    <!-- Criterio Proveedor -->
+                    <div class="border-t pt-3">
+                        <div class="flex justify-between text-sm mb-1 font-bold text-gray-700"><span>Proveedor</span><span>24 / 30</span></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-green-500 h-2.5 rounded-full" style="width: 80%"></div></div>
+                        <div class="flex justify-between items-start mt-2">
+                            <p class="text-xs text-gray-600 pr-4">Solidez en trayectoria y referencias. Limitado por falta de SLA formal.</p>
+                            <button data-toggle="gvet-proveedor-details" class="toggle-btn ml-auto text-gray-500 hover:text-accent flex-shrink-0"><span class="material-symbols-outlined">expand_more</span></button>
                         </div>
+                        <div id="gvet-proveedor-details" class="hidden collapsible-content text-xs text-gray-700 mt-3 bg-gray-50 p-3 rounded-md border border-gray-200">Gvet alcanzó un 24% impulsado principalmente por su solidez en "Trayectoria y Experiencia", donde obtuvo el puntaje máximo al demostrar 8 años de antigüedad, presentar videos con casos de éxito y tener referencias de clientes disponibles. Su valoración se complementó positivamente en la transferencia de conocimientos (75%) al ofrecer capacitación personalizada, pero el puntaje general se vio limitado porque no publican niveles de servicio (SLA) formales, dependen de WhatsApp para el soporte y, al momento del análisis, no presentaron documentación sobre su metodología de implementación ni gestión de riesgos (0%).</div>
+                    </div>
+                    
+                    <!-- Criterio Funcional -->
+                    <div class="border-t pt-3">
+                        <div class="flex justify-between text-sm mb-1 font-bold text-gray-700"><span>Funcional</span><span>21 / 30</span></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-green-500 h-2.5 rounded-full" style="width: 70%"></div></div>
+                        <div class="flex justify-between items-start mt-2">
+                            <p class="text-xs text-gray-600 pr-4">Robusto en módulos Core. Débil en automatización de compras.</p>
+                            <button data-toggle="gvet-funcional-details" class="toggle-btn ml-auto text-gray-500 hover:text-accent flex-shrink-0"><span class="material-symbols-outlined">expand_more</span></button>
+                        </div>
+                        <div id="gvet-funcional-details" class="hidden collapsible-content text-xs text-gray-700 mt-3 bg-gray-50 p-3 rounded-md border border-gray-200">Gvet alcanzó un 21% al consolidarse como la opción más robusta en las funcionalidades "Core" y administrativas, obteniendo puntajes perfectos (100%) en facturación, contabilidad y gestión de proveedores. Su desempeño se vio reforzado por una buena integración de canales digitales (WhatsApp) y una gestión de agenda completa, aunque no alcanzó el puntaje ideal porque carece de automatización avanzada en la planificación de compras y reposición de stock (0%), dependiendo de procesos manuales para estas tareas críticas.</div>
+                    </div>
 
-                        <div class="mb-4">
-                            <div class="flex justify-between text-sm mb-1 font-bold text-gray-700"><span>Proveedor</span><span>24% / 30%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width: 80%"></div></div>
-                            <p class="text-xs text-gray-600 mt-2">Solidez en trayectoria (8 años) y referencias comprobables. Limitado por falta de SLA formal y soporte vía WhatsApp.</p>
+                    <!-- Criterio Económico -->
+                    <div class="border-t pt-3">
+                        <div class="flex justify-between text-sm mb-1 font-bold text-gray-700"><span>Económico</span><span>20 / 20</span></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-green-500 h-2.5 rounded-full" style="width: 100%"></div></div>
+                        <div class="flex justify-between items-start mt-2">
+                            <p class="text-xs text-gray-600 pr-4">Puntaje máximo. Propuesta de valor superior y total transparencia.</p>
+                            <button data-toggle="gvet-economico-details" class="toggle-btn ml-auto text-gray-500 hover:text-accent flex-shrink-0"><span class="material-symbols-outlined">expand_more</span></button>
                         </div>
+                        <div id="gvet-economico-details" class="hidden collapsible-content text-xs text-gray-700 mt-3 bg-gray-50 p-3 rounded-md border border-gray-200">Gvet obtuvo el puntaje máximo del 20% al presentar una propuesta económica superior tanto en precio (siendo 4 veces más económico) como en transparencia. Logró la calificación perfecta en todos los ítems al clarificar que la migración de datos se bonifica con una permanencia mínima, ofrecer un desglose detallado de sus planes y contemplar descuentos por volumen de sucursales. Su estructura de costos garantiza previsibilidad y escalabilidad, cubriendo claramente la implementación y las actualizaciones futuras.</div>
+                    </div>
 
-                        <div class="mb-4">
-                            <div class="flex justify-between text-sm mb-1 font-bold text-gray-700"><span>Funcional</span><span>21% / 30%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width: 70%"></div></div>
-                            <p class="text-xs text-gray-600 mt-2">Robusto en Core (Facturación, Contabilidad). Excelente integración con WhatsApp. Débil en automatización de compras.</p>
+                    <!-- Criterio Técnico -->
+                    <div class="border-t pt-3">
+                        <div class="flex justify-between text-sm mb-1 font-bold text-gray-700"><span>Técnico</span><span>7 / 20</span></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-yellow-500 h-2.5 rounded-full" style="width: 35%"></div></div>
+                        <div class="flex justify-between items-start mt-2">
+                            <p class="text-xs text-gray-600 pr-4">Arquitectura sólida pero con falta de documentación pública.</p>
+                            <button data-toggle="gvet-tecnico-details" class="toggle-btn ml-auto text-gray-500 hover:text-accent flex-shrink-0"><span class="material-symbols-outlined">expand_more</span></button>
                         </div>
-
-                        <div class="mb-4">
-                            <div class="flex justify-between text-sm mb-1 font-bold text-gray-700"><span>Económico</span><span>20% / 20%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div></div>
-                            <p class="text-xs text-gray-600 mt-2">Puntaje máximo. Precio muy competitivo (4x más económico), transparencia total y bonificación en migración.</p>
-                        </div>
-
-                         <div>
-                            <div class="flex justify-between text-sm mb-1 font-bold text-gray-700"><span>Técnico</span><span>7% / 20%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-yellow-500 h-2 rounded-full" style="width: 35%"></div></div>
-                            <p class="text-xs text-gray-600 mt-2">Arquitectura base sólida y buenas integraciones. Bajo puntaje por falta de documentación técnica pública y auditorías de seguridad.</p>
-                        </div>
+                        <div id="gvet-tecnico-details" class="hidden collapsible-content text-xs text-gray-700 mt-3 bg-gray-50 p-3 rounded-md border border-gray-200">Gvet alcanzó un 7% gracias a que evidenció una arquitectura base más sólida y mejores capacidades de integración (75%) con herramientas externas como WhatsApp. Aunque cumple con normativas de privacidad como la GDPR, su puntaje técnico general fue bajo porque no publica documentación sobre su infraestructura, no ofrece SLAs formales de disponibilidad ni monitoreo proactivo (0%), y carece de evidencias sobre medidas de seguridad críticas como auditorías externas, MFA o encriptación avanzada, sumando puntos solo por funcionalidades básicas de usuario.</div>
                     </div>
                 </div>
 
-                <div class="flex flex-col gap-6">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-gray-400 opacity-90">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center gap-3">
-                                <img src="assets/logos/logo-vetlogy.png" alt="Vetlogy" class="h-8 grayscale opacity-80">
-                                <h3 class="font-bold text-xl text-gray-600">Vetlogy</h3>
-                            </div>
-                            <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded">Alternativa</span>
+                <!-- Tarjeta Vetlogy (Alternativa) -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-gray-400 flex flex-col gap-2">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-4"><img src="assets/logos/logo-vetlogy.png" alt="Vetlogy" class="h-16"></div>
+                        <!-- <span class="bg-gray-100 text-gray-700 text-xs font-bold px-3 py-1.5 rounded-full border border-gray-200">Alternativa</span> -->
+                    </div>
+                    
+                    <!-- Criterio Proveedor -->
+                    <div class="border-t pt-3">
+                        <div class="flex justify-between text-sm mb-1 font-bold text-gray-600"><span>Proveedor</span><span>16 / 30</span></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-yellow-500 h-2.5 rounded-full" style="width: 53%"></div></div>
+                        <div class="flex justify-between items-start mt-2">
+                            <p class="text-xs text-gray-500 pr-4">Larga trayectoria pero carece de referencias visibles y SLAs.</p>
+                            <button data-toggle="vetlogy-proveedor-details" class="toggle-btn ml-auto text-gray-500 hover:text-accent flex-shrink-0"><span class="material-symbols-outlined">expand_more</span></button>
                         </div>
+                        <div id="vetlogy-proveedor-details" class="hidden collapsible-content text-xs text-gray-700 mt-3 bg-gray-50 p-3 rounded-md border border-gray-200">Vetlogy obtuvo un 16% debido a que, a pesar de tener 10 años en el mercado y un equipo con veterinarios (lo que mejoró levemente su puntaje en solvencia), falló en evidenciar su experiencia: no cuenta con casos de éxito visibles, no tiene reseñas y las referencias no estaban disponibles de manera directa. Aunque logró un puntaje perfecto (100%) en transferencia de conocimientos por su capacitación nativa, su calificación final cayó considerablemente por la falta de transparencia en sus niveles de servicio (SLA), la ausencia de garantías de disponibilidad y la falta de información sobre sus metodologías de trabajo y riesgos.</div>
+                    </div>
+                    
+                    <!-- Criterio Funcional -->
+                    <div class="border-t pt-3">
+                        <div class="flex justify-between text-sm mb-1 font-bold text-gray-600"><span>Funcional</span><span>14 / 30</span></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-red-400 h-2.5 rounded-full" style="width: 46%"></div></div>
+                        <div class="flex justify-between items-start mt-2">
+                            <p class="text-xs text-gray-500 pr-4">Ausencia crítica de módulo de compras y herramientas comerciales.</p>
+                            <button data-toggle="vetlogy-funcional-details" class="toggle-btn ml-auto text-gray-500 hover:text-accent flex-shrink-0"><span class="material-symbols-outlined">expand_more</span></button>
+                        </div>
+                        <div id="vetlogy-funcional-details" class="hidden collapsible-content text-xs text-gray-700 mt-3 bg-gray-50 p-3 rounded-md border border-gray-200">Vetlogy obtuvo un 14% debido a carencias estructurales significativas, principalmente la inexistencia total de un módulo de Compras (0% en gestión, análisis y planificación) y la falta de herramientas comerciales como integración con redes sociales o carrito de compras. Si bien destacó puntualmente en alertas de reposición y agenda de clientes (100%), su debilidad en los procesos contables y administrativos (50%) le impidió competir con la cobertura integral que ofreció la otra alternativa, limitando su alcance funcional.</div>
+                    </div>
 
-                        <div class="mb-4">
-                            <div class="flex justify-between text-sm mb-1 font-bold text-gray-600"><span>Proveedor</span><span>16% / 30%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gray-500 h-2 rounded-full" style="width: 53%"></div></div>
-                            <p class="text-xs text-gray-500 mt-2">10 años de experiencia pero falló en evidenciar casos de éxito. Falta transparencia en SLAs.</p>
+                    <!-- Criterio Económico -->
+                    <div class="border-t pt-3">
+                        <div class="flex justify-between text-sm mb-1 font-bold text-gray-600"><span>Económico</span><span>15 / 20</span></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-yellow-500 h-2.5 rounded-full" style="width: 75%"></div></div>
+                        <div class="flex justify-between items-start mt-2">
+                            <p class="text-xs text-gray-500 pr-4">Costo mensual significativamente mayor y poca claridad en costos iniciales.</p>
+                            <button data-toggle="vetlogy-economico-details" class="toggle-btn ml-auto text-gray-500 hover:text-accent flex-shrink-0"><span class="material-symbols-outlined">expand_more</span></button>
                         </div>
+                        <div id="vetlogy-economico-details" class="hidden collapsible-content text-xs text-gray-700 mt-3 bg-gray-50 p-3 rounded-md border border-gray-200">Vetlogy alcanzó un 15% debido principalmente a la incertidumbre en sus costos de arranque, obteniendo un 0% en el ítem de implementación al no especificar los costos de migración de datos. Además de tener un costo mensual significativamente más alto ($30 USD frente a los $7-9 USD de la competencia), su valoración bajó en flexibilidad y transparencia por no ofrecer descuentos por cantidad de sucursales ni contar con una política clara respecto a los aumentos de precio por inflación o escalabilidad.</div>
+                    </div>
 
-                        <div class="mb-4">
-                            <div class="flex justify-between text-sm mb-1 font-bold text-gray-600"><span>Funcional</span><span>14% / 30%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gray-500 h-2 rounded-full" style="width: 46%"></div></div>
-                            <p class="text-xs text-gray-500 mt-2">Carencias estructurales graves: Inexistencia de módulo de compras y herramientas comerciales limitadas.</p>
+                    <!-- Criterio Técnico -->
+                    <div class="border-t pt-3">
+                        <div class="flex justify-between text-sm mb-1 font-bold text-gray-600"><span>Técnico</span><span>5 / 20</span></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-red-400 h-2.5 rounded-full" style="width: 25%"></div></div>
+                        <div class="flex justify-between items-start mt-2">
+                            <p class="text-xs text-gray-500 pr-4">Marcada falta de transparencia técnica que limita la integración futura.</p>
+                            <button data-toggle="vetlogy-tecnico-details" class="toggle-btn ml-auto text-gray-500 hover:text-accent flex-shrink-0"><span class="material-symbols-outlined">expand_more</span></button>
                         </div>
-
-                        <div class="mb-4">
-                            <div class="flex justify-between text-sm mb-1 font-bold text-gray-600"><span>Económico</span><span>15% / 20%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gray-500 h-2 rounded-full" style="width: 75%"></div></div>
-                            <p class="text-xs text-gray-500 mt-2">Costo mensual significativamente más alto ($30 USD vs $7 USD). Incertidumbre en costos de arranque.</p>
-                        </div>
-
-                         <div>
-                            <div class="flex justify-between text-sm mb-1 font-bold text-gray-600"><span>Técnico</span><span>5% / 20%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-red-400 h-2 rounded-full" style="width: 25%"></div></div>
-                            <p class="text-xs text-gray-500 mt-2">Falta de transparencia técnica total. Sin documentación de APIs, limitando la integración futura.</p>
-                        </div>
+                        <div id="vetlogy-tecnico-details" class="hidden collapsible-content text-xs text-gray-700 mt-3 bg-gray-50 p-3 rounded-md border border-gray-200">Vetlogy obtuvo un 5% debido a una marcada falta de transparencia técnica, obteniendo puntajes mínimos en escalabilidad y tecnologías utilizadas (25%) al no existir evidencia pública de su "stack" ni de su capacidad de crecimiento. Al igual que su competidor, falló en presentar garantías de nivel de servicio (SLA), planes de recuperación ante desastres o auditorías de seguridad (0%), pero su valoración fue inferior por la ausencia total de documentación sobre APIs o Webhooks, limitando su capacidad de integración técnica y dejando su evaluación dependiente casi exclusivamente de la percepción funcional básica.</div>
                     </div>
                 </div>
             </div>
 
-            <div class="flex justify-between pt-10 pb-10">
-                <a href="propuesta-tecnologica.html" class="text-gray-500 hover:text-primary font-bold py-2 px-4 flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_back</span> Anterior</a>
+            <div class="flex justify-between items-center pt-4 pb-10">
+                <a href="propuesta-tecnologica.html" class="bg-white text-gray-600 font-bold py-3 px-6 rounded-full hover:bg-gray-200 transition flex items-center gap-2 shadow-sm border border-gray-200">
+                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                    <span>Anterior</span>
+                </a>
                 <a href="evaluacion-escenarios.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg">Siguiente <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
             </div>
 
@@ -270,6 +383,42 @@
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
+            });
+        });
+        // Lógica para todos los botones de despliegue
+        const toggleButtons = document.querySelectorAll('.toggle-btn');
+
+        toggleButtons.forEach(button => {
+            const targetId = button.dataset.toggle;
+            const content = document.getElementById(targetId);
+            const icon = button.querySelector('.material-symbols-outlined');
+
+            // Asegurarse de que el contenido está oculto al inicio
+            if (content) {
+                content.style.maxHeight = '0';
+                content.style.overflow = 'hidden';
+                content.style.transition = 'max-height 0.4s ease-out';
+                content.classList.add('hidden'); // Ocultar para accesibilidad y layout
+            }
+
+            button.addEventListener('click', () => {
+                if (content.classList.contains('hidden')) {
+                    // Expandir
+                    content.classList.remove('hidden');
+                    // Necesitamos un pequeño delay para que la transición funcione
+                    setTimeout(() => {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.textContent = 'expand_less';
+                    }, 10);
+                } else {
+                    // Colapsar
+                    content.style.maxHeight = '0';
+                    icon.textContent = 'expand_more';
+                    // Ocultar completamente después de la transición
+                    content.addEventListener('transitionend', () => {
+                        content.classList.add('hidden');
+                    }, { once: true });
+                }
             });
         });
     </script>

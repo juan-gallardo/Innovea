@@ -190,22 +190,29 @@
             
             <!-- Encabezado -->
             <div class="mb-8">
-                <h1 class="font-title text-3xl font-bold text-primary">Análisis del Cliente</h1>
-                <p class="text-gray-text">Fundamentos organizacionales y situación actual.</p>
+                <h1 class="font-title text-3xl font-bold text-primary"><span class="material-symbols-outlined">analytics</span> Análisis del Cliente: Food Mascotas</h1>
+                <p class="text-gray-text">Fundamentos organizacionales, situación actual y objetivos estratégicos.</p>
             </div>
 
             <!-- Situación Actual (ANCHO COMPLETO) -->
             <div class="bg-white p-8 rounded-lg shadow-sm mb-8 border-l-4 border-red-400">
-                <h2 class="font-title text-xl font-bold text-primary mb-4">Situación Actual y Problemática</h2>
-                <p class="text-gray-600 mb-6">Food Mascotas es un referente local con 20 años de trayectoria, pero su gestión se basa en <strong>procesos manuales</strong> (cuadernos) y sistemas aislados. Esto genera ineficiencias críticas en la gestión de turnos, stock y seguimiento de pacientes.</p>
+                <!-- <h2 class="font-title text-xl font-bold text-primary mb-4">Situación Actual y Problemática</h2>
+                <p class="text-gray-600 mb-6">Food Mascotas es un referente local con 20 años de trayectoria, pero su gestión se basa en <strong>procesos manuales</strong> (cuadernos) y sistemas aislados. Esto genera ineficiencias críticas en la gestión de turnos, stock y seguimiento de pacientes.</p> -->
+                <h2 class="font-title text-xl font-bold text-primary mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-red-500">report</span>Situación Actual y Problemática</h2>
+                <p class="text-gray-600 mb-6">Food Mascotas es una veterinaria, pet shop y peluquería canina/gatuna con 20 años de trayectoria, pero su crecimiento está frenado por una fuerte dependencia de <strong>procesos manuales</strong> (gestión en cuadernos) y sistemas tecnológicos aislados. Esta fragmentación operativa genera ineficiencias críticas, limita la visibilidad del negocio y dificulta la expansión planificada.</p>
                 <div class="w-full mb-6">
                     <!-- Mapa de Mapbox -->
                     <div id="map" class="rounded-lg shadow-lg w-full h-96"></div>
                 </div>
-                <ul class="grid md:grid-cols-3 gap-4 mt-4">
+                <!-- <ul class="grid md:grid-cols-3 gap-4 mt-4">
                     <li class="bg-red-50 p-3 rounded border border-red-100 text-sm text-gray-700 flex items-start gap-2"><span class="material-symbols-outlined text-red-500 text-lg">close</span> Gestión de turnos manual por WhatsApp.</li>
                     <li class="bg-red-50 p-3 rounded border border-red-100 text-sm text-gray-700 flex items-start gap-2"><span class="material-symbols-outlined text-red-500 text-lg">close</span> Control de stock visual (riesgo de quiebres).</li>
                     <li class="bg-red-50 p-3 rounded border border-red-100 text-sm text-gray-700 flex items-start gap-2"><span class="material-symbols-outlined text-red-500 text-lg">close</span> Falta de historial clínico digital centralizado.</li>
+                </ul> -->
+                <ul class="grid md:grid-cols-3 gap-4 mt-4">
+                    <li class="bg-red-50 p-4 rounded-lg border border-red-200 text-gray-700 flex items-start gap-3"><span class="material-symbols-outlined text-red-500 text-xl mt-1">cancel</span><div><strong class="block">Gestión de Turnos Ineficiente</strong><span>Comunicación manual y desorganizada por WhatsApp.</span></div></li>
+                    <li class="bg-red-50 p-4 rounded-lg border border-red-200 text-gray-700 flex items-start gap-3"><span class="material-symbols-outlined text-red-500 text-xl mt-1">inventory_2</span><div><strong class="block">Control de Stock Débil</strong><span>Riesgo constante de quiebres por falta de un sistema centralizado.</span></div></li>
+                    <li class="bg-red-50 p-4 rounded-lg border border-red-200 text-gray-700 flex items-start gap-3"><span class="material-symbols-outlined text-red-500 text-xl mt-1">person_off</span><div><strong class="block">Datos de Clientes Aislados</strong><span>Imposibilidad de seguimiento y fidelización proactiva.</span></div></li>
                 </ul>
             </div>
 
@@ -247,12 +254,19 @@
             </div>
 
             <!-- Diagnóstico -->
-            <div class="bg-white p-8 rounded-lg shadow-sm mb-8 border-l-4 border-yellow-400">
+            <!-- <div class="bg-white p-8 rounded-lg shadow-sm mb-8 border-l-4 border-yellow-400">
                 <div class="flex items-center justify-between border-b pb-4 mb-4">
                     <h2 class="font-title text-xl font-bold text-primary">Diagnóstico Organizacional</h2>
                     <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-bold border border-yellow-200">Nivel CMM 2: Repetible</span>
                 </div>
                 <p class="text-gray-600 text-base leading-relaxed">Se detectó que los procesos son conocidos por el personal ("Todos saben hacer todo") pero carecen de estandarización formal. Esto genera una dependencia crítica del capital humano actual y dificulta la escalabilidad del modelo de negocio a nuevas sucursales.</p>
+            </div> -->
+            <div class="bg-white p-6 md:p-8 rounded-lg shadow-sm mb-8 border-l-4 border-yellow-400">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between border-b pb-4 mb-4 gap-4">
+                    <h2 class="font-title text-xl font-bold text-primary flex items-center gap-2"><span class="material-symbols-outlined text-yellow-500">biotech</span>Diagnóstico Organizacional</h2>
+                    <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-bold border border-yellow-200 shrink-0">Nivel de Madurez 2: Repetible</span>
+                </div>
+                <p class="text-gray-600 text-base leading-relaxed">La fortaleza de Food Mascotas reside en el know-how de su equipo ("todos saben hacer todo"). Sin embargo, esta dinámica, aunque funcional a pequeña escala, representa su principal debilidad: <strong>la falta de procesos estandarizados</strong>. Esta carencia crea una dependencia crítica del personal actual, introduce un alto riesgo de errores y constituye la barrera fundamental para replicar el modelo de negocio en nuevas sucursales de manera exitosa y consistente.</p>
             </div>
 
             <!-- Navegación -->

@@ -154,8 +154,8 @@
         <main class="flex-1 p-6 md:p-10 md:h-full md:overflow-y-auto bg-gray-bg transition-all duration-300">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                 <div>
-                    <h1 class="font-title text-3xl font-bold text-primary">Evaluación Económica y Escenarios</h1>
-                    <p class="text-gray-text">Comparativa de Costos (TCO) y Análisis de Retorno de Inversión (ROI).</p>
+                    <h1 class="font-title text-3xl font-bold text-primary"><span class="material-symbols-outlined">balance</span> Evaluación Económica y Escenarios</h1>
+                    <p class="text-gray-text">Comparativa de Costos (CTS) y Análisis de Retorno de Inversión (ROI).</p>
                 </div>
                 <!-- Leyenda proveedor seleccionado -->
                 <!--
@@ -169,15 +169,15 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-accent relative overflow-hidden">
                     <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-gray-500 text-sm font-bold uppercase">TCO (3 Años)</h3>
+                        <h3 class="text-gray-500 text-sm font-bold uppercase">CTS (3 Años)</h3>
                         <span class="material-symbols-outlined text-accent bg-blue-50 p-1 rounded">savings</span>
                     </div>
                     <div class="flex items-end gap-2">
-                        <span class="text-2xl font-bold text-primary">U$D 6,934</span>
-                        <span class="text-xs text-green-600 font-bold mb-1">GVET</span>
+                        <span class="text-2xl font-bold text-primary">U$D 6,933 (Gvet)</span>
+                        <!-- <span class="text-xs text-green-600 font-bold mb-1">GVET</span> -->
                     </div>
-                    <p class="text-xs text-gray-400 mt-1">vs U$D 8,271 (Vetlogy)</p>
-                    <p class="text-xs text-gray-500 mt-2">Ahorro acumulado del <strong>16%</strong> aprox.</p>
+                    <p class="text-xs text-gray-400 mt-1">vs U$D 8,274 (Vetlogy)</p>
+                    <p class="text-xs text-gray-500 mt-2">Ahorro acumulado del <strong>19%</strong> aprox.</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-indigo-500">
@@ -231,15 +231,15 @@
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 border-b border-gray-200">
                             <tr>
                                 <th class="px-6 py-3 w-1/3">Ítem</th>
-                                <th class="px-6 py-3 w-1/3 text-blue-800 font-bold text-base">GVET</th>
-                                <th class="px-6 py-3 w-1/3 font-bold text-base">Vetlogy</th>
+                                <th class="px-6 py-3 w-1/3 font-bold text-base"><div class="flex items-center gap-2"><img src="assets/logos/logo-gvet.png" alt="Logo Gvet" class="h-24 w-auto object-contain"></div></th>
+                                <th class="px-6 py-3 w-1/3 font-bold text-base"><div class="flex items-center gap-2"><img src="assets/logos/logo-vetlogy.png" alt="Logo Vetlogy" class="h-24 w-auto object-contain"></div></th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-100">
                             <tr class="hover:bg-gray-50 transition">
                                 <td class="px-6 py-4 font-medium text-gray-800">Costo Inicial / Puesta en Marcha</td>
-                                <td class="px-6 py-4 font-bold text-gray-800">$2,442</td>
-                                <td class="px-6 py-4">$2,436</td>
+                                <td class="px-6 py-4 font-bold text-gray-800">U$D 2,442</td>
+                                <td class="px-6 py-4">U$D 2,436</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition">
                                 <td class="px-6 py-4 font-medium pl-8 text-gray-500 italic">— Hardware & OS (Win 11)</td>
@@ -248,23 +248,23 @@
                             </tr>
                             <tr class="hover:bg-gray-50 transition">
                                 <td class="px-6 py-4 font-medium text-gray-800">Suscripciones SaaS (Anual)</td>
-                                <td class="px-6 py-4 font-bold text-green-600">$360</td>
-                                <td class="px-6 py-4 text-red-500">$1,210</td>
+                                <td class="px-6 py-4 font-bold text-green-600">U$D 360</td>
+                                <td class="px-6 py-4 text-red-500">U$D 1,210</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition">
                                 <td class="px-6 py-4 font-medium text-gray-800">Infraestructura Recurrente (Anual)</td>
-                                <td class="px-6 py-4">$1,137</td>
-                                <td class="px-6 py-4">$736</td>
+                                <td class="px-6 py-4">U$D 1,137</td>
+                                <td class="px-6 py-4">U$D 736</td>
                             </tr>
                             <tr class="bg-gray-50 border-t-2 border-gray-200">
                                 <td class="px-6 py-4 font-bold text-primary">TOTAL ANUAL (Recurrente)</td>
-                                <td class="px-6 py-4 font-bold text-primary">$1,497</td>
-                                <td class="px-6 py-4 font-bold text-gray-600">$1,946</td>
+                                <td class="px-6 py-4 font-bold text-primary">U$D 1,497</td>
+                                <td class="px-6 py-4 font-bold text-gray-600">U$D 1,946</td>
                             </tr>
                             <tr class="bg-blue-50 border-t border-blue-100">
                                 <td class="px-6 py-4 font-bold text-xl text-primary">TCO PROYECTADO (3 Años)</td>
-                                <td class="px-6 py-4 font-bold text-xl text-primary">$6,934</td>
-                                <td class="px-6 py-4 font-bold text-xl text-gray-500">$8,271</td>
+                                <td class="px-6 py-4 font-bold text-xl text-primary">U$D 6,933</td>
+                                <td class="px-6 py-4 font-bold text-xl text-gray-500">U$D 8,274</td>
                             </tr>
                         </tbody>
                     </table>
@@ -313,8 +313,13 @@
                 </div>
             </div>
 
-            <div class="mt-8 flex justify-between">
+            <!-- <div class="mt-8 flex justify-between">
                 <a href="analisis-proveedores.html" class="text-gray-500 hover:text-primary font-bold py-2 px-4 flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_back</span> Anterior</a>
+                <a href="transformacion-digital.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg">Siguiente <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+            </div> -->
+
+            <div class="flex justify-between items-center pt-4 pb-10">
+                <a href="analisis-proveedores.html" class="bg-white text-gray-600 font-bold py-3 px-6 rounded-full hover:bg-gray-200 transition flex items-center gap-2 shadow-sm border border-gray-200"><span class="material-symbols-outlined text-sm">arrow_back</span><span>Anterior </span></a>
                 <a href="transformacion-digital.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg">Siguiente <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
             </div>
         </main>

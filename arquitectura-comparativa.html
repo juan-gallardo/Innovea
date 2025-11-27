@@ -165,82 +165,102 @@
 
         <!-- CONTENIDO PRINCIPAL -->
         <main class="flex-1 p-6 md:p-10 md:h-full md:overflow-y-auto bg-gray-bg transition-all duration-300">
-            <h1 class="font-title text-3xl font-bold text-primary mb-2">Arquitectura: Origen vs. Destino</h1>
-            <p class="text-gray-text mb-8">Evolución desde la fragmentación hacia la integración total.</p>
+            <h1 class="font-title text-3xl font-bold text-primary mb-2"><span class="material-symbols-outlined">schema</span> Arquitectura Comparativa: Origen vs. Destino</h1>
+            <p class="text-gray-text mb-8">Visualizando la evolución desde la fragmentación actual hacia un ecosistema digital integrado.</p>
 
             <div class="flex flex-col gap-10 pb-10">
                 
-                <div class="bg-white rounded-xl shadow-md overflow-hidden border-l-8 border-red-400">
-                    <div class="p-8">
+                <!-- ARQUITECTURA DE ORIGEN -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-400">
+                    <div class="p-6 md:p-8">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                             <div>
-                                <h2 class="font-bold text-2xl text-primary flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-red-400 text-3xl">history</span> 
+                                <h2 class="font-title font-bold text-2xl text-primary flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-red-400 text-4xl">device_reset</span> 
                                     Arquitectura de Origen (AS-IS)
                                 </h2>
-                                <p class="text-gray-500 mt-1">Estado actual: Fragmentación y procesos manuales.</p>
+                                <p class="text-gray-500 mt-1">Un ecosistema fragmentado dependiente de procesos manuales y sistemas aislados.</p>
                             </div>
-                            <div class="flex gap-4 text-sm">
-                                <span class="px-3 py-1 bg-red-50 text-red-700 rounded border border-red-100">Datos Dispersos</span>
-                                <span class="px-3 py-1 bg-red-50 text-red-700 rounded border border-red-100">Sin Backup Cloud</span>
+                            <div class="flex flex-wrap gap-2 text-sm shrink-0">
+                                <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full font-medium border border-red-200">Procesos Manuales</span>
+                                <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full font-medium border border-red-200">Datos Aislados</span>
                             </div>
                         </div>
                         
-                        <div class="w-full bg-gray-50 p-4 rounded border border-gray-200 mb-6">
+                        <div class="w-full bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
                             <img src="assets/images/arquitectura-origen.png" 
-                                 onerror="this.src='https://via.placeholder.com/1200x600/f1f5f9/94a3b8?text=Diagrama+AS-IS+(Imagen+Grande)'" 
-                                 alt="Diagrama Origen" 
+                                 onerror="this.parentElement.innerHTML = '<div class=\'flex items-center justify-center h-64 text-gray-400\'>Diagrama de Origen no disponible</div>'" 
+                                 alt="Diagrama de la Arquitectura de Origen de Food Mascotas" 
                                  class="w-full h-auto object-contain">
                         </div>
 
-                        <div class="bg-gray-50 p-4 rounded-lg text-gray-700 text-sm border-t border-gray-200">
-                            <strong class="block text-primary mb-1">Puntos de Dolor:</strong>
-                            La arquitectura actual depende de PCs locales aisladas. La información crítica del negocio viaja por canales informales (WhatsApp personal) o queda registrada en papel, imposibilitando la analítica de datos.
+                        <div class="bg-red-50 p-4 rounded-lg text-red-900 border-t-2 border-red-200">
+                            <strong class="block font-bold mb-2">Puntos Críticos de Falla:</strong>
+                            <ul class="list-disc list-inside space-y-1 text-sm">
+                                <li>La información de clientes y proveedores reside en cuadernos físicos, sin respaldo ni centralización.</li>
+                                <li>La gestión de stock es manual, lo que provoca inconsistencias y quiebres frecuentes.</li>
+                                <li>Las aplicaciones (Contabilium, software de historia clínica) no están integradas, generando doble carga de trabajo.</li>
+                                <li>La comunicación con el cliente (WhatsApp, Instagram) es informal y no está conectada a ningún sistema de gestión.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex justify-center -my-4 relative z-10">
-                    <div class="bg-gray-200 p-2 rounded-full shadow-sm">
-                        <span class="material-symbols-outlined text-gray-400 text-4xl">arrow_downward</span>
+                <!-- FLECHA DE TRANSICIÓN -->
+                <div class="flex justify-center -my-6 relative z-10">
+                    <div class="bg-gray-200 p-3 rounded-full shadow-md border-4 border-gray-bg">
+                        <span class="material-symbols-outlined text-gray-500 text-4xl animate-bounce">arrow_downward</span>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl shadow-md overflow-hidden border-l-8 border-accent">
-                    <div class="p-8">
+                <!-- ARQUITECTURA DE DESTINO -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-accent">
+                    <div class="p-6 md:p-8">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                             <div>
-                                <h2 class="font-bold text-2xl text-primary flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-accent text-3xl">rocket_launch</span> 
+                                <h2 class="font-title font-bold text-2xl text-primary flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-accent text-4xl">hub</span> 
                                     Arquitectura de Destino (TO-BE)
                                 </h2>
-                                <p class="text-gray-500 mt-1">Estado futuro: Ecosistema integrado en la nube.</p>
+                                <p class="text-gray-500 mt-1">Una plataforma unificada en la nube que centraliza la operación y potencia el crecimiento.</p>
                             </div>
-                            <div class="flex gap-4 text-sm">
-                                <span class="px-3 py-1 bg-blue-50 text-accent rounded border border-blue-100">100% Cloud</span>
-                                <span class="px-3 py-1 bg-blue-50 text-accent rounded border border-blue-100">Omnicanalidad</span>
+                            <div class="flex flex-wrap gap-2 text-sm shrink-0">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full font-medium border border-blue-200">100% Integrado</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full font-medium border border-blue-200">Omnicanal</span>
                             </div>
                         </div>
                         
-                        <div class="w-full bg-blue-50/30 p-4 rounded border border-blue-100 mb-6">
+                        <div class="w-full bg-blue-50/50 p-4 rounded-lg border border-blue-100 mb-6">
                             <img src="assets/images/arquitectura-destino.png" 
-                                 onerror="this.src='https://via.placeholder.com/1200x600/e0f2fe/3b82f6?text=Diagrama+TO-BE+(Imagen+Grande)'" 
-                                 alt="Diagrama Destino" 
+                                 onerror="this.parentElement.innerHTML = '<div class=\'flex items-center justify-center h-64 text-gray-400\'>Diagrama de Destino no disponible</div>'" 
+                                 alt="Diagrama de la Arquitectura de Destino para Food Mascotas" 
                                  class="w-full h-auto object-contain">
                         </div>
 
-                        <div class="bg-blue-50 p-4 rounded-lg text-gray-700 text-sm border-t border-blue-100">
-                            <strong class="block text-primary mb-1">Mejoras Clave:</strong>
-                            Implementación de un núcleo digital (ERP+CRM) que centraliza toda la operación. Integración nativa con agenda web y pasarelas de pago, garantizando la integridad del dato y la seguridad de la información.
+                        <div class="bg-blue-50 p-4 rounded-lg text-blue-900 border-t-2 border-blue-100">
+                            <strong class="block font-bold mb-2">Pilares de la Nueva Arquitectura:</strong>
+                            <ul class="list-disc list-inside space-y-2 text-sm">
+                                <li><strong>Núcleo Central (ERP/CRM):</strong> Un sistema en la nube (GVET) se convierte en la única fuente de verdad para clientes, stock y ventas.</li>
+                                <li><strong>Integración de Canales:</strong> El e-commerce, WhatsApp Business y la agenda online se conectan directamente al núcleo, automatizando procesos.</li>
+                                <li><strong>Datos Unificados:</strong> Toda la información se consolida en una base de datos central, permitiendo análisis y reportes en tiempo real.</li>
+                                <li><strong>Modernización de Infraestructura:</strong> Se actualizan los sistemas operativos (a Windows 11) y se renueva el hardware obsoleto para garantizar el rendimiento, la compatibilidad y el soporte de seguridad a largo plazo.</li>
+                                <li><strong>Seguridad Reforzada:</strong> Se implementa un firewall físico para proteger la red local y se asegura el cumplimiento de la Ley 25.326 de protección de datos, garantizando la confidencialidad de la información.</li>
+                                <li><strong>Escalabilidad:</strong> La arquitectura basada en la nube está preparada para soportar la apertura de nuevas sucursales y el aumento de la demanda sin grandes inversiones en infraestructura.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <div class="flex justify-between pt-4 pb-10">
-                <a href="analisis-cliente.html" class="text-gray-500 hover:text-primary font-bold py-2 px-4">← Anterior</a>
-                <a href="propuesta-tecnologica.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg">Siguiente <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+            <div class="flex justify-between items-center pt-4 pb-10">
+                <a href="analisis-cliente.html" class="bg-white text-gray-600 font-bold py-3 px-6 rounded-full hover:bg-gray-200 transition flex items-center gap-2 shadow-sm border border-gray-200">
+                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                    <span>Anterior</span>
+                </a>
+                <a href="propuesta-tecnologica.html" class="bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <span>Siguiente</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
             </div>
         </main>
     </div>
